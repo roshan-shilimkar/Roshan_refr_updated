@@ -1,0 +1,793 @@
+<div class="container t80margin">
+    <!-- <div class="container" *ngIf="auth.user$ | async as mine"> -->
+    <div class="row">
+        <!-- <div class="col col-100 textC" *ngIf="!(store$ | async)">Loading...</div> -->
+        <div class="col col-100 lucky">
+            <!-- <div class="col col-100 lucky" style="margin-top: 0;" *ngIf="store$ | async as store"> -->
+            <div class="main-content b_accent">
+                <div class="mat-card d_flex">
+                    <div class="">
+                        <img class="store_L" [src]=" store.logo || 'assets/foreign/lucky/dp.png' " alt="">
+                        <!-- <img class="store_L" [src]=" store.logo || 'assets/foreign/lucky/dp.png' " alt=""> -->
+                    </div>
+                    <div class="store_desc">
+                        <div class="store_N">
+                            {{store.name}}
+                        </div>
+                        <div class="store_T">
+                            {{store.type}}
+                        </div>
+                    </div>
+                </div>
+                <div class="mat-card">
+                    <div class="statistics d-flex-row">
+                        <div class="d-flex-column col-50 mr-10">
+                            <div class="col-100 mb-5">
+                                <div class="card-purple card mat-card c_black">
+                                    <div class="d-flex-row mr-md-15 mr-sm-10 align-items-center">
+                                        <div class="col-10 col-sm-20 mr-5 c_align">
+                                            <button mat-flat-button class="icon-button">
+                                                <img width="40%"
+                                                    src="https://biz.refr.club/assets/foreign/lucky/sideicons/heart.png"
+                                                    alt="">
+                                            </button>
+                                        </div>
+                                        <div class="col-90 col-sm-80 r_align">
+                                            <span>Your Customers</span><br>
+                                            <b>{{store.vFan}}</b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-100">
+                                <div class="card-green card mat-card c_black">
+                                    <div class="d-flex-row mr-md-15 mr-sm-10 align-items-center">
+                                        <div class="col-10 col-sm-20 c_align mr-10">
+                                            <button mat-flat-button class="icon-button">
+                                                <img width="30%"
+                                                    src="https://biz.refr.club/assets/foreign/lucky/sideicons/orders.png"
+                                                    alt="">
+                                            </button>
+                                        </div>
+                                        <div class="col-90 col-sm-80 r_align">
+                                            <span>Orders</span><br>
+                                            <b>{{store.vOrdr}}</b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-50">
+                            <div class="card-white card mat-card c_black">
+                                <div class="d-flex-column">
+                                    <div class="d-flex-row align-items-center">
+                                        <div class="col-10 col-sm-20 mr-md-25 mr-sm-10">
+                                            <button mat-flat-button class="icon-button">
+                                                <img width="35%"
+                                                    src="https://biz.refr.club/assets/foreign/lucky/sideicons/dollar.png"
+                                                    alt="">
+                                            </button>
+                                        </div>
+                                        <div class="col-90 col-sm-80 r_align">
+                                            <span>Your Earnings</span><br>
+                                            <b>{{store.vEarn}}</b>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex-row align-items-center mt-md-25 mt-sm-25">
+                                        <div class="col-10 col-sm-20 mr-md-25 mr-sm-10">
+                                            <button mat-flat-button class="icon-button">
+                                                <img width="40%"
+                                                    src="https://biz.refr.club/assets/foreign/lucky/sideicons/campaigns.png"
+                                                    alt="">
+                                            </button>
+                                        </div>
+                                        <br>
+                                        <div class="col-90 col-sm-80 r_align">
+                                            <span>Campaign Wallet</span> <br>
+                                            <b>{{mine.acBalH}}</b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <br> -->
+                <!-- <div class="step d-flex-row">
+                    <div class="col-100" (click)="goLink( stepper.selectedIndex)">
+                        <mat-stepper [linear]="false" labelPosition="bottom" #stepper [selectedIndex]="selectedIndex"
+                            [disableRipple]="true" class="b_persist">
+                            <mat-step [editable]="selectedIndex == 0" [completed]="selectedIndex > 0"
+                                label="Create Store"></mat-step>
+                            <mat-step [editable]="selectedIndex == 1" [completed]="selectedIndex > 1"
+                                label="Create Campaign"></mat-step>
+                            <mat-step [editable]="selectedIndex == 2" [completed]="selectedIndex > 2" label="Add Funds">
+                            </mat-step>
+                            <mat-step [editable]="selectedIndex == 3" [completed]="selectedIndex > 3"
+                                label="Add Products"></mat-step>
+                        </mat-stepper>
+                    </div>
+                    <div>
+                    </div>
+                </div> -->
+                <!-- <br> -->
+                <div class="redeem-card">
+                    <div class="redeem-card mat-card b_persist">
+                        <div class="heading"> <b> Redeem Requests </b> <span class="ml-auto view-details">
+                                <!-- <div class="badge c_white" *ngIf="paymentRedeem$ | async as paymentRedeem"> -->
+                                {{paymentRedeem.length || 0}}
+                                <!-- </div> -->
+                            </span>
+                        </div>
+                        <hr>
+                        <!-- <ng-container *ngIf="paymentRedeem$ | async as paymentRedeem"> -->
+                        <div class="d-flex-column d-md-none d-sm-block">
+                            <div class="redeem-item" *ngFor="let x of paymentRedeem;let i = index">
+                                <div class="d-flex-row mt-6">
+                                    <div class="col-50 m_size boldtxt align_center">
+                                        {{x.userName || "No Name"}}
+                                    </div>
+                                    <div class="col-50 r_align">
+                                        <svg *ngIf="x.journey == 'F2F'" width="25" height="25" viewBox="0 0 20 20"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="20" height="20" rx="3" fill="#8500E2" />
+                                            <g clip-path="url(#clip0_1005_2750)">
+                                                <path
+                                                    d="M11.7923 13.75V12.9167C11.7923 12.4746 11.5992 12.0507 11.2553 11.7382C10.9115 11.4256 10.4452 11.25 9.95898 11.25H6.29232C5.80609 11.25 5.33977 11.4256 4.99596 11.7382C4.65214 12.0507 4.45898 12.4746 4.45898 12.9167V13.75"
+                                                    stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path
+                                                    d="M8.12435 9.58333C9.13687 9.58333 9.95768 8.83714 9.95768 7.91667C9.95768 6.99619 9.13687 6.25 8.12435 6.25C7.11183 6.25 6.29102 6.99619 6.29102 7.91667C6.29102 8.83714 7.11183 9.58333 8.12435 9.58333Z"
+                                                    stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path
+                                                    d="M14.541 13.7505V12.9172C14.5407 12.5479 14.4055 12.1892 14.1566 11.8973C13.9078 11.6055 13.5593 11.397 13.166 11.3047"
+                                                    stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path
+                                                    d="M11.334 6.30469C11.7283 6.39648 12.0779 6.60498 12.3275 6.89732C12.5771 7.18965 12.7126 7.5492 12.7126 7.91927C12.7126 8.28934 12.5771 8.64889 12.3275 8.94122C12.0779 9.23356 11.7283 9.44206 11.334 9.53385"
+                                                    stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_1005_2750">
+                                                    <rect width="11" height="10" fill="white"
+                                                        transform="matrix(-1 0 0 1 15 5)" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+
+                                        <svg *ngIf="x.journey != 'F2F'" width="25" height="25" viewBox="0 0 20 20"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="20" height="20" rx="3" fill="#8500E2" />
+                                            <path
+                                                d="M14.6654 15.25V14.0833C14.6654 13.4645 14.4195 12.871 13.9819 12.4334C13.5444 11.9958 12.9509 11.75 12.332 11.75H7.66536C7.04653 11.75 6.45303 11.9958 6.01545 12.4334C5.57786 12.871 5.33203 13.4645 5.33203 14.0833V15.25"
+                                                stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M10.3333 9.66667C11.622 9.66667 12.6667 8.622 12.6667 7.33333C12.6667 6.04467 11.622 5 10.3333 5C9.04467 5 8 6.04467 8 7.33333C8 8.622 9.04467 9.66667 10.3333 9.66667Z"
+                                                stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+
+
+                                        <!-- <button class="expandbtn" mat-icon-button
+                                            (click)="selectedredeemindex == i ? selectedredeemindex = null : selectedredeemindex = i">
+                                            Show <span *ngIf="selectedredeemindex == i">Less</span><span
+                                                *ngIf="selectedredeemindex != i">More</span>
+                                            <mat-icon>
+                                                {{ selectedredeemindex == i ? 'arrow_drop_up' : 'arrow_drop_down' }}
+                                            </mat-icon>
+                                        </button> -->
+                                    </div>
+                                </div>
+                                <div class="d-flex-row mt-6">
+                                    <div class="col-50 align_center">
+                                        <input class="bill-card" #amt type="number" [value]=""
+                                            placeholder="Enter Bill amount" [disabled]="makeChanges" required>
+                                    </div>
+                                    <div class="col-50">
+                                        <button mat-stroked-button color="danger" class=" c_red btnAccRej"
+                                            (click)=" rejectReedem(x.id) " [disabled]="makeChanges">
+                                            Reject
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="d-flex-row mt-4">
+                                    <div class="col-50 align_center">
+                                        <select [(ngModel)]="campaign" [class.col-none]="x.journey !== 'POS'"
+                                            name="camps" [disabled]="makeChanges" class="redeemselect" required>
+                                            <option value="">No Campaign</option>
+                                            <ng-container *ngFor="let c of campALL">
+                                                <option *ngIf="c.id" [value]="c.id">{{c.name}}</option>
+                                            </ng-container>
+                                        </select>
+                                    </div>
+                                    <div class="col-50 ">
+                                        <button mat-stroked-button class="outline-success b_green c_white btnAccRej"
+                                            (click)="acceptReedem(mine.acBalH, x, x.id, x.journey, amt?.value, x.camp, campaign, x.code)"
+                                            [disabled]="makeChanges">
+                                            Accept
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="d-flex-row">
+                                    <ng-container>
+                                        <span class="mt-6" *ngIf="x.sin">{{ x.sin.toDate() | date:'MMM, dd, yyyy hh:mm'
+                                            }}</span>
+                                        <span class="mt-6" *ngIf="x.journey == 'POS' && campaign">Instant Cashback : {{
+                                            getCampAmt( campaign, "cbDir") }}</span>
+                                        <span class="mt-6" *ngIf="x.journey == 'POS' && campaign">Min Order Value : {{
+                                            getCampAmt( campaign, "min") }} </span>
+                                        <span class="mt-6"
+                                            *ngIf="x.journey == 'POS' && campaign && x.type == 'percent' ">
+                                            Maximum Cashback : {{ getCampAmt( campaign, "max") }} </span>
+                                        <span class="mt-6" *ngIf="x.journey == 'F2F'">Instant Cashback :
+                                            {{x.camp.cbNew}}</span>
+                                        <span class="mt-6" *ngIf="x.journey == 'F2F'">Min Order Value :
+                                            {{x.camp.min}}</span>
+                                        <span class="mt-6" *ngIf="x.journey == 'F2F' && x.type == 'percent'">Maximum
+                                            Cashback :
+                                            {{x.camp.max}}</span>
+                                    </ng-container>
+                                </div>
+                                <!-- <div class="d-flex-row">
+                                    <div class="col-70">
+                                        <h5>{{x.userName || "No Name"}}</h5>
+                                        <input class="bill-card" #amt type="number" [value]=""
+                                            placeholder="Enter Bill amount" [disabled]="makeChanges" required>
+                                        <div>
+                                            <select [(ngModel)]="campaign" [class.col-none]="x.journey !== 'POS'"
+                                                name="camps" [disabled]="makeChanges" class="redeemselect" required>
+                                                <option value="">No Campaign</option>
+                                                <ng-container *ngFor="let c of campALL">
+                                                    <option *ngIf="c.id" [value]="c.id">{{c.name}}</option>
+                                                </ng-container>
+                                            </select>
+                                        </div>
+                                        <ng-container *ngIf="selectedredeemindex == i">
+                                            <p *ngIf="x.sin">{{ x.sin.toDate() | date:'MMM, dd, yyyy hh:mm' }}</p>
+                                            <p *ngIf="x.journey == 'POS' && campaign">Instant Cashback : {{
+                                                getCampAmt( campaign, "cbDir") }}</p>
+                                            <p *ngIf="x.journey == 'POS' && campaign">Min Order Value : {{
+                                                getCampAmt( campaign, "min") }} </p>
+                                            <p *ngIf="x.journey == 'POS' && campaign && x.type == 'percent' ">
+                                                Maximum Cashback : {{ getCampAmt( campaign, "max") }} </p>
+                                            <p *ngIf="x.journey == 'F2F'">Instant Cashback : {{x.camp.cbNew}}</p>
+                                            <p *ngIf="x.journey == 'F2F'">Min Order Value : {{x.camp.min}}</p>
+                                            <p *ngIf="x.journey == 'F2F' && x.type == 'percent'">Maximum Cashback :
+                                                {{x.camp.max}}</p>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-30">
+                                        <div class="d-flex-row justify-content-end align-items-start">
+                                            <button class="expandbtn" mat-icon-button
+                                                (click)="selectedredeemindex == i ? selectedredeemindex = null : selectedredeemindex = i">
+                                                <mat-icon>
+                                                    {{ selectedredeemindex == i ? 'arrow_drop_up' : 'arrow_drop_down' }}
+                                                </mat-icon>
+                                            </button>
+                                        </div>
+                                        <div class="textR mt-5">
+                                            <button mat-stroked-button class="outline-success b_green c_white btnAccRej"
+                                                (click)="acceptReedem(mine.acBalH, x, x.id, x.journey, amt?.value, x.camp, campaign, x.code)"
+                                                [disabled]="makeChanges">
+                                                Accept
+                                            </button>
+                                            <br>
+                                            <ng-container *ngIf="selectedredeemindex == i">
+                                                <button mat-stroked-button color="danger" class="mt-3 c_red btnAccRej"
+                                                    (click)=" rejectReedem(x.id) " [disabled]="makeChanges">
+                                                    Reject
+                                                </button>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="d-flex-column d-sm-none d-md-block">
+                            <div class="redeem-item header col-100">
+                                <div class="d-flex-row">
+                                    <div class="col-25">
+                                        <p class="text-primary">Details </p>
+                                    </div>
+                                    <div class="col-25">
+                                        <p class="text-primary">Bill Amount </p>
+                                    </div>
+                                    <div class="col-25">
+                                        <p class="text-primary">Instant Cashback (Rs.) </p>
+                                    </div>
+                                    <div class="col-20">
+                                        <p class="text-primary">Action </p>
+                                    </div>
+                                    <div class="col-5"></div>
+                                </div>
+                            </div>
+                            <div class="redeem-item col-100" *ngFor="let x of paymentRedeem;let i = index">
+                                <div class="d-flex-row">
+                                    <div class="col-25">
+                                        <h5>{{x.userName || "No Name"}}</h5>
+                                        <ng-container *ngIf="selectedredeemindex == i">
+                                            <p *ngIf="x.sin">{{ x.sin.toDate() | date:'MMM, dd, yyyy hh:mm' }}</p>
+                                            <p *ngIf="x.journey == 'POS' && campaign">Min Order Value : {{
+                                                getCampAmt( campaign, "min") }}</p>
+                                            <p *ngIf="x.journey == 'POS' && campaign && x.type == 'percent' "
+                                                class="text-primary">Maximum Cashback : {{ getCampAmt( campaign,
+                                                "max") }}</p>
+                                            <p *ngIf="x.journey == 'F2F'">Min Order Value : {{x.camp.min}}</p>
+                                            <p *ngIf="x.journey == 'F2F' && x.type == 'percent'" class="text-primary">
+                                                Maximum Cashback : {{x.camp.max}}</p>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-25">
+                                        <input class="bill-card" #amt type="number" value=""
+                                            placeholder="Enter Bill amount" [disabled]="makeChanges" required>
+                                        <div>
+                                            <select [(ngModel)]="campaign" [class.col-none]="x.journey !== 'POS'"
+                                                name="camps" [disabled]="makeChanges" class="redeemselect" required>
+                                                <option value="">No Campaign</option>
+                                                <ng-container *ngFor="let c of campALL">
+                                                    <option *ngIf="c.id" [value]="c.id">{{c.name}}</option>
+                                                </ng-container>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-25">
+                                        <div class="cashback-card">
+                                            <span *ngIf="x.journey == 'POS' && campaign"> {{ getCampAmt( campaign,
+                                                "cbDir") }} </span>
+                                            <span *ngIf="x.journey == 'F2F'"> {{x.camp.cbNew}} </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-15">
+                                        <div class="d-flex-column">
+                                            <button mat-stroked-button class="outline-success b_green c_white btnAccRej"
+                                                (click)="acceptReedem(mine.acBalH, x, x.id, x.journey, amt?.value, x.camp, campaign, x.code)"
+                                                [disabled]="makeChanges">Accept</button> <br>
+                                            <ng-container *ngIf="selectedredeemindex == i">
+                                                <button mat-stroked-button class="c_red btnAccRej"
+                                                    (click)=" rejectReedem(x.id) "
+                                                    [disabled]="makeChanges">Reject</button>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                    <div class="col-10">
+                                        <div class="d-flex-row">
+                                            <!-- <img class="col-20" [src]="
+                                                    ( x.journey == 'POS' ? 'assets/foreign/lucky/personicon2.svg':'') +
+                                                    ( x.journey == 'F2F' ? 'assets/foreign/lucky/personicon.svg':'')
+                                                    " alt=""> -->
+                                            <button class="expandbtn" mat-icon-button
+                                                (click)="selectedredeemindex == i ? selectedredeemindex = null : selectedredeemindex = i">
+                                                <mat-icon>
+                                                    {{ selectedredeemindex == i ? 'arrow_drop_up' : 'arrow_drop_down' }}
+                                                </mat-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p *ngIf="paymentRedeem.length == 0"><br>You have no reedem requests.</p>
+                        <!-- </ng-container> -->
+                        <!-- <app-content *ngIf="!(paymentRedeem$ | async)"></app-content> -->
+                    </div>
+                </div>
+                <!-- <br> -->
+                <!-- <br> -->
+                <!-- <div class="active-campaigns">
+                    <div class="active-campaigns mat-card b_persist">
+                        <div class="heading">
+                            <b>Active Store Campaigns</b>
+                            <a class="ml-auto view-details c_primary" routerLink="/campaign">View All</a>
+                        </div>
+                        <hr>
+                        <ng-container *ngIf="campaign$ | async  as campaign">
+                            <div class="d-flex-row-md  d-flex-column-sm flex-wrap">
+                                <div class="col-50 col-md-100 col-sm-100" *ngFor="let x of campaign">
+                                    <div class="campaign-item c_black">
+                                        <div class="d-flex-column">
+                                            <div class="d-flex-row mt-md-10 mt-sm-5">
+                                                <h3 class="mr-5 col-70 col-sm-60">
+                                                    <b> {{x.name}} </b>
+                                                    <button mat-button class="active-chip c_white b_black"
+                                                        *ngIf="x.tX == 'tC' && !x.customAct">{{!x.ban ?
+                                                        'Pending':'Rejected'}}</button>
+                                                    <button class="active-chip c_white"
+                                                        [class.b_green]=" auth.resource.compareDates( x.dateE.toDate() ) "
+                                                        [class.b_red]=" x.stoped || x.paused || !auth.resource.compareDates( x.dateE.toDate() ) "
+                                                        mat-button
+                                                        *ngIf=" x.tX !== 'tC' || x.tX == 'tC' && x.customAct ">
+                                                        {{ !auth.resource.compareDates( x.dateE.toDate() ) ?
+                                                        'Expired':''}}
+                                                        {{ !x.stoped && !x.paused && auth.resource.compareDates(
+                                                        x.dateE.toDate() ) ? 'Active':''}}
+                                                        {{ x.stoped && !x.paused && auth.resource.compareDates(
+                                                        x.dateE.toDate() ) ? 'Stopped':''}}
+                                                        {{ !x.stoped && x.paused && auth.resource.compareDates(
+                                                        x.dateE.toDate() ) ? 'Paused':''}}</button>
+                                                </h3>
+                                                <div class="col-5 col-sm-5"> </div>
+                                            </div>
+                                            <div class="dash-border align-items-center d-flex-row">
+                                                <div class="col-65  col-sm-50">
+                                                    <h5> <b> On Direct Sale</b>
+                                                    </h5>
+                                                    <div> <img src="assets/foreign/lucky/percent.svg" alt="" width="15"
+                                                            height="15"> <span> You give:
+                                                            {{ x.type == 'flat' ? '₹':''}}{{x.cbDir}}{{ x.type ==
+                                                            'percent' ? '%':''}}</span></div>
+                                                    <div class="mt-5"></div>
+                                                    <h5> <b>Sale Via Recommendation </b> </h5>
+                                                    <div> <img src="assets/foreign/lucky/customerpinknew.svg" alt="">
+                                                        <span> New Customer : {{ x.type == 'flat' ?
+                                                            '₹':''}}{{x.cbNew}}{{ x.type == 'percent' ? '%':''}}</span>
+                                                    </div>
+                                                    <div class="mt-3"> <img src="assets/foreign/lucky/customerpink.svg"
+                                                            alt="">
+                                                        <span> Existing Customer : {{ x.type == 'flat' ?
+                                                            '₹':''}}{{x.cbExi}}{{ x.type == 'percent' ? '%':''}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-35  col-sm-50">
+                                                    <div class="padding-grd ">
+                                                        <div class="bg-gradient b_gradient c_white">
+                                                            <h6 *ngIf="x.type == 'flat'">Cashback ₹{{x.cbDir}}/-</h6>
+                                                            <h6 *ngIf="x.type == 'percent'">{{x.cbDir}}% Cashback upto
+                                                                ₹{{x.max}}/-</h6>
+                                                            <h6>Minimum order value ₹{{x.min}}/-</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex-row mt-5">
+                                                <div class="col-50">
+                                                    <p> Expiry Date <br> <b> {{x.dateE.toDate() | date:'MMM dd, yyyy'}}
+                                                        </b> </p>
+                                                </div>
+                                                <div class="col-50">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p *ngIf="campaign.length == 0"><br>You have no recent orders.</p>
+                            </div>
+                        </ng-container>
+                        <app-content *ngIf="!(campaign$ | async)"></app-content>
+                    </div>
+                </div> -->
+                <!-- <br> -->
+                <div>
+                    <div class="mat-card b_persist">
+                        <div class="heading"> <b> Recent Orders </b> <a class="ml-auto view-details c_primary"
+                                routerLink="/my-order-list">View All</a> </div>
+                        <!-- <hr> -->
+                        <div class="d-flex-row-md d-flex-col-sm flex-wrap">
+                            <!-- <ng-container *ngIf="paymentOrder$ | async as paymentOrder"> -->
+                            <div class="order-item border1px col-50 col-sm-100"
+                                *ngFor="let x of paymentOrder; let i = index">
+                                <div *ngIf="
+                            x.status > 0 || x.status < 0 || 
+                            x.ordrTYPE == 'COD' && x.status == 0 ||
+                            x.ordrTYPE == 'RefrCASH+COD' && x.status == 0 ||
+                            x.invoice.useRefrCash && (x.invoice.amtRefrCash == x.amTotal)
+                            ">
+                                    <div>
+                                        <div class="A15padding">
+                                            <div class="d_flex">
+                                                <div class="col-50">
+                                                    <!-- {{x.sin.toDate() | date:'MMM dd, yyyy | hh:mm'}} -->
+                                                    23 Oct, 2022 07:20pm
+                                                </div>
+                                                <!-- <span ></span> -->
+                                                <div class="col-50 r_align">
+                                                    <span *ngIf="x.cart.length >0 && x.journey=='BURN'"
+                                                        class="burntxt boldtxt">Burn Order</span>
+                                                    <span *ngIf="x.cart.length >0 && x.journey!='BURN'"
+                                                        class="online boldtxt">Online Order</span>
+                                                    <span *ngIf="x.cart.length <=0" class="offline boldtxt">In-Store
+                                                        Order</span>
+                                                </div>
+                                            </div>
+                                            <div class="client_cont c_black">
+                                                <div class="align_center">{{x.userName}}</div>
+                                                <button class="expandbtn" *ngIf="x.cart.length > 0" mat-icon-button
+                                                    (click)="selectedindex == i ? selectedindex = null : selectedindex = i">
+                                                    <span>Order Detail's</span>
+                                                    <mat-icon>
+                                                        {{ selectedindex == i ? 'arrow_drop_up' : 'arrow_drop_down' }}
+                                                    </mat-icon>
+                                                </button>
+                                            </div>
+                                            <div class="d-flex-row purple_txt">
+                                                <span *ngIf="x.journey=='F2F' || x.journey == 'POS' && x.refr != null"
+                                                    class="boldtxt ">Sales via
+                                                    Recommendation</span>
+                                                <span
+                                                    *ngIf="x.journey=='DIRECT' || x.journey == 'POS' && x.refr == null"
+                                                    class="boldtxt ">Direct Sale</span>
+                                            </div>
+                                            <div class="d-flex-row t5padding">
+                                                <div class="boldtxt c_black">Payment Method :
+                                                    <span>
+                                                        <span class="normal_txt"
+                                                            *ngIf="x.ordrTYPE == 'CASH'">Cash</span>
+                                                        <span class="normal_txt"
+                                                            *ngIf="x.ordrTYPE == 'ONLINE'">Online</span>
+                                                        <span class="normal_txt" *ngIf="x.ordrTYPE == 'RefrCASH'">Refr
+                                                            Cash</span>
+                                                        <span class="normal_txt" *ngIf="x.ordrTYPE == 'COD'">COD</span>
+                                                        <span class="normal_txt"
+                                                            *ngIf="x.ordrTYPE == 'RefrCASH+ONLINE'">Refr Cash +
+                                                            Online</span>
+                                                        <span class="normal_txt"
+                                                            *ngIf="x.ordrTYPE == 'RefrCASH+COD'">Refr Cash +
+                                                            COD</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex-row t5padding" *ngIf="x.journey != 'BURN'">
+                                                <div class="boldtxt c_black">Cashback Given:
+                                                    <svg width="15" height="15" viewBox="0 0 18 18"
+                                                        style="margin-bottom: -4px;" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                            fill="#FECB00" />
+                                                        <path
+                                                            d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                            fill="#EFA900" />
+                                                        <path
+                                                            d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                            fill="#E19100" />
+                                                        <path
+                                                            d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                            fill="#E19100" />
+                                                        <path
+                                                            d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                            fill="#FECB00" />
+                                                        <path
+                                                            d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                            fill="#FECB00" />
+                                                        <path
+                                                            d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                            fill="#E19100" />
+                                                        <path
+                                                            d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                            fill="#E19100" />
+                                                        <path
+                                                            d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                            fill="#FECB00" />
+                                                        <path
+                                                            d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                            fill="#FECB00" />
+                                                    </svg>
+                                                    <span class="normal_txt" *ngIf="x.journey == 'F2F'">{{x.refr.earn +
+                                                        x.earn}}</span>
+                                                    <span class="normal_txt"
+                                                        *ngIf="x.journey != 'F2F'">{{x.earn}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="d_flex t5padding">
+                                                <span class="boldtxt profit_txt">Payment Received</span>
+                                                <svg class="align_center l5padding" width="13" height="13"
+                                                    viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="6.5" cy="6.5" r="6.5" fill="#27AE60" />
+                                                    <path d="M9.66667 4L5.08333 8.58333L3 6.5" stroke="white"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <ng-container *ngIf="selectedindex == i">
+
+                                            <div class="A15padding tborder">
+                                                <div class="boldtxt c_black">
+                                                    Order Summary
+                                                </div>
+                                                <div class="d-flex-row">
+                                                    <div class="boldtxt">
+                                                        <span class="boldtxt c_black">ID</span> : {{x.id}}
+                                                    </div>
+                                                </div>
+
+                                                <ng-container *ngFor="let c of x.cart;let i = index">
+                                                    <div class="d-flex-row c_black t10padding">
+                                                        <div class="col-75">
+                                                            <span>{{c.Q}} X </span><span>{{c.title}}</span>
+                                                        </div>
+                                                        <!-- <div class="col-50 r_align" *ngIf="c.vX.length > 0">
+                                                            {{c.vX.length}} Varients & {{c.Q}}X items
+                                                        </div> -->
+                                                        <div class="col-25 r_align">
+                                                            ₹{{c.cost * c.Q }}
+                                                        </div>
+                                                    </div>
+                                                    <ng-container *ngIf="c.vX.length > 0">
+                                                        <div class="d-flex-row" *ngFor="let vX of c.vX; let i = index;">
+                                                            <div class="col-75">
+                                                                <span *ngFor="let v of vX.nowVarient" class="r5padding">
+                                                                    {{ getVARIENT(v) }}
+                                                                </span>
+                                                            </div>
+                                                            <!-- <div class="col-25">
+                                                                X{{vX.countQ}}
+                                                            </div> -->
+                                                            <!-- <div class="col-25">
+                                                                ₹{{c.cost * vX.countQ}}
+                                                            </div> -->
+                                                        </div>
+                                                    </ng-container>
+                                                </ng-container>
+                                            </div>
+                                            <div class="A15padding tborder d-flex-row">
+                                                <div class="col-50 c_black boldtxt ">
+                                                    Taxes
+                                                </div>
+                                                <div class="col-50 r_align c_black">
+                                                    ₹{{x.amTax}}
+                                                </div>
+
+                                            </div>
+
+                                            <div class="A15padding tborder d-flex-row">
+                                                <div class="col-50 c_black boldtxt ">
+                                                    Delivery charges
+                                                </div>
+                                                <div class="col-50 r_align c_black">
+                                                    ₹{{x.amParcel}}
+                                                </div>
+
+                                            </div>
+
+                                            <div class="A15padding tborder d-flex-row">
+                                                <div class="col-50 c_black boldtxt">
+                                                    Total Bill Amount
+                                                </div>
+                                                <div class="col-50 r_align m_size c_black">
+                                                    ₹{{x.amTotal}}
+                                                </div>
+
+                                            </div>
+
+                                            <div class="A15padding tborder">
+                                                <div class="boldtxt c_black">
+                                                    Contact Number : <span
+                                                        class="normal_txt">{{x.logistics.phone}}</span>
+                                                </div>
+                                                <div *ngIf="x.logistics.addressDrop">
+                                                    <span class="c_black boldtxt">Drop Address :</span>
+                                                    <span class="normal_txt" *ngIf="x.logistics.addressDrop">
+                                                        {{x.logistics.addressDrop.address}},
+                                                        {{x.logistics.addressDrop.zip}},
+                                                        {{x.logistics.addressDrop.landmark}}
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+                                            <!-- <div class="d-flex-row">
+
+                                            </div>
+
+                                            <div class="d-flex-row boldtxt">
+                                                Drop Address :
+                                            </div>
+                                            <div class="d-flex-row b10padding">
+                                                <span *ngIf="x.logistics.addressDrop">
+                                                    {{x.logistics.addressDrop.address}},
+                                                    {{x.logistics.addressDrop.zip}},
+                                                    {{x.logistics.addressDrop.landmark}}
+                                                </span>
+                                            </div> -->
+                                            <!-- <ng-container
+                                                *ngIf=" x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN' ">
+                                                
+                                            </ng-container> -->
+                                        </ng-container>
+                                        <!-- <div class="mt-5"></div> -->
+                                        <div class="d-flex-row A15padding purplebg">
+                                            <div class="col-50 c_black m_size boldtxt A_center">
+                                                Total Bill : ₹{{x.amTotal}}
+                                            </div>
+                                            <div class="col-50 r_align">
+                                                <!--button mat-stroked-button color="primary">List Items</button-->
+                                                <button class="rounded_btn complete_btn" mat-button
+                                                    *ngIf="x.journey == 'POS'">Complete</button>
+                                                <!--button class="status-chip b_primary c_white" mat-button *ngIf="x.journey == 'BURN' && x.status == 0">Burn</button-->
+                                                <select *ngIf=" 
+                                                        (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN') && x.status == 0 && (x.ordrTYPE == 'COD' || x.ordrTYPE == 'RefrCASH' ||x.ordrTYPE == 'RefrCASH+COD') ||
+                                                        (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN') && x.status == 1 && (x.ordrTYPE == 'ONLINE' ||x.ordrTYPE == 'RefrCASH+ONLINE') ||
+                                                        false " #oStatePlaced [ngModel]=" 'Placed' "
+                                                    (ngModelChange)=" ordrStatus(  x.journey, x , oStatePlaced.value ); oStatePlaced.value = 'Placed' "
+                                                    name="ordrStatusPlaced" [disabled]="makeChanges" required
+                                                    class="roundedselect">
+                                                    <option value="Placed">Placed</option>
+                                                    <option value="Refund">Refund</option>
+                                                    <option value="Shipping">Shipping</option>
+                                                    <option value="Delivered" *ngIf="!x.logistics.require">
+                                                        Delivered
+                                                    </option>
+                                                </select>
+                                                <button class="status-chip b_primary c_white" mat-button
+                                                    *ngIf="
+                                                        x.logistics.require  && x.status == 10 && x.logistics.status == 10 && (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')"
+                                                    (click)=" ordrStatus(  x.journey, x , 'Track' );">Shipping</button>
+                                                <select
+                                                    *ngIf=" 
+                                                        !x.logistics.require  && x.status == 10 && x.logistics.status == 10 && (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')"
+                                                    #oStateShipping [ngModel]=" 'Shipping' "
+                                                    (ngModelChange)="ordrStatus( x.journey, x , oStateShipping.value )"
+                                                    name="ordrStatusShipping" [disabled]="makeChanges" required
+                                                    class="roundedselect">
+                                                    <option value="Shipping">Shipping</option>
+                                                    <option value="Delivered" *ngIf="!x.logistics.require">
+                                                        Delivered</option>
+                                                </select>
+                                                <!-- button class="status-chip b_warn c_white" mat-button *ngIf=" x.journey == 'F2F' && x.status == 0 ">Placed</button-->
+                                                <!--button class="status-chip b_primary c_white" mat-button *ngIf=" x.journey == 'F2F' && x.status == 10 && x.logistics.status == 10">Shipping</button-->
+                                                <button class="rounded_btn complete_btn" mat-button
+                                                    *ngIf=" x.ordrTYPE == 'CASH' && x.status == 10 && x.logistics.status == 0 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Complete</button>
+
+
+
+
+                                                <button class="rounded_btn delivered_btn " mat-button
+                                                    *ngIf="x.status == 10 && x.logistics.status == 20 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Delivered</button>
+                                                <button class="rounded_btn reject_btn" mat-button
+                                                    *ngIf="x.status == -10 && x.logistics.status == -10 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Rejected</button>
+                                                <button class="rounded_btn refund_btn" mat-button
+                                                    *ngIf="x.status == -10 && x.logistics.status == -100 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Returned</button>
+                                                <button class="rounded_btn refund_btn" mat-button
+                                                    *ngIf="x.status == -10 && x.logistics.status == -1000 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Refunded</button>
+                                                <button class="rounded_btn complete_btn" mat-flat-button
+                                                    *ngIf="false">Prepared</button>
+                                                <button class="rounded_btn complete_btn" mat-button
+                                                    *ngIf="false">Pending</button>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="d-flex-row r_align">
+                                                </div> -->
+                                        <!-- </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <p *ngIf="paymentOrder.length == 0">You have no recent orders.</p>
+                            <!-- </ng-container> -->
+                        </div>
+                        <!-- <app-content *ngIf="!(paymentOrder$ | async)"></app-content> -->
+                    </div>
+                </div>
+                <!-- <br> -->
+                <div class="sendWhatever mat-card b_persist">
+                    <div class="heading">
+                        <b>Promote your business</b>
+                    </div>
+                    <div class="col-50 col-sm-100 ">
+                        <div class="b_accent invitecard">
+                            <div class="cart_title">Customer Advocacy</div>
+                            <div class="cart_desc">
+                                <p>Enable users to share your store with their circle and get
+                                    you new customers</p>
+                                <span class="divide"></span>
+                                <button mat-stroked-button (click)="promoteAdvocacy()">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-50 col-sm-100">
+                        <div class="b_accent invitecard">
+                            <div class="cart_title"> Customer Loyalty</div>
+                            <div class="cart_desc">
+                                <p>Keep users coming back to your store to make repeat
+                                    purchases</p>
+                                <span class="divide"></span>
+                                <button mat-stroked-button (click)="promoteLoyalty()">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

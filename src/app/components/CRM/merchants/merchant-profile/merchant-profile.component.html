@@ -1,0 +1,800 @@
+<div class="dflex">
+    <div class="menu_for_design_check"></div>
+    <div class="A30margin Details">
+        <div class="headingtitle">
+            Create Profile
+        </div>
+        <div class="store_info">
+            <mat-tab-group>
+                <mat-tab label="Store Info">
+                    <div class="logoAQRcont box xs_size">
+                        <div class="store_type storeoverview A10padding">
+                            <div class="b10padding m_size">Store Overview</div>
+                            <div class="dflex">
+                                <div class="m50width ">
+                                    Merchant ID
+                                </div>
+                                <div class="m50width r_align normal_txt">
+                                    abcd123456
+                                </div>
+                            </div>
+
+                            <div class="dflex t2padding">
+                                <div class="m50width">
+                                    Store Wallet
+                                </div>
+                                <div class="m50width r_align normal_txt">
+                                    3094
+                                </div>
+                            </div>
+                            <div class="dflex t2padding">
+                                <div class="m50width">
+                                    To be credited
+                                </div>
+                                <div class="m50width r_align normal_txt">
+                                    3094
+                                </div>
+                            </div>
+                            <div class="dflex t2padding">
+                                <div class="m50width">
+                                    Merchant ID
+                                </div>
+                                <div class="m50width r_align normal_txt">
+                                    3094
+                                </div>
+                            </div>
+                            <div class="t5padding">
+                                <button mat-button class="purple_btn">
+                                    Add Funds +
+                                </button>
+                            </div>
+                        </div>
+                        <div class="normal_txt xl_size A15margin">
+                            Store Logo
+                        </div>
+                        <div class="A15margin logocont"></div>
+                        <div class="normal_txt xl_size A15margin">
+                            Store Banners
+                        </div>
+                        <div class="A15margin logocont"></div>
+                        <div class="normal_txt xl_size A15margin">
+                            Store Photos
+                        </div>
+                        <div class="A15margin logocont"></div>
+                        <div class="dflex c_align">
+                            <button mat-button class="purple_btn l10margin r10margin">Add</button>
+                            <button mat-button class="purple_btn l10margin r10margin">Remove</button>
+                        </div>
+                        <div class="store_info">
+                        </div>
+                        <div class="store_info">
+                        </div>
+                        <div class="add-button">
+                            <button mat-button class="add"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="9.85509" y1="0.839844" x2="9.85509" y2="19.7804" stroke="white"
+                                        stroke-width="0.811737" />
+                                    <line x1="0.25" y1="9.90419" x2="19.1905" y2="9.90419" stroke="white"
+                                        stroke-width="0.811737" />
+                                </svg>
+                            </button>
+                            <button mat-button class="add"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="9.85509" y1="0.839844" x2="9.85509" y2="19.7804" stroke="white"
+                                        stroke-width="0.811737" />
+                                    <line x1="0.25" y1="9.90419" x2="19.1905" y2="9.90419" stroke="white"
+                                        stroke-width="0.811737" />
+                                </svg>
+                            </button>
+                            <button mat-button class="add"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="9.85509" y1="0.839844" x2="9.85509" y2="19.7804" stroke="white"
+                                        stroke-width="0.811737" />
+                                    <line x1="0.25" y1="9.90419" x2="19.1905" y2="9.90419" stroke="white"
+                                        stroke-width="0.811737" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        <!-- <div class="col col-80">
+             <div class="box">
+                <div class="headingtitle">
+                    Create Profile
+                </div>
+                <div>
+                    <div class="store_info">
+                        <mat-tab-group>
+                            <mat-tab label="Store Info">
+                                <div class="box dflex">
+                                    
+                                    <div class="box">
+                                        <div>
+                                            <div class="dflex">
+                                                <div class="r10margin">
+                                                    <div class="b10padding">Store Name</div>
+                                                    <div>
+                                                        <input type="text" matInput placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="r10margin">
+                                                    <div class="b10padding">Merchant Name</div>
+                                                    <div>
+                                                        <input type="text" matInput placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="t10padding">
+                                                <div>
+                                                    <p>Phone No.</p>
+                                                    <p>
+                                                        <input type="number" matInput placeholder="">
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p>Alternate Phone No.</p>
+                                                    <p>
+                                                        <input type="number" matInput placeholder="">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div>
+                                                    <p>Mail Id</p>
+                                                    <p>
+                                                        <input type="email" matInput placeholder="">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div style="display: flex;justify-content: space-between;">
+                                                <div>
+                                                    <p>Store Type</p>
+                                                    <div class="select">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-select [formControl]="store" multiple>
+                                                                <mat-select-trigger>
+                                                                    {{store.value ? store.value[0] : ''}}
+                                                                    <span *ngIf="store.value?.length > 1"
+                                                                        class="example-additional-selection">
+                                                                        (+{{store.value.length - 1}}
+                                                                        {{store.value?.length ===
+                                                                        2 ?
+                                                                        'other' : 'others'}})
+                                                                    </span>
+                                                                </mat-select-trigger>
+                                                                <mat-option *ngFor="let store of storeList"
+                                                                    [value]="store">
+                                                                    {{store}}</mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                                <div style="margin-right: 171px;">
+                                                    <p>Category</p>
+                                                    <div class="select">
+                                                        <mat-form-field appearance="outline">
+
+                                                            <mat-select [formControl]="toppings" multiple>
+                                                                <mat-select-trigger>
+                                                                    {{toppings.value ? toppings.value[0] : ''}}
+                                                                    <span *ngIf="toppings.value?.length > 1"
+                                                                        class="example-additional-selection">
+                                                                        (+{{toppings.value.length - 1}}
+                                                                        {{toppings.value?.length
+                                                                        ===
+                                                                        2 ? 'other' : 'others'}})
+                                                                    </span>
+                                                                </mat-select-trigger>
+                                                                <mat-option *ngFor="let topping of toppingList"
+                                                                    [value]="topping">
+                                                                    {{topping}}</mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                           
+                                            <div style="display: flex;justify-content: space-between;">
+                                                <div>
+                                                    <p>Burn</p>
+                                                    <div class="select">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-select [formControl]="burn" multiple>
+                                                                <mat-select-trigger>
+                                                                    {{burn.value ? burn.value[0] : ''}}
+                                                                    <span *ngIf="burn.value?.length > 1"
+                                                                        class="example-additional-selection">
+                                                                        (+{{burn.value.length - 1}} {{burn.value?.length
+                                                                        ===
+                                                                        2 ? 'other' : 'others'}})
+                                                                    </span>
+                                                                </mat-select-trigger>
+                                                                <mat-option *ngFor="let burn of burnList"
+                                                                    [value]="burn">
+                                                                    {{burn}}</mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                                <div style="margin-right: 171px;">
+                                                    <p>Store Approval</p>
+                                                    <div class="select">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-select [formControl]="sa" multiple>
+                                                                <mat-select-trigger>
+                                                                    {{sa.value ? sa.value[0] : ''}}
+                                                                    <span *ngIf="sa.value?.length > 1"
+                                                                        class="example-additional-selection">
+                                                                        (+{{sa.value.length - 1}} {{sa.value?.length ===
+                                                                        2
+                                                                        ? 'other' : 'others'}})
+                                                                    </span>
+                                                                </mat-select-trigger>
+                                                                <mat-option *ngFor="let sa of saList" [value]="sa">
+                                                                    {{sa}}</mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p>Store Address</p>
+                                            <div class="loc">
+                                                <p>Location 1</p>
+                                                <div>
+                                                    <mat-form-field appearance="outline">
+                                                        <input matInput>
+                                                    </mat-form-field>
+                                                    <mat-icon>
+                                                        my_location
+                                                    </mat-icon>
+                                                </div>
+                                            </div>
+                                            <div class="sub-location">
+                                                <div class="area">
+                                                    <p>Area</p>
+                                                    <div>
+                                                        <mat-form-field appearance="outline">
+                                                            <input matInput>
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                                <div class="area">
+                                                    <p>City</p>
+                                                    <div>
+                                                        <mat-form-field appearance="outline">
+                                                            <input matInput>
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                                <div class="area">
+                                                    <p>State</p>
+                                                    <div>
+                                                        <mat-form-field appearance="outline">
+                                                            <input matInput>
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="loc">
+                                                <p>Location 1</p>
+                                                <div>
+                                                    <mat-form-field appearance="outline">
+                                                        <input matInput>
+                                                    </mat-form-field>
+                                                    <mat-icon>
+                                                        my_location
+                                                    </mat-icon>
+                                                </div>
+                                            </div>
+                                            <div class="loc">
+                                                <p>About Us</p>
+                                                <div>
+                                                    <mat-form-field appearance="outline">
+                                                        <input matInput>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="refund-opening">
+                                                <div>
+                                                    <div class="refund">
+                                                        <p>Refund & Exchange</p>
+                                                        <div class="all-options">
+                                                            <div class="options_">
+                                                                <p>COD</p>
+                                                                <p>Return</p>
+                                                                <p>Exchange</p>
+                                                                <p>Refund</p>
+                                                            </div>
+                                                            <div class="toogleLists">
+                                                                <div class="toogle">
+                                                                    <div>
+                                                                        <input type="radio" id="cod" name="cod">
+                                                                        <label for="cod">Yes</label>
+                                                                    </div>
+                                                                    <div>
+                                                                        <input type="radio" id="codno" name="cod">
+                                                                        <label for="codno">No</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="toogle">
+                                                                    <div>
+                                                                        <input type="radio" id="ret" name="ret">
+                                                                        <label for="ret">Yes</label>
+                                                                    </div>
+                                                                    <div>
+                                                                        <input type="radio" id="retno" name="ret">
+                                                                        <label for="retno">No</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="toogle">
+                                                                    <div>
+                                                                        <input type="radio" id="exc" name="exc">
+                                                                        <label for="exc">Yes</label>
+                                                                    </div>
+                                                                    <div>
+                                                                        <input type="radio" id="excno" name="exc">
+                                                                        <label for="excno">No</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="toogle">
+                                                                    <div>
+                                                                        <input type="radio" id="ref" name="ref">
+                                                                        <label for="ref">Yes</label>
+                                                                    </div>
+                                                                    <div>
+                                                                        <input type="radio" id="refno" name="ref">
+                                                                        <label for="refno">No</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="refund">
+                                                        <p>Logistics</p>
+                                                        <div class="all-log">
+                                                            <div class="options_">
+                                                                <p>Require Logistics Partner</p>
+                                                                <p>Delivery Area</p>
+                                                            </div>
+                                                            <div class="toogleLists">
+                                                                <div class="toogle">
+                                                                    <div>
+                                                                        <input type="radio" id="req" name="req">
+                                                                        <label for="req">Yes</label>
+                                                                    </div>
+                                                                    <div>
+                                                                        <input type="radio" id="reqno" name="req">
+                                                                        <label for="reqno">No</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="toogle">
+                                                                    <div>
+                                                                        <input type="radio" id="del" name="del">
+                                                                        <label for="del">Yes</label>
+                                                                    </div>
+                                                                    <div>
+                                                                        <input type="radio" id="delno" name="del">
+                                                                        <label for="delno">No</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="hours">
+                                                    <div class="ccc">
+                                                        <p>Set opening hours</p>
+                                                        <div class="weekday">
+                                                            <div>
+                                                                <mat-slide-toggle color="primary"><span>Choose by
+                                                                        Weekdays</span>
+                                                                </mat-slide-toggle>
+                                                            </div>
+                                                            <div class="weeeeks">
+                                                                <div class="weeks">
+                                                                    <mat-slide-toggle color="primary"><span>Mon</span>
+                                                                    </mat-slide-toggle>
+                                                                    <mat-slide-toggle color="primary"><span>Tue</span>
+                                                                    </mat-slide-toggle>
+                                                                    <mat-slide-toggle color="primary"><span>Wed</span>
+                                                                    </mat-slide-toggle>
+                                                                    <mat-slide-toggle color="primary"><span>Thur</span>
+                                                                    </mat-slide-toggle>
+                                                                    <mat-slide-toggle color="primary"><span>Fri</span>
+                                                                    </mat-slide-toggle>
+                                                                    <mat-slide-toggle color="primary"><span>Sat</span>
+                                                                    </mat-slide-toggle>
+                                                                    <mat-slide-toggle color="primary"><span>Sun</span>
+                                                                    </mat-slide-toggle>
+                                                                </div>
+                                                                <div class="timings">
+                                                                    <div class="time">
+                                                                        <div class="smalls">
+                                                                            <small>Form</small>
+                                                                            <small>Until</small>
+                                                                        </div>
+                                                                        <input type="time" id="appt" name="appt"
+                                                                            min="09:00" max="23:00" required>
+                                                                        <input type="time" id="appt" name="appt"
+                                                                            min="09:00" max="23:00" required>
+                                                                    </div>
+                                                                    <div class="time">
+                                                                        <div class="smalls">
+                                                                            <small>Form</small>
+                                                                            <small>Until</small>
+                                                                        </div>
+                                                                        <input type="time" id="appt" name="appt"
+                                                                            min="09:00" max="23:00" required>
+                                                                        <input type="time" id="appt" name="appt"
+                                                                            min="09:00" max="23:00" required>
+                                                                    </div>
+                                                                    <div class="time">
+                                                                        <div class="smalls">
+                                                                            <small>Form</small>
+                                                                            <small>Until</small>
+                                                                        </div>
+                                                                        <input type="time" id="appt" name="appt"
+                                                                            min="09:00" max="23:00" required>
+                                                                        <input type="time" id="appt" name="appt"
+                                                                            min="09:00" max="23:00" required>
+                                                                    </div>
+                                                                    <div class="time">
+                                                                        <div class="smalls">
+                                                                            <small>Form</small>
+                                                                            <small>Until</small>
+                                                                        </div>
+                                                                        <input type="time" id="appt" name="appt"
+                                                                            min="09:00" max="23:00" required>
+                                                                        <input type="time" id="appt" name="appt"
+                                                                            min="09:00" max="23:00" required>
+                                                                    </div>
+                                                                    <div class="time">
+                                                                        <div class="smalls">
+                                                                            <small>Form</small>
+                                                                            <small>Until</small>
+                                                                        </div>
+                                                                        <input type="time" id="appt" name="appt"
+                                                                            min="09:00" max="23:00" required>
+                                                                        <input type="time" id="appt" name="appt"
+                                                                            min="09:00" max="23:00" required>
+                                                                    </div>
+                                                                    <div class="time">
+                                                                        <div class="smalls">
+                                                                            <small>Form</small>
+                                                                            <small>Until</small>
+                                                                        </div>
+                                                                        <input type="time" id="appt" name="appt"
+                                                                            min="09:00" max="23:00" required>
+                                                                        <input type="time" id="appt" name="appt"
+                                                                            min="09:00" max="23:00" required>
+                                                                    </div>
+                                                                    <div class="close time">
+                                                                        <p>Closed</p>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <button class="cancel" mat-button>Cancel</button>
+                                                <button class="create" mat-button>Create</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="line"></div>
+                                        <div class="ep">
+                                            <p>Documentation</p>
+                                            <div class="box">
+                                                <div class="main">
+                                                    <div class="sections">
+                                                        <div>
+                                                            <p>Address Proof</p>
+                                                            <p>
+                                                                <input type="text" matInput placeholder="">
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <p>E - Pan</p>
+                                                            <p>
+                                                                <input type="text" matInput placeholder="">
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sections">
+                                                        <div>
+                                                            <p>GST No.</p>
+                                                            <p>
+                                                                <input type="number" matInput placeholder="">
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <p>GST Softcopy</p>
+                                                            <p>
+                                                                <input type="file" class="file" placeholder="">
+                                                                
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sections">
+                                                        <div>
+                                                            <p>FSSAI No.</p>
+                                                            <p>
+                                                                <input type="number" matInput placeholder="">
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <p>FSSAI Softcopy</p>
+                                                            <p>
+                                                                <input type="file" class="file" placeholder="">
+                                                                
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="main3">
+                                                        <div>
+                                                            <button class="cancel" mat-button>Cancel</button>
+                                                            <button class="create" mat-button>Create</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="Banking Details">
+
+                                <div class="box">
+                                    <div class="main">
+                                        <div class="sections">
+
+
+                                            <div>
+                                                <p>Bank Name</p>
+                                                <p>
+
+
+                                                    <input type="text" matInput placeholder="">
+
+
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p>Account Number</p>
+                                                <p>
+
+
+                                                    <input type="number" matInput placeholder="">
+
+
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="sections">
+
+
+                                            <div>
+                                                <p>IFSC Code</p>
+                                                <p>
+
+
+                                                    <input type="text" matInput placeholder="">
+
+
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p>Confirm Account Number</p>
+                                                <p>
+
+
+                                                    <input type="number" matInput placeholder="">
+
+
+                                                </p>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="main3">
+                                            <div>
+                                                <button class="cancel" mat-button>Cancel</button>
+                                                <button class="create" mat-button>Create</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </mat-tab>
+                            <mat-tab label="Inventory Management">
+
+                                <div class="box">
+                                    <div class="main">
+
+                                        <div class="details">
+                                            <div>
+                                                <p>Product Details</p>
+                                            </div>
+
+                                            <div class="create-bulk">
+
+                                                <button mat-button routerLink="/createproduct">Create Product</button>
+                                                <button mat-button>Bulk Product</button>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col col-100 col-sm-100 col-card">
+
+                                            <div class="card-box">
+                                                <table mat-table [dataSource]="dataSource" matSort>
+
+                                                    
+                                                    <ng-container matColumnDef="heading1">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                                            class="table-heading">
+                                                            <div>
+                                                                <mat-form-field appearance="outline">
+                                                                    <mat-label class="table-heading">Electronics
+                                                                    </mat-label>
+                                                                    <mat-select>
+                                                                        <mat-option *ngFor="let type of types"
+                                                                            [value]="type.value">
+                                                                            {{type.viewValue}}
+                                                                        </mat-option>
+                                                                    </mat-select>
+                                                                </mat-form-field>
+                                                            </div>
+                                                        </th>
+                                                        <td mat-cell *matCellDef="let row" class="heading1">
+
+                                                            <div class="prod-img">
+
+                                                                <div>
+                                                                    <img src="../../../assets/img/merchant-admin/prod.png"
+                                                                        alt="">
+
+
+                                                                </div>
+
+                                                                <div>
+                                                                    <p>{{row.heading1}}</p>
+                                                                    <p class="desc">
+                                                                        {{row.des}}</p>
+
+                                                                </div>
+                                                            </div>
+
+
+
+                                                        </td>
+
+
+                                                    </ng-container>
+
+
+                                                    
+                                                    <ng-container matColumnDef="mrpprice">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                                            class="table-heading"> MRP price </th>
+                                                        <td mat-cell *matCellDef="let row" class="price-section">
+                                                            {{row.mrpprice}} </td>
+                                                    </ng-container>
+
+                                                    <ng-container matColumnDef="dspprice">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                                            class="table-heading"> Discount price </th>
+                                                        <td mat-cell *matCellDef="let row" class="price-section">
+                                                            {{row.dspprice}} </td>
+                                                    </ng-container>
+
+                                                    <ng-container matColumnDef="quantity">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                                            class="table-heading"> Quantity</th>
+                                                        <td mat-cell *matCellDef="let row" class="price-section">
+                                                            {{row.quantity}} </td>
+                                                    </ng-container>
+
+
+                                                    <ng-container matColumnDef="action">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                                            class="table-heading"> Action </th>
+                                                        <td mat-cell *matCellDef="let row">
+
+                                                            <div class="crud">
+
+                                                                <a routerLink="/editproduct">
+                                                                    <svg width="25" height="25" viewBox="0 0 25 25"
+                                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <rect x="0.125" y="0.125" width="24.75"
+                                                                            height="24.75" fill="#8EC18D" />
+                                                                        <path
+                                                                            d="M21 7.52983C20.9592 7.52983 20.9517 7.56425 20.9442 7.59241C20.8594 7.92537 20.6681 8.19073 20.4284 8.43106C17.3356 11.5186 14.2442 14.6076 11.154 17.6981C10.7009 18.1506 10.246 18.6025 9.79547 19.0575C9.68074 19.1782 9.52998 19.2588 9.36564 19.2871C8.12446 19.5162 6.8839 19.744 5.64209 19.9731C5.63017 19.9731 5.62076 19.9912 5.61072 20H5.29697C4.95373 19.8066 4.97318 19.5118 5.03782 19.1783C5.26873 17.9891 5.48459 16.8 5.70045 15.6109C5.73127 15.4525 5.81194 15.308 5.93074 15.1984C7.92115 13.2107 9.91093 11.2224 11.9001 9.2334C13.4479 7.68712 14.9957 6.14001 16.5435 4.59206C16.8221 4.31293 17.1334 4.10139 17.5274 4.02879C17.5394 4.02879 17.5482 4.01001 17.5582 4H18.0897C18.0947 4.00814 18.0991 4.02316 18.1047 4.02378C18.4994 4.06759 18.8182 4.25723 19.093 4.53198C19.5532 4.99094 20.0123 5.4499 20.4704 5.90886C20.6971 6.12452 20.8605 6.39784 20.9429 6.69932C20.9511 6.73186 20.9511 6.77504 20.9987 6.78255L21 7.52983ZM16.0817 6.40329C16.0453 6.43833 16.0121 6.46587 15.9801 6.50029C12.9739 9.50315 9.9672 12.5066 6.95983 15.5107C6.87574 15.5952 6.8701 15.6359 6.95983 15.7248C7.73332 16.4904 8.50325 17.26 9.26963 18.0336C9.36501 18.1306 9.40768 18.1155 9.4949 18.0279C11.4636 16.0552 13.4339 14.0846 15.4059 12.1161L18.5057 9.00997C18.5534 8.96241 18.6231 8.93237 18.5333 8.8435C17.737 8.05617 16.9464 7.26259 16.1545 6.47088C16.135 6.44897 16.1118 6.42895 16.0817 6.40078V6.40329ZM20.0613 7.15431C20.0606 6.95181 19.9806 6.75757 19.8385 6.61295C19.3553 6.12541 18.8753 5.63348 18.3796 5.15908C18.0545 4.84616 17.6266 4.86556 17.3028 5.17598C17.1415 5.33057 16.9891 5.49454 16.8265 5.64788C16.7638 5.70671 16.7588 5.73863 16.8234 5.80372C17.6182 6.59188 18.4097 7.38233 19.1978 8.17508C19.2524 8.22953 19.2863 8.23767 19.3434 8.17884C19.5084 8.0061 19.681 7.84025 19.8454 7.66814C19.9789 7.52955 20.0558 7.34638 20.0613 7.15431ZM8.34031 18.5148L6.47603 16.6517C6.46998 16.6616 6.46613 16.6727 6.46474 16.6842C6.33233 17.3996 6.20684 18.1155 6.07004 18.8278C6.05122 18.9292 6.06251 18.9392 6.16228 18.9198C6.64671 18.8259 7.13302 18.7414 7.61807 18.6519C7.8722 18.6075 8.12571 18.5568 8.34031 18.5148Z"
+                                                                            fill="#080707" />
+                                                                        <rect x="0.125" y="0.125" width="24.75"
+                                                                            height="24.75" stroke="black"
+                                                                            stroke-width="0.25" />
+                                                                    </svg>
+                                                                </a>
+
+                                                                <a>
+                                                                    <svg width="25" height="25" viewBox="0 0 25 25"
+                                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <rect x="0.125" y="0.125" width="24.75"
+                                                                            height="24.75" fill="#D08D8C" />
+                                                                        <path
+                                                                            d="M17.2143 20.5455H8.73579C8.73579 20.4808 8.67978 20.4912 8.64064 20.4808C8.40139 20.4148 8.17775 20.3051 7.98207 20.1576C7.40514 19.7201 7.14738 19.1377 7.14738 18.4409C7.14738 15.3358 7.14851 12.2309 7.15075 9.12626C7.15075 8.98212 7.11499 8.91555 6.96452 8.86319C6.28975 8.62727 5.87882 7.88655 6.03199 7.22338C6.2054 6.47361 6.79448 6.01534 7.6042 6.00823C8.12512 6.00371 8.64672 6.00823 9.16764 6.00823C9.30664 6.00823 9.49355 6.05348 9.5725 5.98561C9.66629 5.90675 9.60489 5.72319 9.60286 5.58551C9.59342 4.87452 10.0577 4.24109 10.7763 4.05817C10.8134 4.04848 10.8694 4.05365 10.8856 4H15.024C15.0314 4.02521 15.0523 4.0265 15.0746 4.03038C15.3073 4.06714 15.5282 4.15423 15.7206 4.28505C15.9129 4.41586 16.0716 4.58696 16.1846 4.78532C16.3829 5.1085 16.4072 5.46788 16.3924 5.82984C16.3863 5.97721 16.4295 6.01211 16.582 6.01276C17.2709 6.01728 17.9605 5.97462 18.6481 6.03409C19.3357 6.09355 19.885 6.63391 19.9869 7.3268C20.0793 7.95183 19.6745 8.62921 19.057 8.85479C18.9045 8.91038 18.8506 8.97307 18.8512 9.1366C18.8575 12.1822 18.8593 15.2279 18.8566 18.2735C18.8572 18.4562 18.8466 18.6388 18.8249 18.8203C18.7718 19.2052 18.6031 19.5671 18.3394 19.8619C18.0756 20.1567 17.7281 20.3717 17.3391 20.4808C17.2939 20.4931 17.2358 20.4847 17.2143 20.5455ZM13.0098 8.97566C11.3903 8.97566 9.77088 8.97566 8.15144 8.97243C7.99961 8.97243 7.96048 9.00668 7.96048 9.1547C7.96497 12.2184 7.96633 15.2822 7.96453 18.3459C7.96453 18.3892 7.96453 18.4325 7.96453 18.4752C7.99354 19.2372 8.49894 19.7847 9.36534 19.7789C11.8161 19.7621 14.2669 19.7724 16.7203 19.7731C17.0901 19.7731 17.4167 19.6729 17.6738 19.4098C17.9592 19.1183 18.0456 18.7589 18.0456 18.3705C18.0456 15.296 18.0467 12.2214 18.0489 9.14694C18.0489 8.99763 18.0031 8.97243 17.8614 8.97307C16.2399 8.97566 14.6252 8.97113 13.0098 8.97113V8.97566ZM12.9909 8.18387H18.2892C18.362 8.18387 18.4349 8.18387 18.5071 8.1787C18.6677 8.16938 18.8202 8.10799 18.9395 8.00461C19.0589 7.90124 19.1379 7.76203 19.1637 7.60991C19.1918 7.44956 19.1598 7.28485 19.0733 7.14492C18.9869 7.00499 18.8516 6.89884 18.6913 6.84526C18.5673 6.81152 18.4381 6.79841 18.3094 6.80648H7.69529C7.61126 6.8054 7.52723 6.80885 7.4436 6.81683C7.26266 6.84102 7.09841 6.93111 6.98505 7.06835C6.87168 7.2056 6.81793 7.37943 6.83496 7.55367C6.88625 7.95312 7.16762 8.17741 7.62714 8.17805L12.9909 8.18387ZM13.0098 6.0147C13.8195 6.0147 14.6231 6.0147 15.4295 6.0147C15.5469 6.0147 15.5881 5.9869 15.5773 5.8725C15.5665 5.75809 15.5773 5.64692 15.5732 5.53381C15.5543 5.09816 15.2513 4.78985 14.7952 4.78662C13.5968 4.77714 12.3982 4.77714 11.1994 4.78662C10.7702 4.78662 10.4787 5.06649 10.4301 5.47628C10.4153 5.60555 10.4301 5.73482 10.4187 5.86409C10.4072 5.99337 10.4456 6.01663 10.5732 6.01599C11.3856 6.00694 12.1973 6.01017 13.0098 6.01017V6.0147Z"
+                                                                            fill="#0D0C0C" />
+                                                                        <path
+                                                                            d="M14.9701 14.0344C14.9701 12.871 14.9701 11.7076 14.9701 10.5441C14.9701 10.4635 14.9775 10.383 14.9924 10.3037C15.0093 10.2188 15.056 10.142 15.1248 10.086C15.1935 10.03 15.2801 9.99817 15.3703 9.99575C15.4605 9.99334 15.5489 10.0205 15.6208 10.0727C15.6927 10.125 15.7438 10.1991 15.7657 10.283C15.7839 10.3558 15.7932 10.4304 15.7933 10.5053C15.7933 12.8684 15.7933 15.2315 15.7933 17.5946C15.7933 17.8977 15.6536 18.0755 15.4087 18.0903C15.3099 18.1001 15.211 18.0729 15.1327 18.0143C15.0545 17.9557 15.003 17.8704 14.989 17.7762C14.9755 17.7024 14.9688 17.6275 14.9688 17.5526C14.9696 16.3805 14.9701 15.2078 14.9701 14.0344Z"
+                                                                            fill="#0D0C0C" />
+                                                                        <path
+                                                                            d="M11.0273 14.0487C11.0273 15.238 11.0273 16.4273 11.0273 17.6166C11.0273 17.7944 10.9915 17.9482 10.8188 18.0432C10.7676 18.0715 10.7105 18.0885 10.6516 18.0929C10.5927 18.0974 10.5335 18.0892 10.4784 18.0689C10.4232 18.0487 10.3735 18.0169 10.3328 17.9759C10.2921 17.9348 10.2615 17.8856 10.2432 17.8318C10.2246 17.7756 10.2151 17.717 10.2148 17.658C10.2148 15.2522 10.2148 12.8467 10.2148 10.4414C10.2148 10.1938 10.337 10.0419 10.5522 10.0083C10.6072 9.99741 10.664 9.9979 10.7188 10.0098C10.7736 10.0216 10.8251 10.0446 10.8698 10.0771C10.9146 10.1096 10.9516 10.1509 10.9782 10.1983C11.0049 10.2456 11.0207 10.2979 11.0246 10.3516C11.0306 10.4104 11.0293 10.4698 11.0293 10.5293C11.0288 11.7027 11.0282 12.8758 11.0273 14.0487Z"
+                                                                            fill="#060606" />
+                                                                        <path
+                                                                            d="M12.5938 14.0433C12.5938 12.8644 12.5938 11.6857 12.5938 10.5071C12.5938 10.3888 12.5891 10.2706 12.6674 10.1665C12.7074 10.108 12.764 10.0617 12.8306 10.033C12.8972 10.0042 12.9709 9.99427 13.0432 10.0043C13.1195 10.009 13.1926 10.0358 13.2528 10.081C13.313 10.1262 13.3575 10.1878 13.3806 10.2576C13.406 10.3347 13.4166 10.4155 13.4116 10.4961C13.4116 12.8661 13.4116 15.2339 13.4116 17.5996C13.4116 17.7748 13.3833 17.9318 13.2139 18.034C13.1582 18.068 13.0945 18.0882 13.0286 18.0928C12.9628 18.0974 12.8967 18.0862 12.8365 18.0602C12.7762 18.0342 12.7236 17.9943 12.6835 17.944C12.6434 17.8937 12.617 17.8347 12.6066 17.7722C12.5975 17.7027 12.5941 17.6327 12.5965 17.5628C12.5947 16.3898 12.5938 15.2167 12.5938 14.0433Z"
+                                                                            fill="#060606" />
+                                                                        <rect x="0.125" y="0.125" width="24.75"
+                                                                            height="24.75" stroke="black"
+                                                                            stroke-width="0.25" />
+                                                                    </svg>
+
+                                                                </a>
+
+                                                                <div>
+                                                                    <button mat-button>Request for
+                                                                        exclusive</button>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+
+                                                    </ng-container>
+
+
+
+
+                                                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                                                    
+                                                    <tr class="mat-row" *matNoDataRow>
+                                                        
+                                                    </tr>
+
+
+                                                </table>
+
+
+                                                
+                                                <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"
+                                                    aria-label="Select page of users">
+                                                </mat-paginator>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </div>
+                </div>
+            </div> 
+        </div>-->
+    </div>
+</div>

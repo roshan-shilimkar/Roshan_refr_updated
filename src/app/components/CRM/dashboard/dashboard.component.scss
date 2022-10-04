@@ -1,0 +1,245 @@
+// .box {
+//     margin: 20px;
+//     width: 80%;
+// }
+
+.heading {
+    //   font-family: "Jost";
+    //   font-style: normal;
+    font-weight: 600;
+    font-size: 30px !important;
+    line-height: 43px !important;
+    color: #000000;
+}
+
+.boxes {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    .users {
+        box-sizing: border-box;
+        width: 22%;
+        height: 80px;
+        background: #ffffff;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        position: relative;
+        margin: 0.5% 1.5%;
+
+        button {
+            background: #ff3f80;
+            border-radius: 4px;
+            font-weight: 400;
+            font-size: 14px !important;
+            line-height: 20px !important;
+            color: #ffffff;
+            position: absolute;
+            right: 0;
+            height: 25px;
+        }
+    }
+}
+
+.user-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 10px;
+
+    .img {
+        margin-top: -6px;
+    }
+}
+
+.number {
+    font-weight: 500;
+    font-size: 24px !important;
+    line-height: 35px !important;
+}
+
+.subheading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 20px !important;
+    margin-right: 20px;
+
+    a {
+        background: #874bf9;
+        border-radius: 3px;
+        font-size: 12px !important;
+        line-height: 20px !important;
+        padding: 5px 10px;
+        color: #ffffff;
+    }
+}
+
+.col-card {
+    .mat-form-field {
+        font-size: 14px;
+        width: 55%;
+        margin: 0 5%;
+    }
+
+    .card-box {
+        overflow: hidden;
+        padding: 0 !important;
+        margin: 30px 0 !important;
+        box-shadow: 0px 0px 10px rgb(0 0 0 / 25%);
+
+        // table {
+        //     width: 100%;
+
+        //     td,
+        //     th {
+        //         width: 10%;
+        //     }
+        // }
+
+        mat-paginator {
+            margin: 0 -18px;
+        }
+    }
+}
+
+tr.mat-row,
+tr.mat-footer-row {
+    height: 70px;
+}
+
+.table-heading {
+    // font-family: "Jost";
+    // font-style: normal;
+    font-weight: 400;
+    font-size: 14px !important;
+    line-height: 23px !important;
+    color: #000000;
+}
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Roshan css
+table {
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    border-radius: 10px;
+
+    .mat-header-row {
+        background: #F2F2F2;
+        font-weight: bold;
+    }
+
+    tr td,
+    th {
+        text-align: center;
+    }
+}
+
+.xxs_size {
+    font-size: 10px;
+}
+
+.gray_txt {
+    color: #848484;
+}
+
+.status {
+    border-radius: 5px;
+    font-size: 12px !important;
+    padding: 5px 10px;
+    justify-content: center;
+    color: #000000;
+}
+
+.inactive {
+    background: #ff7d7d;
+}
+
+.active {
+    background: #27FB6B;
+}
+
+.crud svg {
+    margin: 0 5px !important;
+    cursor: pointer;
+}
+
+.redTran {
+    background-color: #FFF4F4;
+    color: #FF5353;
+}
+
+.green_Tran {
+    background-color: #EBFFEF;
+    color: #00C92C;
+}
+
+.ora_tran {
+    background-color: #FFF3E6;
+    color: #CE7712;
+}
+
+.gray_tran {
+    background-color: #F0F0F0;
+    color: #9C9C9C;
+}
+
+.green_txt {
+    color: #27AE60;
+}
+
+.yellow_txt {
+    color: #BAB42C;
+}
+
+.ora_txt {
+    color: #CE7712;
+}
+
+.blue_txt {
+    color: #336DB1;
+}
+
+.red_txt {
+    color: #D43B26;
+}
+
+button.viewbtn {
+    background: #874BF9;
+    color: white;
+    display: flex;
+    border: none;
+    border-radius: 5px;
+    // width: 70%;
+    margin: 0 auto;
+
+    span {
+        align-self: center;
+        padding-left: 5px;
+    }
+}
+
+.dflex{
+    display: flex;
+}
+
+.menu_for_design_check{
+    min-height: -webkit-fill-available;
+    background-color: #8500E2;
+    width: 20%;
+}

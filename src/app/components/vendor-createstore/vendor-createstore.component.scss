@@ -1,0 +1,52 @@
+.Storetitle {
+    font-size: 18px;
+    font-weight: bolder;
+    color: gray;
+}
+
+.storecontainer {
+    padding: 20px;
+}
+
+form {
+    padding-top: 20px !important;
+
+    mat-form-field {
+        width: 100%;
+    }
+}
+
+a.mat-button {
+    padding-left: 0 !important;
+}
+
+.imageUploader {
+    display: flex;
+
+    .svgHold {
+        width: 30%;
+
+        svg {
+            padding: 30%;
+            border: 1px solid #C285FF;
+            border-radius: 5px;
+        }
+    }
+
+    .discription {
+        width: 70%;
+        padding: 0 7%;
+        align-self: center;
+
+        .Uptitle {
+            font-size: 14px;
+        }
+
+        .Updesc {
+            font-size: 12px;
+            line-height: 1;
+            color: gray;
+            padding-top: 5px;
+        }
+    }
+}

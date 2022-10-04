@@ -1,0 +1,262 @@
+.box {
+    margin: 20px;
+}
+
+.merchant-search-export {
+    display: flex;
+    align-items: center;
+    margin: 0 0 1% 0;
+
+    p {
+        // font-family: "Jost" !important;
+        // font-style: normal;
+        // font-weight: 600;
+        font-size: 27px !important;
+        line-height: 44px !important;
+        color: #000000;
+        text-transform: capitalize;
+    }
+
+    span {
+        // font-family: "Jost" !important;
+        // font-style: normal;
+        // font-weight: 600;
+        font-size: 27px !important;
+        line-height: 44px !important;
+        color: gray;
+    }
+
+    .right-field {
+        position: relative;
+        padding-left: 20px;
+    }
+
+    .search {
+        width: 300px;
+    }
+
+    input {
+        position: relative;
+        background: #ffffff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        height: 35px;
+        padding: 0 11% 0 8px;
+    }
+
+    input[type="text"]::placeholder {
+        // font-family: "Jost";
+        // font-style: normal;
+        // font-weight: 500;
+        font-size: 13px !important;
+        line-height: 20px !important;
+        color: black;
+    }
+
+    .icon {
+        position: absolute;
+        top: 15%;
+        right: -11%;
+    }
+}
+
+.export {
+    margin-left: 20px;
+
+    button {
+        // font-family: "Jost";
+        // font-style: normal;
+        // font-weight: 500;
+        font-size: 13px !important;
+        line-height: 20px !important;
+        color: #000000;
+        margin-top: 26px;
+    }
+}
+
+//
+
+.filter {
+    font-size: 18px !important;
+    color: #000000;
+    text-transform: capitalize;
+    padding-top: 30px;
+}
+
+//
+
+// .categories {
+//     // margin: 16px 4px 15px 13px;
+//     display: flex;
+//     justify-content: space-between;
+
+    .category {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 20px;
+        flex: 1;
+        // max-width: 60%;
+    }
+
+    mat-label {
+        // font-family: "Jost";
+        // font-style: normal;
+        // font-weight: 500;
+        font-size: 13px !important;
+        line-height: 20px !important;
+        color: #000000;
+    }
+// }
+
+.example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+}
+
+//
+.cm {
+    border: 1px solid #910cee;
+    border-radius: 18px;
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: right;
+
+    color: #000000;
+    //   width: 112px;
+    height: 30px;
+    margin: auto;
+}
+
+//
+
+//
+
+.col-card {
+    .mat-form-field {
+        font-size: 14px;
+        width: 55%;
+        margin: 0 5%;
+        margin-top: 15px;
+    }
+
+    mat-paginator {
+        margin: 0 -18px;
+    }
+}
+
+table {
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    border-radius: 10px;
+
+    .mat-header-row {
+        background: #f2f2f2;
+        font-weight: bold;
+    }
+
+    tr td,
+    th {
+        text-align: center;
+    }
+}
+
+.mat-form-field-infix {
+    padding: 0 !important;
+}
+
+tr.mat-row,
+tr.mat-footer-row {
+    height: 70px;
+}
+
+//
+
+.inactive {
+    background: #ff7d7d;
+    height: 39px;
+    border-radius: 3px;
+    color: #000000;
+    /* padding-left: 16px; */
+    padding: 12px;
+}
+
+.crud {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
+
+    button {
+        background: #874bf9;
+        border-radius: 3px;
+        // font-family: "Jost";
+        // font-style: normal;
+        // font-weight: 400;
+        font-size: 13px !important;
+        color: white;
+        display: flex;
+        align-items: center;
+        border: none;
+        padding: 2px 12px;
+        gap: 6px;
+    }
+}
+
+.dflex {
+    display: flex;
+}
+
+.menu_for_design_check {
+    min-height: -webkit-fill-available;
+    background-color: #8500E2;
+    width: 20%;
+}
+
+.box {
+    margin: 20px;
+    width: 80%;
+}
+
+.gray_txt {
+    color: #848484;
+}
+
+.xxs_size {
+    font-size: 10px;
+}
+
+.status {
+    border-radius: 5px;
+    font-size: 12px !important;
+    padding: 5px 10px;
+    justify-content: center;
+    color: #000000;
+}
+
+.inactive {
+    background: #ff7d7d;
+}
+
+.active {
+    background: #27FB6B;
+}
+
+button.viewbtn {
+    background: #874BF9;
+    color: white;
+    display: flex;
+    border: none;
+    border-radius: 5px;
+    // width: 70%;
+    margin: 30px auto;
+    padding: 10px 20px;
+
+    span {
+        align-self: center;
+        padding-left: 5px;
+    }
+}

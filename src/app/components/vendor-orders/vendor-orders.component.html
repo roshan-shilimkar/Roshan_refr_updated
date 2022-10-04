@@ -1,0 +1,193 @@
+<div class="lucky">
+    <div class="mat-card b_persist">
+        <div class="d-flex-row-md d-flex-col-sm flex-wrap">
+            <!-- <ng-container *ngIf="paymentOrder$ | async as paymentOrder"> -->
+            <div *ngFor="let x of paymentOrder; let i = index">
+                <div class="col-50 order-item col-sm-100" *ngIf="
+            x.status > 0 || x.status < 0 || 
+            x.ordrTYPE == 'COD' && x.status == 0 ||
+            x.ordrTYPE == 'RefrCASH+COD' && x.status == 0 ||
+            x.invoice.useRefrCash && (x.invoice.amtRefrCash == x.amTotal)">
+                    <div class="order-item c_black">
+                        <div class="d-flex-column">
+                            <div class="client_cont c_black">
+                                {{x.userName}}
+                                <button class="expandbtn" *ngIf="x.cart.length > 0" mat-icon-button
+                                    (click)="selectedindex == i ? selectedindex = null : selectedindex = i">
+                                    <mat-icon>
+                                        {{ selectedindex == i ? 'arrow_drop_up' : 'arrow_drop_down' }}
+                                    </mat-icon>
+                                </button>
+                            </div>
+                            <ng-container>
+                                <div class="d-flex-row">
+                                    <div class="col-50">
+                                        <!-- Order No: {{x.id}} -->
+                                        <span class="gray_txt">Order Type : </span>
+                                        <span *ngIf="x.cart.length > 0 && x.journey == 'BURN'" class="burntxt">Burn</span>
+                                        <span *ngIf="x.cart.length > 0 && x.journey != 'BURN'" class="online">Online</span>
+                                        <span *ngIf="x.cart.length <= 0" class="offline">In-store</span>
+                                    </div>
+                                    <div class="col-50">
+                                        <!-- {{x.sin.toDate() | date:'MMM dd, yyyy | hh:mm'}} -->
+                                    </div>
+                                </div>
+                                <div class="d-flex-row">
+                                    <div class="col-50">
+                                        <!-- <span>Cashback Given : {{x.earn}}</span> -->
+                                        <span *ngIf="x.journey == 'F2F' || x.journey == 'POS' && x.refr != null"
+                                            class="boldtxt c_black">Sales via
+                                            Recommendation</span>
+                                        <span *ngIf="x.journey == 'DIRECT' || x.journey == 'POS' && x.refr == null"
+                                            class="boldtxt c_black">Direct Sale</span>
+                                        <span *ngIf="x.journey == 'BURN' ">Order No : {{x.id}}</span>
+                                    </div>
+                                    <div class="col-50">Order Amount: {{x.amTotal}}
+                                    </div>
+                                </div>
+                                <div class="d-flex-row" *ngIf="x.journey != 'BURN'">
+                                    <div class="col-50">
+                                        Order No : {{x.id}}
+                                    </div>
+                                </div>
+                                <ng-container *ngIf="selectedindex == i">
+                                    <div class="d-flex-row" *ngIf=" x.journey == 'F2F' || x.journey == 'DIRECT' ">
+                                        <div class="col-50">
+                                            Contact Number :
+                                        </div>
+                                        <div class="col-50">
+                                            {{x.logistics.phone}}
+                                        </div>
+                                    </div>
+                                    <div class="d-flex-row" *ngIf=" x.journey == 'F2F' || x.journey == 'DIRECT' ">
+                                        <div class="col-50">
+                                            <span> Drop Address :</span>
+                                        </div>
+                                        <div class="col-50">
+                                            <span *ngIf="x.logistics.addressDrop">
+                                                {{x.logistics.addressDrop.address}},
+                                                {{x.logistics.addressDrop.zip}},
+                                                {{x.logistics.addressDrop.landmark}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex-row" *ngIf=" x.journey == 'F2F' || x.journey == 'DIRECT' ">
+                                        <div class="col-50">
+                                            <span>Pick Address :</span>
+                                        </div>
+                                        <div class="col-50 r_align">
+                                            <span *ngIf="x.logistics.addressPick">
+                                                {{x.logistics.addressPick.line1}},
+                                                {{x.logistics.addressPick.zip}},
+                                                {{x.logistics.addressPick.locality}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <ng-container
+                                        *ngIf="x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN' ">
+                                        <ng-container *ngFor="let c of x.cart">
+                                            <div class="d-flex-row c_black">
+                                                <div class="col-50">
+                                                    {{c.title}}
+                                                </div>
+                                                <div class="col-50" *ngIf="c.vX.length > 0">
+                                                    {{c.vX.length}} Varients & {{c.Q}}X items
+                                                </div>
+                                                <div class="col-25" *ngIf="c.vX.length == 0">
+                                                    X{{c.Q}}
+                                                </div>
+                                                <div class="col-25" *ngIf="c.vX.length == 0">
+                                                    ₹{{c.cost * c.Q }}
+                                                </div>
+                                            </div>
+                                            <ng-container *ngIf="c.vX.length > 0">
+                                                <div class="d-flex-row" *ngFor="let vX of c.vX; let i = index;">
+                                                    <div class="col-50">#{{i + 1}}
+                                                        <span *ngFor="let v of vX.nowVarient"> 
+                                                            {{
+                                                            getVARIENT(v) }} </span>
+                                                    </div>
+                                                    <div class="col-25">
+                                                        X{{vX.countQ}}
+                                                    </div>
+                                                    <div class="col-25">
+                                                        ₹{{c.cost * vX.countQ}}
+                                                    </div>
+                                                </div>
+                                            </ng-container>
+                                        </ng-container>
+                                        <div class="d-flex-row c_primary">
+                                            <div class="col col-100"></div>
+                                        </div>
+                                    </ng-container>
+                                </ng-container>
+                                <div class="mt-5"></div>
+                                <div class="d-flex-row">
+                                    <div class="col-75 A_center">
+                                    Status
+                                    </div>
+                                    <div class="col-25">
+                                        <!--button mat-stroked-button color="primary">List Items</button-->
+                                        <button class="rounded_btn complete_btn" mat-button
+                                            *ngIf="x.journey == 'POS'">Complete</button>
+                                        <!--button class="status-chip b_primary c_white" mat-button *ngIf="x.journey == 'BURN' && x.status == 0">Burn</button-->
+                                        <select *ngIf=" 
+                                        (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN') && x.status == 0 && (x.ordrTYPE == 'COD' || x.ordrTYPE == 'RefrCASH' || x.ordrTYPE == 'RefrCASH+COD') ||
+                                        (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN') && x.status == 1 && (x.ordrTYPE == 'ONLINE' ||x.ordrTYPE == 'RefrCASH+ONLINE')" #oStatePlaced [ngModel]=" 'Placed' "
+                                            (ngModelChange)=" ordrStatus(  x.journey, x , oStatePlaced.value ); oStatePlaced.value = 'Placed' "
+                                            name="ordrStatusPlaced" [disabled]="makeChanges" required
+                                            class="roundedselect">
+                                            <option value="Placed">Placed</option>
+                                            <option value="Refund">Refund</option>
+                                            <option value="Shipping">Shipping</option>
+                                            <option value="Delivered" *ngIf="!x.logistics.require">
+                                                Delivered
+                                            </option>
+                                        </select>
+                                        <button class="status-chip b_primary c_white" mat-button
+                                            *ngIf="
+                                        x.logistics.require && x.status == 10 && x.logistics.status == 10 && (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')"
+                                            (click)=" ordrStatus(  x.journey, x , 'Track' );">Shipping</button>
+                                        <select
+                                            *ngIf=" 
+                                        !x.logistics.require && x.status == 10 && x.logistics.status == 10 && (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')"
+                                            #oStateShipping [ngModel]=" 'Shipping' "
+                                            (ngModelChange)="ordrStatus( x.journey, x , oStateShipping.value )"
+                                            name="ordrStatusShipping" [disabled]="makeChanges" required
+                                            class="roundedselect">
+                                            <option value="Shipping">Shipping</option>
+                                            <option value="Delivered" *ngIf="!x.logistics.require">
+                                                Delivered</option>
+                                        </select>
+                                        <!-- button class="status-chip b_warn c_white" mat-button *ngIf=" x.journey == 'F2F' && x.status == 0 ">Placed</button-->
+                                        <!--button class="status-chip b_primary c_white" mat-button *ngIf=" x.journey == 'F2F' && x.status == 10 && x.logistics.status == 10">Shipping</button-->
+                                        <button class="rounded_btn complete_btn" mat-button
+                                            *ngIf=" x.ordrTYPE == 'CASH' && x.status == 10 && x.logistics.status == 0 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Complete</button>
+
+
+
+                                        <button class="rounded_btn delivered_btn " mat-button
+                                            *ngIf="x.status == 10 && x.logistics.status == 20 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Delivered</button>
+                                        <button class="rounded_btn reject_btn" mat-button
+                                            *ngIf="x.status == -10 && x.logistics.status == -10 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Rejected</button>
+                                        <button class="rounded_btn refund_btn" mat-button
+                                            *ngIf="x.status == -10 && x.logistics.status == -100 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Returned</button>
+                                        <button class="rounded_btn refund_btn" mat-button
+                                            *ngIf="x.status == -10 && x.logistics.status == -1000 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Refunded</button>
+                                        <!-- <button class="rounded_btn complete_btn" mat-flat-button
+                                            *ngIf="false">Prepared</button>
+                                        <button class="rounded_btn complete_btn" mat-button
+                                            *ngIf="false">Pending</button> -->
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p *ngIf="paymentOrder.length == 0">You have no recent orders.</p>
+            <!-- </ng-container> -->
+        </div>
+        <!-- <app-content *ngIf="!(paymentOrder$ | async)"></app-content> -->
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div style="display: flex;">
+<div>
+    asdasdasd
+</div>
+<div class="{{opened == true ? 'active' : 'Inactive'}}" (click)="activate()">
+    <svg class="rotate" width="15" height="10" viewBox="0 0 15 10" fill="black"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.756348 1.38855L7.18046 7.75251L13.6046 1.38855" class="manHat"
+                                                stroke-width="2"></path>
+                                        </svg>
+</div>
+
+<div #content [style.height.px]="contentHeight" class="contentpara {{opened == true ? 'activepara' : 'Inactivepara'}}">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, non? Maxime in voluptatem aspernatur exercitationem officiis, nulla, deserunt repellendus quam dolores reiciendis quidem ex cum tempore molestiae facere porro beatae!Lorem
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis unde ducimus reprehenderit aperiam deserunt a dignissimos, numquam, magni delectus repellendus vel omnis iste inventore. Debitis tempore obcaecati asperiores in eum.aditya
+</div>
+</div>

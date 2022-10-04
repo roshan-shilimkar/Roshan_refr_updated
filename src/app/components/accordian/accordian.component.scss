@@ -1,0 +1,21 @@
+.active .rotate {
+  transition-duration: 0.3s;
+  transform: rotate(-0.50turn);
+}
+
+.Inactive .rotate {
+  transition-duration: 0.3s;
+  transform: rotate(0);
+}
+
+// .activepara {
+//   height: auto !important;
+// }
+
+.contentpara {
+  padding: 0 18px;
+  background-color: white;
+  background-color: red;
+  overflow: hidden;
+  transition: height 0.2s ease-out;
+}
