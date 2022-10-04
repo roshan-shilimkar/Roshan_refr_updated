@@ -184,15 +184,16 @@
                                     <div class="tras_amt">
                                         <span
                                             *ngIf="(x.by == 'Δ' && x.type.includes('payout')) || (x.to == 'Δ' && x.amGive !== undefined)">
-                                            <span *ngIf="x.by == 'Δ' && x.type.includes('payout')">-</span><span
-                                                *ngIf="x.to == 'Δ' && x.amGive !== undefined">+</span> {{x.amTotal}}
+                                            <span *ngIf="x.by == 'Δ' && x.type.includes('payout')">-</span>
+                                            <span *ngIf="x.to == 'Δ' && x.amGive !== undefined">+</span> 
+                                            {{x.amTotal}}
                                         </span>
                                         <span *ngIf="x.to == 'Δ' && x.amCamp !== undefined">
                                             + {{getrefilvalue(x.amRate,x.amTotal)}}
                                         </span>
                                         <span *ngIf="x.to !== 'Δ' && x.by !== 'Δ'">
-                                            <span *ngIf="x.status !== '-10'">+</span><span
-                                                *ngIf="x.status == '-10'">-</span>{{x.amBurst | number:'1.0-2'}}
+                                            <span *ngIf="x.status !== -10">+</span><span
+                                                *ngIf="x.status == -10">-</span> {{x.amBurst | number:'1.0-2'}}
                                         </span>
                                     </div>
                                 </div>
@@ -210,7 +211,7 @@
                                                     Online Order
                                                 </div>
                                                 <div *ngIf="x.cart == undefined || x.cart.length <= 0">
-                                                    Offline Order
+                                                    In-Store Order
                                                 </div>
                                             </div>
                                             <div class="t5padding gray_txt">Payment Method :
@@ -403,6 +404,18 @@
                                                 {{x.refr.earn}}
                                             </div>
                                         </div>
+                                        <div class="t5padding">
+                                            <div *ngIf="x.journey == 'BURN'">
+                                                Burn Sale
+                                            </div>
+                                            <div *ngIf="x.cart !== undefined && x.cart.length > 0">
+                                                Online Order
+                                            </div>
+                                            <div *ngIf="x.cart == undefined || x.cart.length <= 0">
+                                                In-Store Order
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="dflex">

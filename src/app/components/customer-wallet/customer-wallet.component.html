@@ -351,7 +351,7 @@
                                             </div>
                                             <span class="divide"></span>
                                             <div
-                                                *ngIf="x.journey !== 'ADMIN' && (mine.uid == x.by || x.status == '-10')">
+                                                *ngIf="x.journey !== 'ADMIN' && (mine.uid == x.by || x.status == -10)">
                                                 <button
                                                     (click)="expandedindex == i ? expandedindex = null : expandedindex = i"
                                                     class="expandbtn">
