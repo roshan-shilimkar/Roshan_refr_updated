@@ -75,6 +75,7 @@ import { RoshanStoreComponentComponent } from './components/roshan-store-compone
 import { VendorProductsComponent } from './components/vendor-products/vendor-products.component';
 import { CustomerOrderComponent } from './components/customer-order/customer-order.component';
 import { CustomercartComponent } from './components/customercart/customercart.component';
+import { NewproductlistComponent } from './components/aditya/newproductlist/newproductlist.component';
 
 
 @NgModule({
@@ -127,6 +128,7 @@ import { CustomercartComponent } from './components/customercart/customercart.co
     VendorProductsComponent,
     CustomerOrderComponent,
     CustomercartComponent,
+    NewproductlistComponent,
   ],
   imports: [
     // AgmCoreModule.forRoot({

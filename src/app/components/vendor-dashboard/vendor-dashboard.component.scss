@@ -515,11 +515,11 @@
     }
 
     .order-item {
-        margin: 10px 0;
+        margin: 5px 0;
         border-radius: 6px;
         font-size: 12px;
         color: #828282 !important;
-        width: 100%;
+        // width: 100%;
     }
 
     .A15padding {
@@ -672,12 +672,13 @@
         border: 1px solid #910CEE;
         border-radius: 5px;
         height: 30px;
-        width: 60%;
+        min-width: fit-content;
         line-height: 18px;
+        padding: 3px 5px;
 
         mat-icon {
             height: 28px;
-            width: 16px;
+            width: 28px;
             line-height: 28px;
         }
     }
@@ -851,4 +852,13 @@
 
 .t10padding {
     padding-top: 10px;
+}
+
+// body .container .row .col-50 {
+//     width: 50%;
+//     display: inline-block;
+// }
+.lr5padding {
+    padding-left: 5px;
+    padding-right: 5px;
 }

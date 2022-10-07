@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MatDialog } from '@angular/material/dialog';
-import { zip } from 'rxjs';
 
 @Component({
-  selector: 'app-store',
-  templateUrl: './store.component.html',
-  styleUrls: ['./store.component.scss']
+  selector: 'app-newproductlist',
+  templateUrl: './newproductlist.component.html',
+  styleUrls: ['./newproductlist.component.scss']
 })
-export class StoreComponent implements OnInit {
+export class NewproductlistComponent implements OnInit {
   highlights = false;
   phone: string = '9167452128';
   openedAccordianLists: any = [];

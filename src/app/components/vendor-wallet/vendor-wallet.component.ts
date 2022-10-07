@@ -1,19 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { of, Observable } from 'rxjs';
 import { VendorHIWComponent } from '../vendor-hiw/vendor-hiw.component';
+import { jsPDF }  from 'jspdf';
 
 @Component({
   selector: 'app-vendor-wallet',
   templateUrl: './vendor-wallet.component.html',
   styleUrls: ['./vendor-wallet.component.scss']
 })
-export class VendorWalletComponent implements OnInit {
+export class VendorWalletComponent {
+  asdasdasdd:string="asdasdasdasdaeae";
   payments$: Observable<any> = of();
   activated: number = 1;
   expandedindex: any = null;
   expandedchildindex: any = null;
-
+  @ViewChild('content', { static :false}) el!:ElementRef; 
+  Data = [  
+    { Id: 101, Name: 'Nitin', Salary: 1234 },  
+    { Id: 102, Name: 'Sonu', Salary: 1234 },  
+    { Id: 103, Name: 'Mohit', Salary: 1234 },  
+    { Id: 104, Name: 'Rahul', Salary: 1234 },  
+    { Id: 105, Name: 'Kunal', Salary: 1234 }  
+  ]; 
 
   mine = {
     acBalV: 2323,
@@ -3416,6 +3425,28 @@ export class VendorWalletComponent implements OnInit {
   getrefilvalue(rates: Array<any>, total: any) {
     return rates[rates.findIndex(rates => rates.total == total)].refill;
   }
+
+   SavePDF() {
+    let doc = new jsPDF('p','pt',[1400,1500]);  
+    doc.html(this.el.nativeElement,{
+      callback:(pdf)=>{
+        pdf.save("demo.pdf");
+      }
+    })
+    // let _elementHandlers =  
+    // {  
+    //   '#editor':function(element,renderer){  
+    //     return true;  
+    //   }  
+    // };  
+    // doc.fromHTML(content.innerHTML,15,15,{  
+  
+    //   'width':190,  
+    //   'elementHandlers':_elementHandlers  
+    // });  
+  // doc.text("new PDF",10 ,10);
+  //   doc.save('test.pdf');  
+  } 
 
   howitworks() {
     this._bottomSheet.open(VendorHIWComponent, {

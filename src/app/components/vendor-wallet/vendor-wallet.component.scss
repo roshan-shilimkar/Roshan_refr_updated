@@ -345,7 +345,7 @@ header {
     width: 30px;
     text-align: center;
     padding: 3px 0px;
-    
+
 }
 
 .failed_tran {
@@ -357,27 +357,29 @@ header {
     width: 100%;
     text-align: right;
     margin: -25% 0 0 0;
-    a {
-      font-style: normal;
-      font-weight: 700;
-      font-size: 16px !important;
-      line-height: 19px !important;
-      color: #ffffff;
-      text-decoration: none;
-      margin-right: 20px;
-    }
-    .mat-button {
-      padding: 7px;
-    }
-  }
 
-  @media screen and (max-width:900px) {
-    .col-card{
+    a {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px !important;
+        line-height: 19px !important;
+        color: #ffffff;
+        text-decoration: none;
+        margin-right: 20px;
+    }
+
+    .mat-button {
+        padding: 7px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .col-card {
         width: 94% !important;
     }
-  }
+}
 
-  .refruser {
+.refruser {
     font-size: 10px;
     padding-left: 10px;
     color: gray;
@@ -385,4 +387,22 @@ header {
 
 .gray_txt {
     color: gray;
+}
+
+.invoice_btn {
+    background: #8000ff;
+    padding: 0px 10px;
+    border-radius: 5px;
+    box-shadow: none;
+    color: #fff;
+    border: none;
+    font-size: 12px;
+    margin-top: 4px;
+    line-height: 30px;
+}
+
+.table{
+    border: 1px solid ;
+    font-size: 1px;
+    width: 100%;
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccordianComponent } from './components/accordian/accordian.component';
+import { NewproductlistComponent } from './components/aditya/newproductlist/newproductlist.component';
 import { OrderdetailsComponent } from './components/aditya/orderdetails/orderdetails.component';
 import { StoreComponent } from './components/aditya/store/store.component';
 import { BlogComponent } from './components/blogs/blog/blog.component';
@@ -45,7 +46,7 @@ const routes: Routes = [
   {
     path: "", component: TabsComponent,
     children: [
-      { path: "", redirectTo: "vendordash", pathMatch: "full" },
+      { path: "", redirectTo: "newproductdesc", pathMatch: "full" },
       { path: "Cust_order", component: CustomerOrderComponent },
       { path: "Cust_Cart", component: CustomercartComponent },
       { path: "productDetails", component: ProductdetailsComponent },
@@ -86,7 +87,9 @@ const routes: Routes = [
       { path: "adityaorderdetails", component: OrderdetailsComponent },
       { path: "Recommdationshare", component: SharerecommendationComponent },
       { path: "userorderconfirm", component: OrderconfirmComponent },
-      { path: "instastories", component: InstastoriesComponent }
+      { path: "instastories", component: InstastoriesComponent },
+      { path: "newproductdesc", component: NewproductlistComponent }
+
     ]
   }
 ];

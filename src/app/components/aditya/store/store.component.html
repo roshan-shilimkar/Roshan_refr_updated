@@ -814,7 +814,13 @@
                         <input type="text" [(ngModel)]="searchTHEM" name="" id="" placeholder="Search" />
                         <mat-icon>search</mat-icon>
                     </div>
-                    <div *ngFor="let x of [0,1]">
+                    <div >
+
+
+
+
+
+
 
                         <div class="all_products" *ngFor="let s of proCat">
                             <div class="categories" (click)="showAccordion(s)"
@@ -825,6 +831,9 @@
                                         {{openedAccordianLists.includes(s) ? 'expand_more' : 'expand_less'}}
                                     </mat-icon>
                                 </div>
+
+
+
                                 <div *ngFor="let x of products">
                                     <ng-container
                                         *ngIf="!openedAccordianLists.includes(x.category)  && searchTHEM.length == 0 || searchTHEM.length > 0 && checkSearch(x.title) ">
@@ -833,16 +842,15 @@
                                                 <div class="products_summary">
                                                     <div class="product_name" (click)="openDetail(x.id, x.variants, x)">
                                                         {{x.title}}</div>
-                                                    <div class="halft_para product_desc"
-                                                        [ngClass]="{'limitTextHeight': isReadMore}">{{x.description}}
+                                                    <div *ngIf="x.description !== 'Σ'" class="product_desc limitTextHeight">{{x.description}}
                                                     </div>
                                                     <!-- <span *ngIf="x.banners.length ==0" class="read_more"
                                                         (click)="showText()">{{
                                                         isReadMore ? 'Read more': 'Read less' }}</span> -->
                                                     <div class="discount_final">
-                                                        <span class="dis_price" *ngIf="x.price < x.cost">₹{{x.cost}}</span>
-                                                        <span class="final_price">₹{{x.price}}</span>
-                                                        <span class="off" *ngIf="x.price < x.cost">
+                                                        <span class="dis_price" *ngIf="x.cost < x.price">₹{{x.price }}</span>
+                                                        <span class="final_price">₹{{x.cost}}</span>
+                                                        <span class="off" *ngIf="x.cost < x.price">
                                                             {{ (( (x.price - x.cost) / x.price ) * 100) |
                                                             number:'1.0-0'
                                                             }}% off
@@ -881,9 +889,15 @@
                                         <!-- <hr class="hr" *ngIf="x.category == s && !x.burn && !x.reqBurn" /> -->
                                     </ng-container>
                                 </div>
+
+
                             </div>
                             <!-- <hr class="hr" *ngIf=" showCat(products, s) && openedAccordianLists.includes(s)" /> -->
                         </div>
+
+
+
+                        
                     </div>
                 </div>
                 <div class="info_section" *ngIf="viewTyp == 'Offline' || storeTyp == 'Onli'">

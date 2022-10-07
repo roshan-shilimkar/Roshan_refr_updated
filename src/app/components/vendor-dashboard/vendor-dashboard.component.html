@@ -182,7 +182,7 @@
                                             placeholder="Enter Bill amount" [disabled]="makeChanges" required>
                                     </div>
                                     <div class="col-50">
-                                        <button mat-stroked-button color="danger" class=" c_red btnAccRej"
+                                        <button mat-stroked-button color="danger" class="c_red btnAccRej"
                                             (click)=" rejectReedem(x.id) " [disabled]="makeChanges">
                                             Reject
                                         </button>
@@ -208,8 +208,9 @@
                                 </div>
                                 <div class="d-flex-row">
                                     <ng-container>
-                                        <span class="mt-6" *ngIf="x.sin">{{ x.sin.toDate() | date:'MMM, dd, yyyy hh:mm'
-                                            }}</span>
+                                        <span class="mt-6" *ngIf="x.sin">
+                                            <!-- {{ x.sin.toDate() | date:'MMM, dd, yyyy hh:mm'}} -->
+                                        </span>
                                         <span class="mt-6" *ngIf="x.journey == 'POS' && campaign">Instant Cashback : {{
                                             getCampAmt( campaign, "cbDir") }}</span>
                                         <span class="mt-6" *ngIf="x.journey == 'POS' && campaign">Min Order Value : {{
@@ -281,8 +282,8 @@
                                 </div> -->
                             </div>
                         </div>
-                        <div class="d-flex-column d-sm-none d-md-block">
-                            <div class="redeem-item header col-100">
+                        <div class="d-flex-column d-sm-none d-md-block redeem-item">
+                            <div class=" header col-100">
                                 <div class="d-flex-row">
                                     <div class="col-25">
                                         <p class="text-primary">Details </p>
@@ -299,12 +300,14 @@
                                     <div class="col-5"></div>
                                 </div>
                             </div>
-                            <div class="redeem-item col-100" *ngFor="let x of paymentRedeem;let i = index">
+                            <div class="col-100" *ngFor="let x of paymentRedeem;let i = index">
                                 <div class="d-flex-row">
                                     <div class="col-25">
                                         <h5>{{x.userName || "No Name"}}</h5>
                                         <ng-container *ngIf="selectedredeemindex == i">
-                                            <p *ngIf="x.sin">{{ x.sin.toDate() | date:'MMM, dd, yyyy hh:mm' }}</p>
+                                            <p *ngIf="x.sin">
+                                                <!-- {{ x.sin.toDate() | date:'MMM, dd, yyyy hh:mm' }} -->
+                                            </p>
                                             <p *ngIf="x.journey == 'POS' && campaign">Min Order Value : {{
                                                 getCampAmt( campaign, "min") }}</p>
                                             <p *ngIf="x.journey == 'POS' && campaign && x.type == 'percent' "
@@ -317,7 +320,7 @@
                                     </div>
                                     <div class="col-25">
                                         <input class="bill-card" #amt type="number" value=""
-                                            placeholder="Enter Bill amount" [disabled]="makeChanges" required>
+                                            placeholder="Enter Bill amount" [disabled]="makeChanges" required><br><br>
                                         <div>
                                             <select [(ngModel)]="campaign" [class.col-none]="x.journey !== 'POS'"
                                                 name="camps" [disabled]="makeChanges" class="redeemselect" required>
@@ -339,7 +342,7 @@
                                         <div class="d-flex-column">
                                             <button mat-stroked-button class="outline-success b_green c_white btnAccRej"
                                                 (click)="acceptReedem(mine.acBalH, x, x.id, x.journey, amt?.value, x.camp, campaign, x.code)"
-                                                [disabled]="makeChanges">Accept</button> <br>
+                                                [disabled]="makeChanges">Accept</button><br>
                                             <ng-container *ngIf="selectedredeemindex == i">
                                                 <button mat-stroked-button class="c_red btnAccRej"
                                                     (click)=" rejectReedem(x.id) "
@@ -454,29 +457,38 @@
                     </div>
                 </div> -->
                 <!-- <br> -->
+
+
+
+
                 <div>
                     <div class="mat-card b_persist">
                         <div class="heading"> <b> Recent Orders </b> <a class="ml-auto view-details c_primary"
                                 routerLink="/my-order-list">View All</a> </div>
                         <!-- <hr> -->
+
+
+
+
+
+
                         <div class="d-flex-row-md d-flex-col-sm flex-wrap">
                             <!-- <ng-container *ngIf="paymentOrder$ | async as paymentOrder"> -->
-                            <div class="order-item border1px col-50 col-sm-100"
+                            <div class="order-item  col-50 col-sm-100"
                                 *ngFor="let x of paymentOrder; let i = index">
-                                <div *ngIf="
+                                <div class="lr5padding" *ngIf="
                             x.status > 0 || x.status < 0 || 
                             x.ordrTYPE == 'COD' && x.status == 0 ||
                             x.ordrTYPE == 'RefrCASH+COD' && x.status == 0 ||
                             x.invoice.useRefrCash && (x.invoice.amtRefrCash == x.amTotal)
                             ">
-                                    <div>
+                                    <div class="border1px">
                                         <div class="A15padding">
                                             <div class="d_flex">
                                                 <div class="col-50">
                                                     <!-- {{x.sin.toDate() | date:'MMM dd, yyyy | hh:mm'}} -->
                                                     23 Oct, 2022 07:20pm
                                                 </div>
-                                                <!-- <span ></span> -->
                                                 <div class="col-50 r_align">
                                                     <span *ngIf="x.cart.length >0 && x.journey=='BURN'"
                                                         class="burntxt boldtxt">Burn Order</span>
@@ -488,6 +500,7 @@
                                             </div>
                                             <div class="client_cont c_black">
                                                 <div class="align_center">{{x.userName}}</div>
+                                                <div>
                                                 <button class="expandbtn" *ngIf="x.cart.length > 0" mat-icon-button
                                                     (click)="selectedindex == i ? selectedindex = null : selectedindex = i">
                                                     <span>Order Detail's</span>
@@ -495,6 +508,7 @@
                                                         {{ selectedindex == i ? 'arrow_drop_up' : 'arrow_drop_down' }}
                                                     </mat-icon>
                                                 </button>
+                                            </div>
                                             </div>
                                             <div class="d-flex-row purple_txt">
                                                 <span *ngIf="x.journey=='F2F' || x.journey == 'POS' && x.refr != null"
@@ -505,7 +519,7 @@
                                                     class="boldtxt ">Direct Sale</span>
                                             </div>
                                             <div class="d-flex-row t5padding">
-                                                <div class="boldtxt c_black">Payment Method :
+                                                <div class="boldtxt c_black"><span>Payment Method : </span>
                                                     <span>
                                                         <span class="normal_txt"
                                                             *ngIf="x.ordrTYPE == 'CASH'">Cash</span>
@@ -524,9 +538,8 @@
                                                 </div>
                                             </div>
                                             <div class="d-flex-row t5padding" *ngIf="x.journey != 'BURN'">
-                                                <div class="boldtxt c_black">Cashback Given:
-                                                    <svg width="15" height="15" viewBox="0 0 18 18"
-                                                        style="margin-bottom: -4px;" fill="none"
+                                                <div class="boldtxt c_black"><span>Cashback Given : </span>
+                                                    <svg width="15" height="15" viewBox="0 0 18 18" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
@@ -697,8 +710,8 @@
                                                     *ngIf="x.journey == 'POS'">Complete</button>
                                                 <!--button class="status-chip b_primary c_white" mat-button *ngIf="x.journey == 'BURN' && x.status == 0">Burn</button-->
                                                 <select *ngIf=" 
-                                                        (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN') && x.status == 0 && (x.ordrTYPE == 'COD' || x.ordrTYPE == 'RefrCASH' ||x.ordrTYPE == 'RefrCASH+COD') ||
-                                                        (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN') && x.status == 1 && (x.ordrTYPE == 'ONLINE' ||x.ordrTYPE == 'RefrCASH+ONLINE') ||
+                                                        (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN') && x.status == 0 && (x.ordrTYPE == 'COD' || x.ordrTYPE == 'RefrCASH' || x.ordrTYPE == 'RefrCASH+COD') ||
+                                                        (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN') && x.status == 1 && (x.ordrTYPE == 'ONLINE' || x.ordrTYPE == 'RefrCASH+ONLINE') ||
                                                         false " #oStatePlaced [ngModel]=" 'Placed' "
                                                     (ngModelChange)=" ordrStatus(  x.journey, x , oStatePlaced.value ); oStatePlaced.value = 'Placed' "
                                                     name="ordrStatusPlaced" [disabled]="makeChanges" required
@@ -712,11 +725,11 @@
                                                 </select>
                                                 <button class="status-chip b_primary c_white" mat-button
                                                     *ngIf="
-                                                        x.logistics.require  && x.status == 10 && x.logistics.status == 10 && (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')"
+                                                        x.logistics.require && x.status == 10 && x.logistics.status == 10 && (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')"
                                                     (click)=" ordrStatus(  x.journey, x , 'Track' );">Shipping</button>
                                                 <select
                                                     *ngIf=" 
-                                                        !x.logistics.require  && x.status == 10 && x.logistics.status == 10 && (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')"
+                                                        !x.logistics.require && x.status == 10 && x.logistics.status == 10 && (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')"
                                                     #oStateShipping [ngModel]=" 'Shipping' "
                                                     (ngModelChange)="ordrStatus( x.journey, x , oStateShipping.value )"
                                                     name="ordrStatusShipping" [disabled]="makeChanges" required
@@ -733,7 +746,7 @@
 
 
 
-                                                <button class="rounded_btn delivered_btn " mat-button
+                                                <button class="rounded_btn delivered_btn" mat-button
                                                     *ngIf="x.status == 10 && x.logistics.status == 20 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Delivered</button>
                                                 <button class="rounded_btn reject_btn" mat-button
                                                     *ngIf="x.status == -10 && x.logistics.status == -10 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Rejected</button>
@@ -759,6 +772,17 @@
                         <!-- <app-content *ngIf="!(paymentOrder$ | async)"></app-content> -->
                     </div>
                 </div>
+
+
+
+
+
+
+
+
+
+
+
                 <!-- <br> -->
                 <div class="sendWhatever mat-card b_persist">
                     <div class="heading">
