@@ -178,7 +178,7 @@
                                 </div>
                                 <div class="d-flex-row mt-6">
                                     <div class="col-50 align_center">
-                                        <input class="bill-card" #amt type="number" [value]=""
+                                        <input class="bill-card" [(ngModel)]="amt" type="number" (keyup)="Amtchange()" (keydown)="Amtchange()"
                                             placeholder="Enter Bill amount" [disabled]="makeChanges" required>
                                     </div>
                                     <div class="col-50">
@@ -190,17 +190,18 @@
                                 </div>
                                 <div class="d-flex-row mt-4">
                                     <div class="col-50 align_center">
-                                        <select [(ngModel)]="campaign" [class.col-none]="x.journey !== 'POS'"
+                                        <!-- <select [(ngModel)]="campaign" [class.col-none]="x.journey !== 'POS'"
                                             name="camps" [disabled]="makeChanges" class="redeemselect" required>
                                             <option value="">No Campaign</option>
                                             <ng-container *ngFor="let c of campALL">
-                                                <option *ngIf="c.id" [value]="c.id">{{c.name}}</option>
+                                                <option *ngIf="c.id && (amt >= c.min)" [value]="c.id">{{c.name}}</option>
                                             </ng-container>
-                                        </select>
+                                        </select> -->
                                     </div>
+                                    
                                     <div class="col-50 ">
                                         <button mat-stroked-button class="outline-success b_green c_white btnAccRej"
-                                            (click)="acceptReedem(mine.acBalH, x, x.id, x.journey, amt?.value, x.camp, campaign, x.code)"
+                                            (click)="acceptReedem(mine.acBalH, x, x.id, x.journey, amt, x.camp, campaign, x.code)"
                                             [disabled]="makeChanges">
                                             Accept
                                         </button>
@@ -212,19 +213,20 @@
                                             <!-- {{ x.sin.toDate() | date:'MMM, dd, yyyy hh:mm'}} -->
                                         </span>
                                         <span class="mt-6" *ngIf="x.journey == 'POS' && campaign">Instant Cashback : {{
-                                            getCampAmt( campaign, "cbDir") }}</span>
+                                            getCampAmt( campaign, 1) }}</span>
                                         <span class="mt-6" *ngIf="x.journey == 'POS' && campaign">Min Order Value : {{
-                                            getCampAmt( campaign, "min") }} </span>
+                                            getCampAmt( campaign, 2) }} </span>
                                         <span class="mt-6"
                                             *ngIf="x.journey == 'POS' && campaign && x.type == 'percent' ">
-                                            Maximum Cashback : {{ getCampAmt( campaign, "max") }} </span>
+                                            Maximum Cashback : {{ getCampAmt( campaign,3) }} </span>
                                         <span class="mt-6" *ngIf="x.journey == 'F2F'">Instant Cashback :
                                             {{x.camp.cbNew}}</span>
                                         <span class="mt-6" *ngIf="x.journey == 'F2F'">Min Order Value :
                                             {{x.camp.min}}</span>
                                         <span class="mt-6" *ngIf="x.journey == 'F2F' && x.type == 'percent'">Maximum
                                             Cashback :
-                                            {{x.camp.max}}</span>
+                                            {{x.camp.max}}
+                                        </span>
                                     </ng-container>
                                 </div>
                                 <!-- <div class="d-flex-row">
@@ -309,39 +311,40 @@
                                                 <!-- {{ x.sin.toDate() | date:'MMM, dd, yyyy hh:mm' }} -->
                                             </p>
                                             <p *ngIf="x.journey == 'POS' && campaign">Min Order Value : {{
-                                                getCampAmt( campaign, "min") }}</p>
+                                                getCampAmt( campaign,2) }}</p>
                                             <p *ngIf="x.journey == 'POS' && campaign && x.type == 'percent' "
                                                 class="text-primary">Maximum Cashback : {{ getCampAmt( campaign,
-                                                "max") }}</p>
+                                                3) }}</p>
                                             <p *ngIf="x.journey == 'F2F'">Min Order Value : {{x.camp.min}}</p>
                                             <p *ngIf="x.journey == 'F2F' && x.type == 'percent'" class="text-primary">
                                                 Maximum Cashback : {{x.camp.max}}</p>
                                         </ng-container>
                                     </div>
                                     <div class="col-25">
-                                        <input class="bill-card" #amt type="number" value=""
+                                        <input class="bill-card" [(ngModel)]="amt" type="number" (keyup)="Amtchange()" (keydown)="Amtchange()"
                                             placeholder="Enter Bill amount" [disabled]="makeChanges" required><br><br>
-                                        <div>
-                                            <select [(ngModel)]="campaign" [class.col-none]="x.journey !== 'POS'"
+                                            
+                                            <div>
+                                            <!-- <select [(ngModel)]="campaign" [class.col-none]="x.journey !== 'POS'"
                                                 name="camps" [disabled]="makeChanges" class="redeemselect" required>
                                                 <option value="">No Campaign</option>
                                                 <ng-container *ngFor="let c of campALL">
-                                                    <option *ngIf="c.id" [value]="c.id">{{c.name}}</option>
+                                                    <option *ngIf="c.id && (amt >= c.min)" [value]="c.id">{{c.name}}</option>
                                                 </ng-container>
-                                            </select>
+                                            </select> -->
                                         </div>
                                     </div>
                                     <div class="col-25">
                                         <div class="cashback-card">
                                             <span *ngIf="x.journey == 'POS' && campaign"> {{ getCampAmt( campaign,
-                                                "cbDir") }} </span>
+                                                1) }} </span>
                                             <span *ngIf="x.journey == 'F2F'"> {{x.camp.cbNew}} </span>
                                         </div>
                                     </div>
                                     <div class="col-15">
                                         <div class="d-flex-column">
                                             <button mat-stroked-button class="outline-success b_green c_white btnAccRej"
-                                                (click)="acceptReedem(mine.acBalH, x, x.id, x.journey, amt?.value, x.camp, campaign, x.code)"
+                                                (click)="acceptReedem(mine.acBalH, x, x.id, x.journey, amt, x.camp, campaign, x.code)"
                                                 [disabled]="makeChanges">Accept</button><br>
                                             <ng-container *ngIf="selectedredeemindex == i">
                                                 <button mat-stroked-button class="c_red btnAccRej"
@@ -603,7 +606,7 @@
                                                 <ng-container *ngFor="let c of x.cart;let i = index">
                                                     <div class="d-flex-row c_black t10padding">
                                                         <div class="col-75">
-                                                            <span>{{c.Q}} X </span><span>{{c.title}}</span>
+                                                            <span class="s_size">{{c.Q}} X </span><span class="boldtxt">{{c.title}}</span>
                                                         </div>
                                                         <!-- <div class="col-50 r_align" *ngIf="c.vX.length > 0">
                                                             {{c.vX.length}} Varients & {{c.Q}}X items

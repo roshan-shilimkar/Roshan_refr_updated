@@ -118,9 +118,9 @@
 
         <div class="roshan">
             <!-- <div class="container card-panel-list m-auto" *ngIf="payments$ | async as payments"> -->
-                <div class="bold fs-18 textL">Refr cash transactions
-                </div>
-                <br>
+            <div class="bold fs-18 textL">Refr cash transactions
+            </div>
+            <br>
 
 
 
@@ -129,109 +129,30 @@
 
 
 
-                <p class="textL" *ngIf="payments?.length == 0">You have no transactions</p>
-                <div class="b_white c_black" *ngFor="let x of payments;let i = index">
-                    <ng-container
-                        *ngIf="mine.uid == x.by || mine.uid !== x.by && x.refr?.earn > 0 && (x.cart.length <= 0 && x.status == 10 || x.cart.length > 0 && x.done !== undefined)">
-                        <div class="transaction-card">
-                            <div class="row">
-                                <div class="col-100">
-                                    <div class="transactions_detail">
-                                        <div *ngIf="x.status == undefined || x.status <= 0 && x.status !== -10"
-                                            class="failed_tran b5padding">
-                                            Failed Transaction
+            <p class="textL" *ngIf="payments?.length == 0">You have no transactions</p>
+            <div class="b_white c_black" *ngFor="let x of payments;let i = index">
+                <ng-container
+                    *ngIf="mine.uid == x.by || mine.uid !== x.by && x.refr?.earn > 0 && (x.cart.length <= 0 && x.status == 10 || x.cart.length > 0 && x.done !== undefined)">
+                    <div class="transaction-card">
+                        <div class="row">
+                            <div class="col-100">
+                                <div class="transactions_detail">
+                                    <div *ngIf=" x.status == undefined || ((x.ordrTYPE !== 'RefrCASH' && (x.status <= 0 && x.status !== -10)) || (x.ordrTYPE == 'RefrCASH' && ( x.id !== undefined && x.status < 0 && x.status !== -10))) "
+                                        class="failed_tran b5padding">
+                                        Failed Transaction 
+                                    </div>
+                                    <div *ngIf="x.cart.length == 0 && x.status == -10" class="failed_tran b5padding">
+                                        Request Rejected
+                                    </div>
+                                    <div class="d_flex">
+                                        <div class="trans_title">
+                                            <span *ngIf="x.journey !== 'ADMIN'">{{x.storeName}}</span><span
+                                                *ngIf="x.journey == 'ADMIN'">Refr Credits</span>
                                         </div>
-                                        <div *ngIf="x.cart.length == 0 && x.status == -10"
-                                            class="failed_tran b5padding">
-                                            Request Rejected
-                                        </div>
-                                        <div class="d_flex">
-                                            <div class="trans_title">
-                                                <span *ngIf="x.journey !== 'ADMIN'">{{x.storeName}}</span><span
-                                                    *ngIf="x.journey == 'ADMIN'">Refr Credits</span>
-                                            </div>
-                                            <span class="divide"></span>
-                                            <div>
-                                                <span *ngIf="x.journey !== 'ADMIN' && mine.uid == x.by">₹</span>
-                                                <span *ngIf="x.journey == 'ADMIN'">
-                                                    <svg width="18" height="18" viewBox="0 0 18 18"
-                                                        style="margin-bottom: -4px;" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
-                                                            fill="#FECB00" />
-                                                        <path
-                                                            d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
-                                                            fill="#EFA900" />
-                                                        <path
-                                                            d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
-                                                            fill="#E19100" />
-                                                        <path
-                                                            d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
-                                                            fill="#E19100" />
-                                                        <path
-                                                            d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
-                                                            fill="#FECB00" />
-                                                        <path
-                                                            d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
-                                                            fill="#FECB00" />
-                                                        <path
-                                                            d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
-                                                            fill="#E19100" />
-                                                        <path
-                                                            d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
-                                                            fill="#E19100" />
-                                                        <path
-                                                            d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
-                                                            fill="#FECB00" />
-                                                        <path
-                                                            d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
-                                                            fill="#FECB00" />
-                                                    </svg>
-                                                </span> <span
-                                                    *ngIf="x.journey == 'ADMIN' || (x.journey !== 'ADMIN' && mine.uid == x.by)">{{x.amTotal
-                                                    | number:'1.0-2'}}</span>
-                                            </div>
-                                        </div>
-                                        <div class="t5padding" *ngIf="x.journey !== 'ADMIN' && mine.uid == x.by">
-                                            <span *ngIf="x.cart == undefined || x.cart.length == 0">In-store
-                                                purchase</span>
-                                            <span *ngIf="x.cart !== undefined && x.cart.length > 0">Online
-                                                purchase</span>
-                                        </div>
-
-
-
-
-
-
-
-
-
-
-                                        <div class="dflex" *ngIf="x.journey !== 'BURN' && x.journey !== 'ADMIN'">
-                                            <div class="t5padding"
-                                                *ngIf="x.refr == null && x.status !== -10 && (x.journey == 'POS' || x.journey == 'DIRECT' && x.done !== undefined  || x.journey == 'F2F' && x.cart.length <= 0 )">
-                                                Shoutout given
-                                            </div>
-                                            <div class="t5padding"
-                                                *ngIf="x.refr !== null && mine.uid == x.by && x.status !== -10 && x.journey == 'F2F'">
-                                                using <span class="primary">{{x.refr?.name}}'s</span>
-                                                Recommendation
-                                            </div>
-                                            <div class="t5padding"
-                                                *ngIf="x.refr !== null && mine.uid !== x.by && x.status !== -10 && x.journey == 'F2F'">
-                                                Recommendation used by <span class="primary">{{x.userName}}</span>
-                                            </div>
-                                            <div class="t5padding" *ngIf="x.cart.length > 0 && x.status == -10">
-                                                Refund Order
-                                            </div>
-
-                                            <span class="divide"></span>
-                                            <!-- <div *ngIf="((x.journey == 'F2F' && (x.cart.length <= 0 || ( x.cart.length > 0 &&  mine.uid !== x.by  && x.done !== undefined))) ||  x.journey == 'POS') && x.status !== -10 " > -->
-                                            <div class="t5padding"
-                                                *ngIf="(mine.uid == x.by && x.earn > 0 || mine.uid !== x.by && x.refr?.earn > 0 ) && ((x.journey == 'DIRECT' || x.journey == 'F2F' &&  x.cart.length > 0 ) && x.done !== undefined || (x.journey == 'POS' || x.journey == 'F2F' && x.cart.length <= 0 && x.status == 10 ))">
-                                                <span class="earned">Earned</span>
+                                        <span class="divide"></span>
+                                        <div>
+                                            <span *ngIf="x.journey !== 'ADMIN' && mine.uid == x.by">₹</span>
+                                            <span *ngIf="x.journey == 'ADMIN'">
                                                 <svg width="18" height="18" viewBox="0 0 18 18"
                                                     style="margin-bottom: -4px;" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -266,17 +187,92 @@
                                                         d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
                                                         fill="#FECB00" />
                                                 </svg>
-                                                <span *ngIf="mine.uid !== x.by">{{x.refr?.earn}}</span>
-                                                <span *ngIf="mine.uid == x.by">{{x.earn}}</span>
-                                            </div>
-                                            <span *ngIf="x.cart.length > 0 && x.status == -10">{{x.amTotal}}</span>
+                                            </span> <span
+                                                *ngIf="x.journey == 'ADMIN' || (x.journey !== 'ADMIN' && mine.uid == x.by)">{{x.amTotal
+                                                | number:'1.0-2'}}</span>
                                         </div>
+                                    </div>
+                                    <div class="t5padding" *ngIf="x.journey !== 'ADMIN' && mine.uid == x.by">
+                                        <span *ngIf="x.cart == undefined || x.cart.length == 0">In-store
+                                            purchase</span>
+                                        <span *ngIf="x.cart !== undefined && x.cart.length > 0">Online
+                                            purchase</span>
+                                    </div>
 
+
+
+
+
+
+
+
+
+
+                                    <div class="dflex" *ngIf="x.journey !== 'BURN' && x.journey !== 'ADMIN'">
                                         <div class="t5padding"
-                                            *ngIf="x.journey == 'BURN' && x.journey !== 'ADMIN' && mine.uid == x.by">
-                                            via Burn
+                                            *ngIf="x.refr == null && x.status !== -10 && (x.journey == 'POS' || x.journey == 'DIRECT' && x.done !== undefined  || x.journey == 'F2F' && x.cart.length <= 0 )">
+                                            Shoutout given
+                                        </div>
+                                        <div class="t5padding"
+                                            *ngIf="x.refr !== null && mine.uid == x.by && x.status !== -10 && x.journey == 'F2F'">
+                                            using <span class="primary">{{x.refr?.name}}'s</span>
+                                            Recommendation
+                                        </div>
+                                        <div class="t5padding"
+                                            *ngIf="x.refr !== null && mine.uid !== x.by && x.status !== -10 && x.journey == 'F2F'">
+                                            Recommendation used by <span class="primary">{{x.userName}}</span>
+                                        </div>
+                                        <div class="t5padding" *ngIf="x.cart.length > 0 && x.status == -10">
+                                            Refund Order
                                         </div>
 
+                                        <span class="divide"></span>
+                                        <!-- <div *ngIf="((x.journey == 'F2F' && (x.cart.length <= 0 || ( x.cart.length > 0 &&  mine.uid !== x.by  && x.done !== undefined))) ||  x.journey == 'POS') && x.status !== -10 " > -->
+                                        <div class="t5padding"
+                                            *ngIf="(mine.uid == x.by && x.earn > 0 || mine.uid !== x.by && x.refr?.earn > 0 ) && ((x.journey == 'DIRECT' || x.journey == 'F2F' &&  x.cart.length > 0 ) && x.done !== undefined || (x.journey == 'POS' || x.journey == 'F2F' && x.cart.length <= 0 && x.status == 10 ))">
+                                            <span class="earned">Earned</span>
+                                            <svg width="18" height="18" viewBox="0 0 18 18" style="margin-bottom: -4px;"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                    fill="#FECB00" />
+                                                <path
+                                                    d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                    fill="#EFA900" />
+                                                <path d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                    fill="#E19100" />
+                                                <path
+                                                    d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                    fill="#E19100" />
+                                                <path
+                                                    d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                    fill="#FECB00" />
+                                                <path
+                                                    d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                    fill="#FECB00" />
+                                                <path
+                                                    d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                    fill="#E19100" />
+                                                <path
+                                                    d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                    fill="#E19100" />
+                                                <path
+                                                    d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                    fill="#FECB00" />
+                                                <path
+                                                    d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                    fill="#FECB00" />
+                                            </svg>
+                                            <span *ngIf="mine.uid !== x.by">{{x.refr?.earn}}</span>
+                                            <span *ngIf="mine.uid == x.by">{{x.earn}}</span>
+                                        </div>
+                                        <span *ngIf="x.cart.length > 0 && x.status == -10">{{x.amTotal}}</span>
+                                    </div>
+
+                                    <div class="t5padding"
+                                        *ngIf="x.journey == 'BURN' && x.journey !== 'ADMIN' && mine.uid == x.by">
+                                        via Burn
+                                    </div>
 
 
 
@@ -284,22 +280,102 @@
 
 
 
-                                        <div *ngIf="expandedindex === i">
-                                            <div *ngIf="x.ordrTYPE == 'CASH'" class="gray_txt xxs_size">
-                                                Paid directly at store.
+
+                                    <div *ngIf="expandedindex === i">
+                                        <div *ngIf="x.ordrTYPE == 'CASH'" class="gray_txt xxs_size">
+                                            Paid directly at store.
+                                        </div>
+                                        <div class="t5padding gray_txt" *ngIf="x.ordrTYPE !== 'CASH'">
+                                            Payment Method :
+                                            <span
+                                                *ngIf="x.ordrTYPE == 'RefrCASH+ONLINE' || x.ordrTYPE !== 'RefrCASH+COD'">
+                                                <span *ngIf="x.ordrTYPE == 'ONLINE'">Online</span>
+                                                <span *ngIf="x.ordrTYPE == 'RefrCASH'">Refr Cash</span>
+                                                <span *ngIf="x.ordrTYPE == 'COD'">COD</span>
+                                            </span>
+                                        </div>
+                                        <div class="l10padding gray_txt xxs_size">
+                                            <div *ngIf="x.invoice.useRefrCash == true && x.ordrTYPE !== 'RefrCASH'">
+                                                Refr Cash :
+                                                <svg width="18" height="18" viewBox="0 0 18 18"
+                                                    style="margin-bottom: -4px;" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                        fill="#FECB00" />
+                                                    <path
+                                                        d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                        fill="#EFA900" />
+                                                    <path
+                                                        d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                        fill="#E19100" />
+                                                    <path
+                                                        d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                        fill="#E19100" />
+                                                    <path
+                                                        d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                        fill="#FECB00" />
+                                                    <path
+                                                        d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                        fill="#FECB00" />
+                                                    <path
+                                                        d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                        fill="#E19100" />
+                                                    <path
+                                                        d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                        fill="#E19100" />
+                                                    <path
+                                                        d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                        fill="#FECB00" />
+                                                    <path
+                                                        d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                        fill="#FECB00" />
+                                                </svg>
+                                                {{x.invoice.amtRefrCash}}
                                             </div>
-                                            <div class="t5padding gray_txt" *ngIf="x.ordrTYPE !== 'CASH'">
-                                                Payment Method :
-                                                <span
-                                                    *ngIf="x.ordrTYPE == 'RefrCASH+ONLINE' || x.ordrTYPE !== 'RefrCASH+COD'">
-                                                    <span *ngIf="x.ordrTYPE == 'ONLINE'">Online</span>
-                                                    <span *ngIf="x.ordrTYPE == 'RefrCASH'">Refr Cash</span>
-                                                    <span *ngIf="x.ordrTYPE == 'COD'">COD</span>
-                                                </span>
+                                            <div
+                                                *ngIf="x.invoice.useRefrCash == true && (x.ordrTYPE == 'RefrCASH+ONLINE' || x.ordrTYPE == 'RefrCASH+COD')">
+                                                <span *ngIf="x.ordrTYPE == 'RefrCASH+ONLINE'">Online
+                                                    :</span>
+                                                <span *ngIf="x.ordrTYPE == 'RefrCASH+COD'">COD :</span>
+                                                {{x.amCost}}
                                             </div>
-                                            <div class="l10padding gray_txt xxs_size">
-                                                <div *ngIf="x.invoice.useRefrCash == true && x.ordrTYPE !== 'RefrCASH'">
-                                                    Refr Cash :
+                                        </div>
+                                    </div>
+                                    <div class="dflex">
+                                        <div class="Tran_date">
+                                            <!-- {{x.sin.toDate()|date:'dd, MMM, hh:mm' }} -->
+                                        </div>
+                                        <span class="divide"></span>
+                                        <div *ngIf="x.journey !== 'ADMIN' && (mine.uid == x.by || x.status == -10)">
+                                            <button
+                                                (click)="expandedindex == i ? expandedindex = null : expandedindex = i"
+                                                class="expandbtn">
+                                                <mat-icon>
+                                                    {{ expandedindex === i ? 'expand_less' : 'expand_more'
+                                                    }}
+                                                </mat-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transaction-card"
+                        *ngIf="(x.journey == 'DIRECT' || (x.journey == 'F2F' && x.cart.length > 0 && mine.uid == x.by)) && x.earn > 0 && x.done !== undefined && x.status == 10">
+                        <div class="row">
+                            <div class="col-100">
+                                <ng-container>
+                                    <div class="transactions_detail">
+                                        <div class="d_flex">
+                                            <div class="trans_title">
+                                                <span>{{x.storeName}}</span>
+                                            </div>
+                                            <span class="divide"></span>
+                                            <div>
+                                                <span>
+                                                    <span class="earned">Earned</span>
                                                     <svg width="18" height="18" viewBox="0 0 18 18"
                                                         style="margin-bottom: -4px;" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
@@ -334,113 +410,33 @@
                                                             d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
                                                             fill="#FECB00" />
                                                     </svg>
-                                                    {{x.invoice.amtRefrCash}}
-                                                </div>
-                                                <div
-                                                    *ngIf="x.invoice.useRefrCash == true && (x.ordrTYPE == 'RefrCASH+ONLINE' || x.ordrTYPE == 'RefrCASH+COD')">
-                                                    <span *ngIf="x.ordrTYPE == 'RefrCASH+ONLINE'">Online
-                                                        :</span>
-                                                    <span *ngIf="x.ordrTYPE == 'RefrCASH+COD'">COD :</span>
-                                                    {{x.amCost}}
-                                                </div>
+                                                </span>
+                                                <span>
+                                                    {{x.earn | number:'1.0-2'}}
+                                                </span>
                                             </div>
+                                        </div>
+                                        <div class="t5padding">
+                                            Online purchase
+                                        </div>
+                                        <div class="d_flex" *ngIf="x.refr == null">
+                                            Shoutout given
+                                        </div>
+                                        <div *ngIf="x.refr !== null && x.journey == 'F2F'">
+                                            using <span class="primary">{{x.refr?.name}}'s</span> Recommendation
                                         </div>
                                         <div class="dflex">
                                             <div class="Tran_date">
-                                                {{x.sin.toDate()|date:'dd, MMM, hh:mm' }}
-                                            </div>
-                                            <span class="divide"></span>
-                                            <div
-                                                *ngIf="x.journey !== 'ADMIN' && (mine.uid == x.by || x.status == -10)">
-                                                <button
-                                                    (click)="expandedindex == i ? expandedindex = null : expandedindex = i"
-                                                    class="expandbtn">
-                                                    <mat-icon>
-                                                        {{ expandedindex === i ? 'expand_less' : 'expand_more'
-                                                        }}
-                                                    </mat-icon>
-                                                </button>
+                                                <!-- {{ x.sin.toDate()|date:'dd, MMM, hh:mm' }} -->
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </ng-container>
                             </div>
                         </div>
-                        <div class="transaction-card"
-                            *ngIf="(x.journey == 'DIRECT' || (x.journey == 'F2F' && x.cart.length > 0 && mine.uid == x.by)) && x.earn > 0 && x.done !== undefined && x.status == 10">
-                            <div class="row">
-                                <div class="col-100">
-                                    <ng-container>
-                                        <div class="transactions_detail">
-                                            <div class="d_flex">
-                                                <div class="trans_title">
-                                                    <span>{{x.storeName}}</span>
-                                                </div>
-                                                <span class="divide"></span>
-                                                <div>
-                                                    <span>
-                                                        <span class="earned">Earned</span>
-                                                        <svg width="18" height="18" viewBox="0 0 18 18"
-                                                            style="margin-bottom: -4px;" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
-                                                                fill="#FECB00" />
-                                                            <path
-                                                                d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
-                                                                fill="#EFA900" />
-                                                            <path
-                                                                d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
-                                                                fill="#E19100" />
-                                                            <path
-                                                                d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
-                                                                fill="#E19100" />
-                                                            <path
-                                                                d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
-                                                                fill="#FECB00" />
-                                                            <path
-                                                                d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
-                                                                fill="#FECB00" />
-                                                            <path
-                                                                d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
-                                                                fill="#E19100" />
-                                                            <path
-                                                                d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
-                                                                fill="#E19100" />
-                                                            <path
-                                                                d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
-                                                                fill="#FECB00" />
-                                                            <path
-                                                                d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
-                                                                fill="#FECB00" />
-                                                        </svg>
-                                                    </span>
-                                                    <span>
-                                                        {{x.earn | number:'1.0-2'}}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="t5padding">
-                                                Online purchase
-                                            </div>
-                                            <div class="d_flex" *ngIf="x.refr == null">
-                                                Shoutout given
-                                            </div>
-                                            <div *ngIf="x.refr !== null && x.journey == 'F2F'">
-                                                using <span class="primary">{{x.refr?.name}}'s</span> Recommendation
-                                            </div>
-                                            <div class="dflex">
-                                                <div class="Tran_date">
-                                                    {{ x.sin.toDate()|date:'dd, MMM, hh:mm' }}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </ng-container>
-                                </div>
-                            </div>
-                        </div>
-                    </ng-container>
-                </div>
+                    </div>
+                </ng-container>
+            </div>
             <!-- </div> -->
             <br><br>
         </div>

@@ -13,9 +13,337 @@ export class CustomerWalletComponent implements OnInit {
   mine = {
     acBalC: 1000,
     acBalCr: 500.3222,
-    uid: "GdViTqOv51YIsNxHV58LpXpx99n1",
+    uid: "jyAHGdwpx6Yc6k6ecr0xzvkZh8v1",
   }
   payments: Array<any> = [
+    {
+        "userName": "Aditya",
+        "logistics": {
+            "phone": "8879751140",
+            "status": 0,
+            "addressPickT": "shop",
+            "typeCat": "supermarket",
+            "PnD_parcelNotFree": false,
+            "PnD_nationCharge": 0,
+            "name": "Aditya",
+            "addressDrop": {
+                "type": "home",
+                "landmark": "Sumeru tower",
+                "address": "Amrut kunj CHS Sai kunj bhavan G/002 ganesh nagar tisgaon kalyan east",
+                "zip": 421306
+            },
+            "require": false,
+            "PnD_freeStart": 0,
+            "PnD_cityCharge": 0,
+            "addressPick": {
+                "nation": "IND",
+                "line1": "2217 Solus ",
+                "zip": "400607",
+                "id": "IND_MH_1657089479303",
+                "area": "hirana",
+                "region": "Maharashtra",
+                "city": "Thane",
+                "locality": "Thane",
+                "lat": 19.2591372,
+                "state": "MH",
+                "line2": "",
+                "lon": 72.9844401
+            },
+            "typeShop": "Onli",
+            "typeOrdr": "BURN",
+            "typeSuCat": "supermarket-any",
+            "email": "",
+            "addressDropT": "home"
+        },
+        "by": "jyAHGdwpx6Yc6k6ecr0xzvkZh8v1",
+        "id": "Uw7PVdY0z3gFOTCnzgqD",
+        "com": {
+            "seconds": 1665135695,
+            "nanoseconds": 781000000
+        },
+        "camp": null,
+        "earn": 0,
+        "status": 0,
+        "amBurst": 134,
+        "amTaxTDS": 0,
+        "refr": null,
+        "upd": {
+            "seconds": 1665135695,
+            "nanoseconds": 781000000
+        },
+        "amTax": 0,
+        "amTaxTCS": 1.34,
+        "amParcelCity": false,
+        "amGateway": 0,
+        "type": [
+            "RefrCASH",
+            "jyAHGdwpx6Yc6k6ecr0xzvkZh8v1",
+            "7HRRyBvNstY7i2Fvd4ES6ryhiBX2",
+            "uq7KsHGVWUSLiPuIituu",
+            "storeORDER",
+            "clientAc",
+            "addORDER",
+            "BURN",
+            null
+        ],
+        "code": null,
+        "sin": {
+            "seconds": 1665135695,
+            "nanoseconds": 781000000
+        },
+        "amTotal": 134,
+        "amCost": 0,
+        "amParcel": 0,
+        "amSave": 149,
+        "to": "7HRRyBvNstY7i2Fvd4ES6ryhiBX2",
+        "journey": "BURN",
+        "invoice": {
+            "amtRefrCash": 134,
+            "useRefrCash": true,
+            "COD": false
+        },
+        "cart": [
+            {
+                "burnCat": "electronics",
+                "title": "Shut Up And Take My Money Card With Window Exclusive",
+                "burn": true,
+                "cost": 134,
+                "quota": 0,
+                "variants": [
+                    {
+                        "name": "Rectangular Chip",
+                        "type": "size"
+                    },
+                    {
+                        "type": "size",
+                        "name": "Square Chip"
+                    }
+                ],
+                "banners": [
+                    "https://firebasestorage.googleapis.com/v0/b/refr/o/store%2FeG6GeTZube1KUxPk0LsI1658568756449?alt=media&token=4d40d9d6-75e7-4739-8d1d-cb88a902f72a"
+                ],
+                "reqBurn": false,
+                "description": "Are you bored of your plain and dull card? Why not turn it into something more exciting? Say by adding a new layer of oomph and elegance with a customized WrapCart skin! This vinyl card skin is easy to apply and remove and leaves absolutely no residue. And best of all it doesn’t cost a bomb to make your card look like ‘da bomb’!",
+                "flash": false,
+                "burnBrand": "Wrapcart",
+                "burnDec": "Are you bored of your plain and dull card? Why not turn it into something more exciting? Say by adding a new layer of oomph and elegance with a customized WrapCart skin! This vinyl card skin is easy to apply and to remove and leaves absolutely no residue. And best of all- it doesn’t cost a bomb to make your card look like ‘da bomb’! Elevate your card to be a reflection of you with WrapCart. We at WrapCart bring you a fun and quirky collection of skins to place on your debit and credit card to bring it to life! WrapCart is proud to be a market leader due to our revolutionary Bank Card Skins.    Whether it be a gold, silver, platinum, diamond, or titanium card we use only the most premium high-quality vinyl to create our credit card skins and debit card skins. Don’t worry, the adhesives and vinyl we use doesn’t stain, discolor, or leave any residue on your precious card. We use the best technology that helps eliminate bubbles and wrinkles. It also makes your card easy to apply or remove. Our debit card covers and credit card covers fit smoothly and evenly to make your card look the best. By taking into account the shape of the chip on your card, we provide the perfect fit.",
+                "vX": [
+                    {
+                        "countQ": 1,
+                        "nowVarient": [
+                            {
+                                "name": "Rectangular Chip",
+                                "type": "size"
+                            }
+                        ],
+                        "id": "eG6GeTZube1KUxPk0LsI"
+                    }
+                ],
+                "category": "Card Skins",
+                "burnPic": "https://firebasestorage.googleapis.com/v0/b/refr/o/store%2FeG6GeTZube1KUxPk0LsI1658572519649?alt=media&token=9d1ee76a-7690-427b-adad-9aaae05d89fd",
+                "burnPics": [
+                    "https://firebasestorage.googleapis.com/v0/b/refr/o/store%2FeG6GeTZube1KUxPk0LsI1658572519649?alt=media&token=9d1ee76a-7690-427b-adad-9aaae05d89fd",
+                    "https://firebasestorage.googleapis.com/v0/b/refr/o/store%2FeG6GeTZube1KUxPk0LsI1658572525696?alt=media&token=22542cdf-03fd-4b1b-90ae-8f2c2a4528ce",
+                    "https://firebasestorage.googleapis.com/v0/b/refr/o/store%2FeG6GeTZube1KUxPk0LsI1658572530997?alt=media&token=86883188-5647-46fc-b6df-0a5601d29d70"
+                ],
+                "by": "7HRRyBvNstY7i2Fvd4ES6ryhiBX2",
+                "code": 391690,
+                "relate": [],
+                "burnDecShort": "Shut Up And Take My Money Card With Window Exclusive",
+                "Q": 1,
+                "burnHigh": "But wait. All that sounds good but will my card work? YES absolutely! We at WrapCart designed our card skins to be thin enough to allow you to Tap, Swipe, and Insert as usual!\n ",
+                "sin": {
+                    "seconds": 1658567590,
+                    "nanoseconds": 872000000
+                },
+                "warranty": true,
+                "upd": {
+                    "seconds": 1664357292,
+                    "nanoseconds": 718000000
+                },
+                "id": "eG6GeTZube1KUxPk0LsI",
+                "burnSpec": "Best price- check. Bragging right- check. High quality material- check. ",
+                "storeINFO": {
+                    "cat": "supermarket",
+                    "email": "aditya@wrapcart.com",
+                    "id": "uq7KsHGVWUSLiPuIituu",
+                    "sin": {
+                        "seconds": 1657089478,
+                        "nanoseconds": 362000000
+                    },
+                    "shareUrlB1": "https://refrclub.com/o/F8a4",
+                    "banners": [],
+                    "subCat": "supermarket-any",
+                    "longLinkP1": "https://refrclub.com/o/?link=https%3A%2F%2Fapp.refr.club%2Fp1%2Fuq7KsHGVWUSLiPuIituu&apn=club.refr.app&afl=https%3A%2F%2Fapp.refr.club%2Fp1%2Fuq7KsHGVWUSLiPuIituu&ibi=club.refr.app&ifl=https%3A%2F%2Fapp.refr.club%2Fp1%2Fuq7KsHGVWUSLiPuIituu&ofl=club.refr.app&st=Wrapcart&sd=We%E2%80%99re%20pretty%20up%20and%20coming%20in%20terms%20of%20our%20scale%2C%20but%20the%20grandiose%20of%20our%20vision%20surrenders%20to%20one%20thing%2C%20and%20one%20thing%20only%2C%20%E2%80%98The%20Customer%E2%80%99s%20Service%E2%80%99.%20Here%20at%20WrapCart%2C%20we%20provide%20the%20coolest%2C%20the%20strongest%20and%20the%20dopest%20wraps%20that%20you%20could%20imagine.&si=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Frefr%2Fo%2Fstore%252Fuq7KsHGVWUSLiPuIituuLOGO1657089479953%3Falt%3Dmedia%26token%3Df4e5979d-eaf7-4a97-9fb9-5274d2c1f3c2",
+                    "userInfo": {
+                        "sin": {
+                            "seconds": 1657089203,
+                            "nanoseconds": 127000000
+                        },
+                        "acBalCr": 0,
+                        "uid": "7HRRyBvNstY7i2Fvd4ES6ryhiBX2",
+                        "display": "",
+                        "tokenSNS": "cpM42O_STD5iuOYVgDgCPz:APA91bGZEXWQour7nqFHtKflkoFdWh5DtdtP4fqN3wvBKgQBF6DnkKIJLzjCbGd_l1Slv_NClWWCvE_mji_2mNQGaJAwVFqDjmK-tg_5avyczXqtXzijOOx_lOyZxkJ0LAEjJZRA2PQx",
+                        "phone": "+919819987275",
+                        "soWA": "9819987275",
+                        "acBalH": 1660,
+                        "cashback": 50,
+                        "storeCam": [
+                            "TO8Q9oKX0EhFd9l4s66z"
+                        ],
+                        "soIG": "wrap_cart",
+                        "acBalP": 0,
+                        "email": "aditya@wrapcart.com",
+                        "ban": false,
+                        "storeLoc": [
+                            "uq7KsHGVWUSLiPuIituu"
+                        ],
+                        "soYT": "UCV_RTI77_poRtSY9lCIbl-A",
+                        "note": [
+                            {
+                                "info": "Hi Gold Pirates India LLP welcome to Refr",
+                                "URL": "",
+                                "sin": 1657089204164,
+                                "by": "Refr"
+                            }
+                        ],
+                        "upd": {
+                            "seconds": 1664451915,
+                            "nanoseconds": 623000000
+                        },
+                        "soFB": "WrapCartOfficial/",
+                        "acBalVr": 548,
+                        "soTW": "",
+                        "tokenSNS_": [
+                            "cpM42O_STD5iuOYVgDgCPz:APA91bGZEXWQour7nqFHtKflkoFdWh5DtdtP4fqN3wvBKgQBF6DnkKIJLzjCbGd_l1Slv_NClWWCvE_mji_2mNQGaJAwVFqDjmK-tg_5avyczXqtXzijOOx_lOyZxkJ0LAEjJZRA2PQx"
+                        ],
+                        "coin": "INR",
+                        "log": {
+                            "seconds": 1657089203,
+                            "nanoseconds": 127000000
+                        },
+                        "acBalV": 0,
+                        "iso": "IND",
+                        "emails": [],
+                        "emailV": false,
+                        "axess": [
+                            "phone"
+                        ],
+                        "name": "Gold Pirates India LLP",
+                        "acBalC": 0
+                    },
+                    "loc": [
+                        {
+                            "state": "MH",
+                            "lon": 72.9844401,
+                            "city": "Thane",
+                            "lat": 19.2591372,
+                            "line2": "",
+                            "nation": "IND",
+                            "line1": "2217 Solus ",
+                            "region": "Maharashtra",
+                            "area": "hirana",
+                            "locality": "Thane",
+                            "id": "IND_MH_1657089479303",
+                            "zip": "400607"
+                        }
+                    ],
+                    "longLinkV1": "https://refrclub.com/o/?link=https%3A%2F%2Fapp.refr.club%2Fv1%2Fuq7KsHGVWUSLiPuIituu&apn=club.refr.app&afl=https%3A%2F%2Fapp.refr.club%2Fv1%2Fuq7KsHGVWUSLiPuIituu&ibi=club.refr.app&ifl=https%3A%2F%2Fapp.refr.club%2Fv1%2Fuq7KsHGVWUSLiPuIituu&ofl=club.refr.app&st=Wrapcart&sd=We%E2%80%99re%20pretty%20up%20and%20coming%20in%20terms%20of%20our%20scale%2C%20but%20the%20grandiose%20of%20our%20vision%20surrenders%20to%20one%20thing%2C%20and%20one%20thing%20only%2C%20%E2%80%98The%20Customer%E2%80%99s%20Service%E2%80%99.%20Here%20at%20WrapCart%2C%20we%20provide%20the%20coolest%2C%20the%20strongest%20and%20the%20dopest%20wraps%20that%20you%20could%20imagine.&si=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Frefr%2Fo%2Fstore%252Fuq7KsHGVWUSLiPuIituuLOGO1657089479953%3Falt%3Dmedia%26token%3Df4e5979d-eaf7-4a97-9fb9-5274d2c1f3c2",
+                    "phone": "9819987275",
+                    "banner": "https://firebasestorage.googleapis.com/v0/b/refr/o/store%2Fuq7KsHGVWUSLiPuIituuPOST1657089482097?alt=media&token=c48e73f0-a006-4385-8fc6-8ea43a69966a",
+                    "type": "Onli",
+                    "shareUrlV1": "https://refrclub.com/o/bzNQ",
+                    "name": "WrapCart",
+                    "log": {
+                        "seconds": 1657089478,
+                        "nanoseconds": 362000000
+                    },
+                    "about": "We’re pretty up and coming in terms of our scale, but the grandiose of our vision surrenders to one thing, and one thing only, ‘The Customer’s Service’. Here at WrapCart, we provide the coolest, the strongest and the dopest wraps that you could imagine.",
+                    "longLinkB1": "https://refrclub.com/o/?link=https%3A%2F%2Fapp.refr.club%2Fb1%2Fuq7KsHGVWUSLiPuIituu&apn=club.refr.app&afl=https%3A%2F%2Fapp.refr.club%2Fb1%2Fuq7KsHGVWUSLiPuIituu&ibi=club.refr.app&ifl=https%3A%2F%2Fapp.refr.club%2Fb1%2Fuq7KsHGVWUSLiPuIituu&ofl=club.refr.app&st=Wrapcart&sd=We%E2%80%99re%20pretty%20up%20and%20coming%20in%20terms%20of%20our%20scale%2C%20but%20the%20grandiose%20of%20our%20vision%20surrenders%20to%20one%20thing%2C%20and%20one%20thing%20only%2C%20%E2%80%98The%20Customer%E2%80%99s%20Service%E2%80%99.%20Here%20at%20WrapCart%2C%20we%20provide%20the%20coolest%2C%20the%20strongest%20and%20the%20dopest%20wraps%20that%20you%20could%20imagine.&si=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Frefr%2Fo%2Fstore%252Fuq7KsHGVWUSLiPuIituuLOGO1657089479953%3Falt%3Dmedia%26token%3Df4e5979d-eaf7-4a97-9fb9-5274d2c1f3c2",
+                    "schedule": {
+                        "openFriS": "07:00",
+                        "openFri": true,
+                        "openThuE": "23:00",
+                        "openWedE": "23:00",
+                        "opensDailyS": "07:00",
+                        "openWed": true,
+                        "openSun": false,
+                        "openTueE": "23:00",
+                        "openFriE": "23:00",
+                        "opensDailyE": "23:00",
+                        "opensDaily": true,
+                        "openThu": true,
+                        "openSunE": "23:00",
+                        "openSat": true,
+                        "openSatE": "23:00",
+                        "openWedS": "07:00",
+                        "openMonS": "07:00",
+                        "openSunS": "07:00",
+                        "openTueS": "07:00",
+                        "openTue": true,
+                        "openThuS": "07:00",
+                        "openSatS": "07:00",
+                        "openMon": true,
+                        "openMonE": "23:00"
+                    },
+                    "cashback": 50,
+                    "addedDynamicLink": true,
+                    "proCat": [
+                        "Mobile Acessories",
+                        "Laptop Acessories",
+                        "Organizers",
+                        " Mobile Acessories ",
+                        "Bags ",
+                        "Ipad Sleeves",
+                        "Card Skins",
+                        "I Watch Acessories",
+                        "Audio TWS Acessories",
+                        "Car Stickers",
+                        "Bumper Stickers",
+                        "CAR SIDE MIRROR DECALS",
+                        "Bike Fuel Tank Decals",
+                        "Laptop Stickers",
+                        "Duffel Bag"
+                    ],
+                    "upd": {
+                        "seconds": 1662551142,
+                        "nanoseconds": 68000000
+                    },
+                    "shareUrlX1": "https://refrclub.com/o/N4uT",
+                    "shareUrlP1": "https://refrclub.com/o/VY2j",
+                    "typeORDER": {
+                        "freeStart": 0,
+                        "logistics": false,
+                        "refund": false,
+                        "COD": false,
+                        "phoneHide": true,
+                        "return": false,
+                        "nationCharge": 0,
+                        "cityCharge": 0,
+                        "delivery": "Nationwide",
+                        "exchange": false,
+                        "freeParcel": false
+                    },
+                    "longLinkX1": "https://refrclub.com/o/?link=https%3A%2F%2Fapp.refr.club%2Fx1%2Fuq7KsHGVWUSLiPuIituu&apn=club.refr.app&afl=https%3A%2F%2Fapp.refr.club%2Fx1%2Fuq7KsHGVWUSLiPuIituu&ibi=club.refr.app&ifl=https%3A%2F%2Fapp.refr.club%2Fx1%2Fuq7KsHGVWUSLiPuIituu&ofl=club.refr.app&st=Wrapcart&sd=We%E2%80%99re%20pretty%20up%20and%20coming%20in%20terms%20of%20our%20scale%2C%20but%20the%20grandiose%20of%20our%20vision%20surrenders%20to%20one%20thing%2C%20and%20one%20thing%20only%2C%20%E2%80%98The%20Customer%E2%80%99s%20Service%E2%80%99.%20Here%20at%20WrapCart%2C%20we%20provide%20the%20coolest%2C%20the%20strongest%20and%20the%20dopest%20wraps%20that%20you%20could%20imagine.&si=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Frefr%2Fo%2Fstore%252Fuq7KsHGVWUSLiPuIituuLOGO1657089479953%3Falt%3Dmedia%26token%3Df4e5979d-eaf7-4a97-9fb9-5274d2c1f3c2",
+                    "products": 83,
+                    "addedDynamicLinkP1": true,
+                    "logo": "https://firebasestorage.googleapis.com/v0/b/refr/o/store%2Fuq7KsHGVWUSLiPuIituuLOGO1657089479953?alt=media&token=f4e5979d-eaf7-4a97-9fb9-5274d2c1f3c2",
+                    "by": "7HRRyBvNstY7i2Fvd4ES6ryhiBX2"
+                },
+                "content": false,
+                "sold": 0,
+                "burnCatSub": "Nope",
+                "costBurn": 120.6,
+                "sid": "uq7KsHGVWUSLiPuIituu",
+                "price": 149
+            }
+        ],
+        "amSale": 149,
+        "sid": "uq7KsHGVWUSLiPuIituu",
+        "storeName": "WrapCart",
+        "ordrTYPE": "RefrCASH",
+        "amRefr": 9.38
+    },
     // //refr Credits
     // {
     //   amCost: 100,

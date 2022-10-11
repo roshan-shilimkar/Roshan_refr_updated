@@ -3,6 +3,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { ShareAdvocacyComponent } from 'src/app/share-advocacy/share-advocacy.component';
 import { ShareLoyaltyComponent } from 'src/app/share-loyalty/share-loyalty.component';
 
+export interface camptype {
+  id: string,
+  min: number,
+  name: string,
+  cbDir: number
+}
+
 @Component({
   selector: 'app-vendor-dashboard',
   templateUrl: './vendor-dashboard.component.html',
@@ -12,6 +19,7 @@ export class VendorDashboardComponent implements OnInit {
   selectedindex: any = null;
   selectedredeemindex: any = null;
   campaign: string = "";
+  amt: any;
   store = {
     logo: 'https://firebasestorage.googleapis.com/v0/b/refr/o/store%2F8B9ozj7aTPvywkIvVWiK1660307759328?alt=media&token=9e4c087f-e482-44a2-83ae-84fc29dde809',
     name: 'Fit Foods',
@@ -1190,8 +1198,25 @@ export class VendorDashboardComponent implements OnInit {
   }
   ]
 
-  campALL: any = [
-
+  campALL: Array<camptype> = [
+    {
+      id: "1",
+      min: 100,
+      name: "Camp - 100",
+      cbDir: 50
+    },
+    {
+      id: "2",
+      min: 1000,
+      name: "Camp - 1000",
+      cbDir: 10
+    },
+    {
+      id: "3",
+      min: 1500,
+      name: "Camp - 1500",
+      cbDir: 100
+    },
   ]
 
   constructor(public dialog: MatDialog,) { }
@@ -1199,13 +1224,60 @@ export class VendorDashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getCampAmt(c: any, cb: number) {
+
+    // cbDir == cb ==1
+    // min == cb ==2
+    // max == cb ==3
+
+
+    if (!c) { return 0 } else {
+
+      const x = this.campALL.findIndex(x => x.id == c);
+      if (cb == 1) {
+        return this.campALL[x].cbDir || 0;
+      }
+      else if (cb == 2) {
+        return this.campALL[x].min || 0;
+      }
+      else {
+        // return this.campALL[x].max || 0;
+      }
+    }
+  }
+
   getVARIENT(v: any) {
     console.log("MANKIND", v)
     return v.type + ": " + v.name;
   }
 
-  getCampAmt(a: any, b: string) {
+  Amtchange() {
+    let camparr: Array<camptype> = [];
+    for (let i = 0; i < this.campALL.length; i++) {
+      // console.log("I = " + i);
 
+      if (this.amt >= this.campALL[i].min) {
+        camparr.push({
+          id: this.campALL[i].id,
+          min: this.campALL[i].min,
+          cbDir: this.campALL[i].cbDir,
+          name: this.campALL[i].name,
+        })
+      }
+    }
+    // console.log("camparr   before    " + JSON.stringify(camparr));
+    if (camparr.length > 0) {
+      camparr = camparr.sort(function (a, b) { return b.cbDir - a.cbDir });
+      // console.log(camparr[0].id);
+      this.campaign = camparr[0].id;
+    }
+    else {
+      this.campaign = "";
+
+    }
+    console.log("campaign " + this.campaign);
+
+    // console.log("camparr   after    " +  JSON.parse(camparr[0].id));
   }
 
   ordrStatus(journey: string, ordr: any, setStatus: any) {

@@ -100,6 +100,7 @@ header {
     border-radius: 3px;
     width: 38px;
     margin-left: auto;
+
     img {
         width: 38px;
         min-height: 38px;
@@ -232,7 +233,7 @@ header {
         gap: 5px;
         align-items: center;
 
-        p { 
+        p {
             font-size: 12px !important;
             line-height: 18px !important;
             font-weight: 500;
@@ -499,6 +500,7 @@ hr {
         align-items: center;
         margin: 2px;
         transition: all 0.1s ease-in-out;
+
         img {
             width: 12px;
         }
@@ -827,15 +829,18 @@ hr {
     border-width: 5px;
 }
 
+.products_details:last-child {
+    border-bottom: none;
+}
 
 .all_products {
+    border-bottom: 1px solid #cfcfcf;
+
     .product_section {
         display: flex;
         justify-content: space-between;
-        padding: 10px 15px;
+        padding: 15px;
         font-size: 16px;
-        border-bottom: 1px solid #cfcfcf;
-        border-top: 1px solid #cfcfcf;
         align-items: center;
 
         p {
@@ -848,11 +853,11 @@ hr {
 
 .products_details {
     display: flex;
-    padding: 15px 0 15px 15px;
+    padding: 15px;
     border-bottom: 1px solid #E3E3E3;
 
     .products_summary {
-        width: 65%;
+        width: Calc(100% - 100px);
         align-self: center;
 
         .product_name {
@@ -902,7 +907,7 @@ hr {
 .img_add {
     background-size: contain;
     background-position: center;
-    width: 35%;
+    width: 100px;
     text-align: center;
     position: relative;
     overflow: hidden;

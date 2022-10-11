@@ -1,20 +1,15 @@
 <div class="all_products" *ngFor="let s of proCat">
     <div class="product_section" (click)="showAccordion(s)" *ngIf=" showCat(products, s) && searchTHEM.length == 0 ">
         <span>{{s}}</span>
-        <mat-icon>{{openedAccordianLists.includes(s) ? 'expand_less' : 'expand_more'}}</mat-icon>
+        <mat-icon>{{openedAccordianLists.includes(s) ? 'expand_more' : 'expand_less'}}</mat-icon>
     </div>
-    <!-- <hr class="hr"  *ngIf=" showCat(products, s) && openedAccordianLists.includes(s)" /> -->
-
-    
-
-    <div *ngFor="let x of products">
-        <ng-container *ngIf="!openedAccordianLists.includes(x.category)  && searchTHEM.length == 0 || searchTHEM.length > 0 && checkSearch(x.title) ">
-
-        <div  *ngIf="x.category == s && !x.burn && !x.reqBurn ">
+    <!-- <hr class="hr" *ngIf=" showCat(products, s) && openedAccordianLists.includes(s)" /> -->
+    <ng-container *ngFor="let x of products">
+        <ng-container *ngIf="(!openedAccordianLists.includes(x.category) && searchTHEM.length == 0 || searchTHEM.length > 0 && checkSearch(x.title)) && (x.category == s && !x.burn && !x.reqBurn) ">
             <div class="products_details">
                 <div class="products_summary">
                     <div class="product_name" (click)="openDetail(x.id, x.variants, x)" >{{x.title}}</div>
-                    <div *ngIf="x.description !== 'Σ'" class="product_desc limitTextHeight">{{x.description}}</div>
+                    <div *ngIf="x.description !== 'Σ' && x.description !== '.'" class="product_desc limitTextHeight">{{x.description}}</div>
                     <div class="discount_final">
                         <span class="dis_price" *ngIf="x.cost < x.price">₹{{x.price}}</span>
                         <span class="final_price">₹{{x.cost}}</span>
@@ -23,7 +18,6 @@
                 </div>
                 <div class="img_add" [style]="x.banners.length > 0 && !imagesLoaded.includes(x.id) ? 'background-image: url(assets/other/locate.svg);' : '' ">
                     <img (click)="openDetail(x.id, x.variants, x)" [class.imgLoaded]="imagesLoaded.includes(x.id)" *ngIf="x.banners.length > 0" [src]="x.banners[0]" (load)="imagesLoaded.push(x.id)" alt="" />
-
                     <div>
                         <ng-container *ngIf="!auth.myCart.includes(x.id)">
                     <div class="add_button">
@@ -33,14 +27,7 @@
                             </button>
                             </div>
                         </ng-container>
-
                         <ng-container *ngIf="auth.myCart.includes(x.id)">
-                    <!-- <div class="add_button Addminusbtn"> -->
-                            <!-- <div class="add-sub-button-container">
-                                <button class="add-sub-button" (click)="showAndHideAddToCard(x.id, x.variants, false, x)">-</button>
-                                <button class="add-sub-button">{{getCartItemLength(x.id)}}</button>
-                                <button class="add-sub-button" (click)="showAndHideAddToCard(x.id, x.variants, true, x)">+</button>
-                            </div> -->
                             <div class="add_button Addminusbtn">
                                 <button class="add-sub-button"
                                     (click)="showAndHideAddToCard(x.id, x.variants, false, x)">-</button>
@@ -53,8 +40,7 @@
                     </div>
                 </div>
             </div>
-        </div>
         <!-- <hr class="hr" *ngIf="x.category == s && !x.burn && !x.reqBurn" /> -->
         </ng-container>
-    </div>
+    </ng-container>
 </div>

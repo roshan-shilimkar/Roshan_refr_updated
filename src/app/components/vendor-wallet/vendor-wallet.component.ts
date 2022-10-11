@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { of, Observable } from 'rxjs';
 import { VendorHIWComponent } from '../vendor-hiw/vendor-hiw.component';
-import { jsPDF }  from 'jspdf';
+import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'app-vendor-wallet',
@@ -10,19 +10,34 @@ import { jsPDF }  from 'jspdf';
   styleUrls: ['./vendor-wallet.component.scss']
 })
 export class VendorWalletComponent {
-  asdasdasdd:string="asdasdasdasdaeae";
+  // asdasdasdd:string="asdasdasdasdaeae";
   payments$: Observable<any> = of();
   activated: number = 1;
   expandedindex: any = null;
   expandedchildindex: any = null;
-  @ViewChild('content', { static :false}) el!:ElementRef; 
-  Data = [  
-    { Id: 101, Name: 'Nitin', Salary: 1234 },  
-    { Id: 102, Name: 'Sonu', Salary: 1234 },  
-    { Id: 103, Name: 'Mohit', Salary: 1234 },  
-    { Id: 104, Name: 'Rahul', Salary: 1234 },  
-    { Id: 105, Name: 'Kunal', Salary: 1234 }  
-  ]; 
+  invoicedata: {
+    storename: string,
+    shopaddress: string,
+    orderId: string,
+    orderdate: any,
+    Cust_name: string,
+    Cust_Phone_No: string,
+    billing_address: string,
+    // Shipping_address:string,
+    cart: any,
+    parcelcost: number,
+    Fulltotal: number,
+    Tax: number,
+    AMtWords:any,
+  };
+  @ViewChild('content', { static: false }) el!: ElementRef;
+  Data = [
+    { Id: 101, Name: 'Nitin', Salary: 1234 },
+    { Id: 102, Name: 'Sonu', Salary: 1234 },
+    { Id: 103, Name: 'Mohit', Salary: 1234 },
+    { Id: 104, Name: 'Rahul', Salary: 1234 },
+    { Id: 105, Name: 'Kunal', Salary: 1234 }
+  ];
 
   mine = {
     acBalV: 2323,
@@ -32,6 +47,116 @@ export class VendorWalletComponent {
 
 
   payments: Array<any> = [
+
+    // Instore purchase,Payment Method = Cash
+    {
+      amBurst: 0,
+      amCost: 0,
+      amGateway: 0,
+      amParcel: 0,
+      amParcelCity: false,
+      amRefr: 0,
+      amSale: 0,
+      amSave: 0,
+      amTax: 0,
+      amTaxTCS: 0,
+      amTaxTDS: 0,
+      amTotal: 1098.3,
+      by: "zn99lfRpB4bDy4KBvu4K1QpSMBk2",
+      camp: {
+        ban: false,
+        by: "zn99lfRpB4bDy4KBvu4K1QpSMBk2",
+        cbDir: 25,
+        cbExi: 50,
+        cbNew: 100,
+        countM: 0,
+        countP: 0,
+        countS: 0,
+        customAct: false,
+        customPay: 0,
+        dateE: { seconds: 1665772200, nanoseconds: 0 },
+        dateS: { seconds: 1661970600, nanoseconds: 0 },
+        expiry: false,
+        id: "d3Kcq7I3sCdzWMPgD9Rm",
+        max: 0,
+        min: 999,
+        name: "Campaign-32",
+        paid: false,
+        paused: false,
+        sid: "8B9ozj7aTPvywkIvVWiK",
+        sin: { seconds: 1661587074, nanoseconds: 781000000 },
+        stage: 0,
+        stoped: false,
+        storeTyp: "Both",
+        tX: "t1",
+        type: "flat",
+        upd: { seconds: 1661587074, nanoseconds: 781000000 },
+      },
+      cart: [],
+      code: null,
+      com: { seconds: 1662635390, nanoseconds: 187000000 },
+      done: { seconds: 1662635408, nanoseconds: 444000000 },
+      earn: 25,
+      id: "o4UKmfTD0L4z7EvkT45A",
+      invoice: { amtRefrCash: 0, COD: false, useRefrCash: false },
+      journey: "POS",
+      logistics: {
+        PnD_cityCharge: 0,
+        PnD_freeStart: 0,
+        PnD_nationCharge: 0,
+        PnD_parcelNotFree: false,
+        addressDrop: {
+          address: "801, Kanaiya kutir, 14th road, Linking Road, Khar ",
+          landmark: "Near Naturals ",
+          type: "home",
+          zip: 400050
+        },
+        addressDropT: "home",
+        addressPick: {
+          area: "Dent Heal",
+          city: "Mumbai Suburban",
+          id: "IND_MH_1648672299398",
+          lat: 19.0662066,
+          line1: "Dipesadsadas sadasdas",
+          line2: "",
+          locality: "Mumbai",
+          lon: 72.83105909999999,
+          nation: "IND",
+          region: "Maharashtra",
+          state: "MH",
+          zip: "400050"
+        },
+        addressPickT: "shop",
+        email: "",
+        name: "Rati ",
+        phone: "9619566685",
+        require: false,
+        status: 20,
+        typeCat: "food_and_beverages",
+        typeOrdr: "DIRECT_ONLINE",
+        typeShop: "Both",
+        typeSuCat: "sc-food_and_beverages-restaurants"
+      },
+      ordrTYPE: "CASH",
+      refr: null,
+      sid: "8B9ozj7aTPvywkIvVWiK",
+      sin: { seconds: 1662635308, nanoseconds: 292000000 },
+      status: 10,
+      storeName: "Fit Food",
+      to: "zn99lfRpB4bDy4KBvu4K1QpSMBk2",
+      type: [
+        "COD",
+        "7ARbHhRULKXaSsWV9A5sRjmAPwB2",
+        "zn99lfRpB4bDy4KBvu4K1QpSMBk2",
+        "8B9ozj7aTPvywkIvVWiK",
+        "addORDER",
+        "storeORDER",
+        "clientAc",
+        "DIRECT"
+      ],
+      upd: { seconds: 1662635308, nanoseconds: 292000000 },
+      userName: "Rati "
+    },
     //withdrwal transactions
     {
       amTotal: 1000,
@@ -3416,41 +3541,80 @@ export class VendorWalletComponent {
   ];
 
   constructor(private _bottomSheet: MatBottomSheet) {
+
+
+
+    this.invoicedata = {
+      storename: "",
+      shopaddress: "",
+      orderId: "",
+      orderdate: "",
+      Cust_name: "",
+      Cust_Phone_No: "",
+      billing_address: "",
+      cart: "",
+      parcelcost: 0,
+      Fulltotal: 0,
+      Tax: 0,
+      AMtWords:''
+    }
   }
 
   ngOnInit(): void {
-
   }
 
   getrefilvalue(rates: Array<any>, total: any) {
     return rates[rates.findIndex(rates => rates.total == total)].refill;
   }
 
-   SavePDF() {
-    let doc = new jsPDF('p','pt',[1400,1500]);  
-    doc.html(this.el.nativeElement,{
-      callback:(pdf)=>{
+  SavePDF() {
+    let doc = new jsPDF('p', 'pt', [1400, 1500]);
+    doc.html(this.el.nativeElement, {
+      callback: (pdf) => {
         pdf.save("demo.pdf");
       }
-    })
-    // let _elementHandlers =  
-    // {  
-    //   '#editor':function(element,renderer){  
-    //     return true;  
-    //   }  
-    // };  
-    // doc.fromHTML(content.innerHTML,15,15,{  
-  
-    //   'width':190,  
-    //   'elementHandlers':_elementHandlers  
-    // });  
-  // doc.text("new PDF",10 ,10);
-  //   doc.save('test.pdf');  
-  } 
+    });
+  }
 
   howitworks() {
     this._bottomSheet.open(VendorHIWComponent, {
       panelClass: 'storepage',
     });
+  }
+
+  Downloadinvoice(x: any) {
+    console.log(x);
+    this.invoicedata = {
+      storename: x.storeName,
+      shopaddress: x.logistics.addressPick.line1 + "," + x.logistics.addressPick.zip + "," + x.logistics.addressPick.locality,
+      orderId: x.id,
+      orderdate: x.sin,
+      Cust_name: x.userName,
+      Cust_Phone_No: x.logistics.phone,
+      billing_address: x.logistics.addressDrop.address + "," + x.logistics.addressDrop.zip + "," + x.logistics.addressDrop.landmark,
+      cart: x.cart,
+      parcelcost: x.amParcel,
+      Fulltotal: x.amTotal,
+      Tax: x.amTax,
+      AMtWords:this.convertinstring((parseInt(x.amTotal)).toString()),
+    }
+    // this.SavePDF();
+    console.log(this.invoicedata);
+  }
+
+
+  convertinstring(num: string) {
+    var a = ['', 'one ', 'two ', 'three ', 'four ', 'five ', 'six ', 'seven ', 'eight ', 'nine ', 'ten ', 'eleven ', 'twelve ', 'thirteen ', 'fourteen ', 'fifteen ', 'sixteen ', 'seventeen ', 'eighteen ', 'nineteen '];
+    var b = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+    if ((num = num.toString()).length > 9) return 'overflow';
+    let fullnO = '000000000' + num;
+    let n: any = (fullnO).substring((fullnO.length - 9), fullnO.length).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+    if (!n) return; var str = '';
+    str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'crore ' : '';
+    str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'lakh ' : '';
+    str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'thousand ' : '';
+    str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'hundred ' : '';
+    str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + 'only ' : '';
+    return str;
   }
 }
