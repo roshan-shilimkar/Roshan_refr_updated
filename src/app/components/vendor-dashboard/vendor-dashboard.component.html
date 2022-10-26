@@ -20,8 +20,62 @@
                     </div>
                 </div>
                 <div class="mat-card">
-                    <div class="statistics d-flex-row">
-                        <div class="d-flex-column col-50 mr-10">
+                    <div class="statistics ld_dFlex">
+                        <div class="space_cont d_flex col-50 col-sm-100 mt-10">
+                            <div class="col-45 col-sm-40 card mr-5 ml-5 d_flex A10padding space_cont ">
+                                <div class="col-15 col-sm-20 mr-5 align_center">
+                                    <!-- <button mat-flat-button class="icon-button"> -->
+                                    <img width="100%"
+                                        src="https://biz.refr.club/assets/foreign/lucky/sideicons/heart.png" alt="">
+                                    <!-- </button> -->
+                                </div>
+                                <div class="col-90 col-sm-80 r_align align_center">
+                                    <span>Your Customers</span><br>
+                                    <b>{{store.vFan}}</b>
+                                </div>
+                            </div>
+                            <div class="col-45 col-sm-40 card mr-5 ml-5 d_flex A10padding space_cont">
+                                <div class="col-15 col-sm-20 mr-5 align_center">
+                                    <!-- <button mat-flat-button class="icon-button"> -->
+                                    <img width="100%"
+                                        src="https://biz.refr.club/assets/foreign/lucky/sideicons/orders.png" alt="">
+                                    <!-- </button> -->
+                                </div>
+                                <div class="col-90 col-sm-80 r_align">
+                                    <span>Orders</span><br>
+                                    <b>{{store.vOrdr}}</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space_cont d_flex col-50 col-sm-100 mt-10">
+
+                            <div class="col-45 col-sm-40 card mr-5 ml-5 d_flex A10padding space_cont">
+                                <div class="col-15 col-sm-20 mr-5 align_center">
+                                    <!-- <button mat-flat-button class="icon-button"> -->
+                                    <img width="100%"
+                                        src="https://biz.refr.club/assets/foreign/lucky/sideicons/dollar.png" alt="">
+                                    <!-- </button> -->
+                                </div>
+                                <div class="col-90 col-sm-80 r_align">
+                                    <span>Your Earnings</span><br>
+                                    <b>{{store.vEarn}}</b>
+                                </div>
+                            </div>
+                            <div class="col-45 col-sm-40 card mr-5 ml-5 d_flex A10padding space_cont">
+                                <div class="col-15 col-sm-20 mr-5 align_center">
+                                    <!-- <button mat-flat-button class="icon-button"> -->
+                                    <img width="100%"
+                                        src="https://biz.refr.club/assets/foreign/lucky/sideicons/campaigns.png" alt="">
+                                    <!-- </button> -->
+                                </div>
+                                <br>
+                                <div class="col-90 col-sm-80 r_align">
+                                    <span>Campaign Wallet</span> <br>
+                                    <b>{{mine.acBalH}}</b>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="d-flex-column col-50 mr-10">
                             <div class="col-100 mb-5">
                                 <div class="card-purple card mat-card c_black">
                                     <div class="d-flex-row mr-md-15 mr-sm-10 align-items-center">
@@ -56,8 +110,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-50">
+                        </div> -->
+                        <!-- <div class="col-50">
                             <div class="card-white card mat-card c_black">
                                 <div class="d-flex-column">
                                     <div class="d-flex-row align-items-center">
@@ -89,7 +143,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!-- <br> -->
@@ -119,15 +173,11 @@
                                 <!-- </div> -->
                             </span>
                         </div>
-                        <hr>
                         <!-- <ng-container *ngIf="paymentRedeem$ | async as paymentRedeem"> -->
                         <div class="d-flex-column d-md-none d-sm-block">
-                            <div class="redeem-item" *ngFor="let x of paymentRedeem;let i = index">
+                            <div class="redeem-item A10padding" *ngFor="let x of paymentRedeem;let i = index">
                                 <div class="d-flex-row mt-6">
-                                    <div class="col-50 m_size boldtxt align_center">
-                                        {{x.userName || "No Name"}}
-                                    </div>
-                                    <div class="col-50 r_align">
+                                    <div class="col-50 align_center d_flex">
                                         <svg *ngIf="x.journey == 'F2F'" width="25" height="25" viewBox="0 0 20 20"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect width="20" height="20" rx="3" fill="#8500E2" />
@@ -152,8 +202,6 @@
                                                 </clipPath>
                                             </defs>
                                         </svg>
-
-
                                         <svg *ngIf="x.journey != 'F2F'" width="25" height="25" viewBox="0 0 20 20"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect width="20" height="20" rx="3" fill="#8500E2" />
@@ -164,8 +212,16 @@
                                                 d="M10.3333 9.66667C11.622 9.66667 12.6667 8.622 12.6667 7.33333C12.6667 6.04467 11.622 5 10.3333 5C9.04467 5 8 6.04467 8 7.33333C8 8.622 9.04467 9.66667 10.3333 9.66667Z"
                                                 stroke="white" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-
-
+                                        <span class="align_center m_size l5padding">{{x.userName || "No Name"}}</span>
+                                    </div>
+                                    <div class="col-20"></div>
+                                    <div class="col-30 r_align align_center xs_size">
+                                        <button mat-stroked-button color="danger" class="c_red btnAccRej"
+                                            (click)=" rejectReedem(x.id) " [disabled]="makeChanges">
+                                            Reject
+                                        </button>
+                                        <!-- {{ x.sin.toDate() | date:'MMM, dd, yyyy hh:mm'}} -->
+                                        <!-- 23 Oct, 2022 07:20pm  -->
                                         <!-- <button class="expandbtn" mat-icon-button
                                             (click)="selectedredeemindex == i ? selectedredeemindex = null : selectedredeemindex = i">
                                             Show <span *ngIf="selectedredeemindex == i">Less</span><span
@@ -178,18 +234,170 @@
                                 </div>
                                 <div class="d-flex-row mt-6">
                                     <div class="col-50 align_center">
-                                        <input class="bill-card" [(ngModel)]="amt" type="number" (keyup)="Amtchange()" (keydown)="Amtchange()"
+                                        <input class="bill-card" [(ngModel)]="x.enteredamt" type="number"
+                                            (keyup)="Amtchange(x,i)" (keydown)="Amtchange(x,i)"
                                             placeholder="Enter Bill amount" [disabled]="makeChanges" required>
+                                        <br>
+                                        <div class="xxs_size l5padding" *ngIf="x.journey == 'F2F'">
+                                            Min. Campaign value : Rs. {{x.camp.min}}
+                                        </div>
                                     </div>
-                                    <div class="col-50">
-                                        <button mat-stroked-button color="danger" class="c_red btnAccRej"
-                                            (click)=" rejectReedem(x.id) " [disabled]="makeChanges">
-                                            Reject
+                                    <div class="col-20"></div>
+                                    <div class="col-30">
+                                        <button mat-stroked-button class="outline-success b_green c_white btnAccRej"
+                                            (click)="acceptReedem(mine.acBalH, x, x.id, x.journey, amt?.value, x.camp, campaign, x.code)"
+                                            [disabled]="makeChanges">
+                                            Accept
                                         </button>
                                     </div>
                                 </div>
                                 <div class="d-flex-row mt-4">
-                                    <div class="col-50 align_center">
+                                    <div class="col-50 xs_size align_center">
+                                        <span class="d_flex" *ngIf="x.journey == 'POS' && campaign">
+                                            Instant Cashback <svg class="align_center" width="15" height="15"
+                                                viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                    fill="#FECB00" />
+                                                <path
+                                                    d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                    fill="#EFA900" />
+                                                <path d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                    fill="#E19100" />
+                                                <path
+                                                    d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                    fill="#E19100" />
+                                                <path
+                                                    d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                    fill="#FECB00" />
+                                                <path
+                                                    d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                    fill="#FECB00" />
+                                                <path
+                                                    d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                    fill="#E19100" />
+                                                <path
+                                                    d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                    fill="#E19100" />
+                                                <path
+                                                    d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                    fill="#FECB00" />
+                                                <path
+                                                    d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                    fill="#FECB00" />
+                                            </svg>
+                                            <span *ngIf="camparr[0].type != 'percent'">
+                                                {{camparr[0].cbDir}}
+                                            </span>
+                                            <span *ngIf="camparr[0].type == 'percent'">
+                                                {{((camparr[0].cbDir * x.enteredamt) / 100) > camparr[0].max ?
+                                                camparr[0].max : ((camparr[0].cbDir * x.enteredamt) / 100)}}
+                                            </span>
+                                        </span>
+                                        <span *ngIf="x.journey == 'F2F' && x.enteredamt >= x.camp.min">
+                                            <div *ngIf="x.camp.type == 'percent'">
+                                                <div class="d_flex">
+                                                    Instant Cashback :
+                                                    <svg class="align_center" width="15" height="15" viewBox="0 0 18 18"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                            fill="#FECB00" />
+                                                        <path
+                                                            d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                            fill="#EFA900" />
+                                                        <path
+                                                            d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                            fill="#E19100" />
+                                                        <path
+                                                            d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                            fill="#E19100" />
+                                                        <path
+                                                            d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                            fill="#FECB00" />
+                                                        <path
+                                                            d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                            fill="#FECB00" />
+                                                        <path
+                                                            d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                            fill="#E19100" />
+                                                        <path
+                                                            d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                            fill="#E19100" />
+                                                        <path
+                                                            d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                            fill="#FECB00" />
+                                                        <path
+                                                            d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                            fill="#FECB00" />
+                                                    </svg>
+                                                    {{ (((x.camp.cbNew * x.enteredamt) / 100) > x.camp.max ?
+                                                    x.camp.max
+                                                    : ((x.camp.cbNew * x.enteredamt) / 100)) +
+                                                    (((x.camp.cbExi * x.enteredamt) / 100) >
+                                                    x.camp.max ? x.camp.max : ((x.camp.cbExi * x.enteredamt) / 100)) }}
+                                                </div>
+                                            </div>
+                                            <div *ngIf="x.camp.type != 'percent'">
+                                                <svg *ngIf="x.journey == 'F2F' && campaign" class="align_center"
+                                                    width="15" height="15" viewBox="0 0 18 18" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                        fill="#FECB00" />
+                                                    <path
+                                                        d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                        fill="#EFA900" />
+                                                    <path
+                                                        d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                        fill="#E19100" />
+                                                    <path
+                                                        d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                        fill="#E19100" />
+                                                    <path
+                                                        d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                        fill="#FECB00" />
+                                                    <path
+                                                        d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                        fill="#FECB00" />
+                                                    <path
+                                                        d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                        fill="#E19100" />
+                                                    <path
+                                                        d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                        fill="#E19100" />
+                                                    <path
+                                                        d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                        fill="#FECB00" />
+                                                    <path
+                                                        d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                        fill="#FECB00" />
+                                                </svg> {{x.camp.cbNew + x.camp.cbExi}}
+                                            </div>
+                                            <!-- {{x.camp.cbNew}}  aaaaaa 
+                                                {{x.camp.cbNew  }}  -->
+                                        </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                         <!-- <select [(ngModel)]="campaign" [class.col-none]="x.journey !== 'POS'"
                                             name="camps" [disabled]="makeChanges" class="redeemselect" required>
                                             <option value="">No Campaign</option>
@@ -197,38 +405,33 @@
                                                 <option *ngIf="c.id && (amt >= c.min)" [value]="c.id">{{c.name}}</option>
                                             </ng-container>
                                         </select> -->
+                                        <!-- <div *ngIf="x.sin"> -->
+                                        <!-- {{ x.sin.toDate() | date:'MMM, dd, yyyy hh:mm'}} -->
+                                        <!-- </div> -->
+                                        <!-- <div *ngIf="x.journey == 'POS' && campaign">Instant Cashback : {{
+                                            getCampAmt( campaign, 1) }}</div> -->
+                                        <!-- <div *ngIf="x.journey == 'POS' && campaign">Min Order Value : {{
+                                            getCampAmt( campaign, 2) }} </div> -->
+                                        <!-- <div *ngIf="x.journey == 'POS' && campaign && x.type == 'percent' ">
+                                            Maximum Cashback : {{ getCampAmt( campaign,3) }} </div> -->
+                                        <!-- <div *ngIf="x.journey == 'F2F'">Instant Cashback :
+                                            {{x.camp.cbNew}}</div> -->
+                                        <!-- <div *ngIf="x.journey == 'F2F'">Min Order Value :
+                                            {{x.camp.min}}</div> -->
+                                        <!-- <div *ngIf="x.journey == 'F2F' && x.type == 'percent'">Maximum
+                                            Cashback : {{x.camp.max}}
+                                        </div> -->
                                     </div>
-                                    
-                                    <div class="col-50 ">
-                                        <button mat-stroked-button class="outline-success b_green c_white btnAccRej"
-                                            (click)="acceptReedem(mine.acBalH, x, x.id, x.journey, amt, x.camp, campaign, x.code)"
-                                            [disabled]="makeChanges">
-                                            Accept
-                                        </button>
+                                    <div class="col-20"></div>
+                                    <div class="col-30">
+
                                     </div>
                                 </div>
-                                <div class="d-flex-row">
+                                <!-- <div class="d-flex-row">
                                     <ng-container>
-                                        <span class="mt-6" *ngIf="x.sin">
-                                            <!-- {{ x.sin.toDate() | date:'MMM, dd, yyyy hh:mm'}} -->
-                                        </span>
-                                        <span class="mt-6" *ngIf="x.journey == 'POS' && campaign">Instant Cashback : {{
-                                            getCampAmt( campaign, 1) }}</span>
-                                        <span class="mt-6" *ngIf="x.journey == 'POS' && campaign">Min Order Value : {{
-                                            getCampAmt( campaign, 2) }} </span>
-                                        <span class="mt-6"
-                                            *ngIf="x.journey == 'POS' && campaign && x.type == 'percent' ">
-                                            Maximum Cashback : {{ getCampAmt( campaign,3) }} </span>
-                                        <span class="mt-6" *ngIf="x.journey == 'F2F'">Instant Cashback :
-                                            {{x.camp.cbNew}}</span>
-                                        <span class="mt-6" *ngIf="x.journey == 'F2F'">Min Order Value :
-                                            {{x.camp.min}}</span>
-                                        <span class="mt-6" *ngIf="x.journey == 'F2F' && x.type == 'percent'">Maximum
-                                            Cashback :
-                                            {{x.camp.max}}
-                                        </span>
+                                        
                                     </ng-container>
-                                </div>
+                                </div> -->
                                 <!-- <div class="d-flex-row">
                                     <div class="col-70">
                                         <h5>{{x.userName || "No Name"}}</h5>
@@ -284,92 +487,379 @@
                                 </div> -->
                             </div>
                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <div class="d-flex-column d-sm-none d-md-block redeem-item">
-                            <div class=" header col-100">
-                                <div class="d-flex-row">
+                            <div class="header col-100">
+                                <div class="A15padding d-flex-row">
                                     <div class="col-25">
-                                        <p class="text-primary">Details </p>
+                                        <span class="text-primary purple_txt">Details </span>
                                     </div>
                                     <div class="col-25">
-                                        <p class="text-primary">Bill Amount </p>
-                                    </div>
-                                    <div class="col-25">
-                                        <p class="text-primary">Instant Cashback (Rs.) </p>
+                                        <span class="text-primary purple_txt">Bill Amount </span>
                                     </div>
                                     <div class="col-20">
-                                        <p class="text-primary">Action </p>
+                                        <span class="text-primary purple_txt">Instant Cashback</span>
                                     </div>
-                                    <div class="col-5"></div>
+                                    <div class="col-30">
+                                        <span class="text-primary purple_txt">Action</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-100" *ngFor="let x of paymentRedeem;let i = index">
-                                <div class="d-flex-row">
-                                    <div class="col-25">
-                                        <h5>{{x.userName || "No Name"}}</h5>
-                                        <ng-container *ngIf="selectedredeemindex == i">
-                                            <p *ngIf="x.sin">
-                                                <!-- {{ x.sin.toDate() | date:'MMM, dd, yyyy hh:mm' }} -->
-                                            </p>
-                                            <p *ngIf="x.journey == 'POS' && campaign">Min Order Value : {{
-                                                getCampAmt( campaign,2) }}</p>
-                                            <p *ngIf="x.journey == 'POS' && campaign && x.type == 'percent' "
-                                                class="text-primary">Maximum Cashback : {{ getCampAmt( campaign,
-                                                3) }}</p>
-                                            <p *ngIf="x.journey == 'F2F'">Min Order Value : {{x.camp.min}}</p>
-                                            <p *ngIf="x.journey == 'F2F' && x.type == 'percent'" class="text-primary">
-                                                Maximum Cashback : {{x.camp.max}}</p>
-                                        </ng-container>
-                                    </div>
-                                    <div class="col-25">
-                                        <input class="bill-card" [(ngModel)]="amt" type="number" (keyup)="Amtchange()" (keydown)="Amtchange()"
-                                            placeholder="Enter Bill amount" [disabled]="makeChanges" required><br><br>
-                                            
-                                            <div>
-                                            <!-- <select [(ngModel)]="campaign" [class.col-none]="x.journey !== 'POS'"
-                                                name="camps" [disabled]="makeChanges" class="redeemselect" required>
-                                                <option value="">No Campaign</option>
-                                                <ng-container *ngFor="let c of campALL">
-                                                    <option *ngIf="c.id && (amt >= c.min)" [value]="c.id">{{c.name}}</option>
-                                                </ng-container>
-                                            </select> -->
+                            <div class="col-100 tborder" *ngFor="let x of paymentRedeem;let i = index">
+                                <div class="A15padding d-flex-row">
+                                    <div class="col-25 align_center">
+                                        <div class="d_flex">
+                                            <svg *ngIf="x.journey == 'F2F'" width="20" height="20" viewBox="0 0 20 20"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="20" height="20" rx="3" fill="#8500E2" />
+                                                <g clip-path="url(#clip0_1005_2750)">
+                                                    <path
+                                                        d="M11.7923 13.75V12.9167C11.7923 12.4746 11.5992 12.0507 11.2553 11.7382C10.9115 11.4256 10.4452 11.25 9.95898 11.25H6.29232C5.80609 11.25 5.33977 11.4256 4.99596 11.7382C4.65214 12.0507 4.45898 12.4746 4.45898 12.9167V13.75"
+                                                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path
+                                                        d="M8.12435 9.58333C9.13687 9.58333 9.95768 8.83714 9.95768 7.91667C9.95768 6.99619 9.13687 6.25 8.12435 6.25C7.11183 6.25 6.29102 6.99619 6.29102 7.91667C6.29102 8.83714 7.11183 9.58333 8.12435 9.58333Z"
+                                                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path
+                                                        d="M14.541 13.7505V12.9172C14.5407 12.5479 14.4055 12.1892 14.1566 11.8973C13.9078 11.6055 13.5593 11.397 13.166 11.3047"
+                                                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path
+                                                        d="M11.334 6.30469C11.7283 6.39648 12.0779 6.60498 12.3275 6.89732C12.5771 7.18965 12.7126 7.5492 12.7126 7.91927C12.7126 8.28934 12.5771 8.64889 12.3275 8.94122C12.0779 9.23356 11.7283 9.44206 11.334 9.53385"
+                                                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_1005_2750">
+                                                        <rect width="11" height="10" fill="white"
+                                                            transform="matrix(-1 0 0 1 15 5)" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                            <svg *ngIf="x.journey != 'F2F'" width="20" height="20" viewBox="0 0 20 20"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="20" height="20" rx="3" fill="#8500E2" />
+                                                <path
+                                                    d="M14.6654 15.25V14.0833C14.6654 13.4645 14.4195 12.871 13.9819 12.4334C13.5444 11.9958 12.9509 11.75 12.332 11.75H7.66536C7.04653 11.75 6.45303 11.9958 6.01545 12.4334C5.57786 12.871 5.33203 13.4645 5.33203 14.0833V15.25"
+                                                    stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path
+                                                    d="M10.3333 9.66667C11.622 9.66667 12.6667 8.622 12.6667 7.33333C12.6667 6.04467 11.622 5 10.3333 5C9.04467 5 8 6.04467 8 7.33333C8 8.622 9.04467 9.66667 10.3333 9.66667Z"
+                                                    stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            <span class="l5padding">
+                                                {{x.userName || "No Name"}} {{ x.journey }}
+                                            </span>
+                                        </div>
+                                        <div class="gray_txt t2padding xxs_size">
+                                            <!-- Jan 04, 2021 | 08:42:31 pm -->
+                                            <!-- {{ x.sin.toDate() | date:'MMM, dd, yyyy hh:mm' }}  -->
                                         </div>
                                     </div>
-                                    <div class="col-25">
+                                    <div class="col-25 align_center">
+                                        <input class="bill-card" [(ngModel)]="x.enteredamt" type="number"
+                                            (keyup)="Amtchange(x,i)" (keydown)="Amtchange(x,i)"
+                                            placeholder="Enter Bill amount" [disabled]="makeChanges" required>
+                                        <!-- <div class="xxs_size l5padding" *ngIf="x.journey == 'POS'">
+                                            Min. Campaign value : Rs. {{getmincampvalue()}}
+                                        </div> -->
+                                        <div class="xxs_size l5padding" *ngIf="x.journey == 'F2F'">
+                                            Min. Campaign value : Rs. {{x.camp.min}}
+                                        </div>
+                                        <!-- <div *ngIf="x.journey == 'POS' && campaign && x.type == 'percent' "
+                                            class="text-primary">Maximum Cashback : Rs. {{ getCampAmt( campaign,
+                                            3) }}
+                                        </div> -->
+                                        <!-- <div *ngIf="x.journey == 'F2F' && x.type == 'percent'" class="text-primary">
+                                            Maximum Cashback : Rs. {{x.camp.max}}
+                                        </div> -->
+                                    </div>
+                                    <div class="col-20 align_center">
                                         <div class="cashback-card">
-                                            <span *ngIf="x.journey == 'POS' && campaign"> {{ getCampAmt( campaign,
-                                                1) }} </span>
-                                            <span *ngIf="x.journey == 'F2F'"> {{x.camp.cbNew}} </span>
+                                            <svg *ngIf="x.journey == 'POS' && campaign" class="align_center" width="15"
+                                                height="15" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                    fill="#FECB00" />
+                                                <path
+                                                    d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                    fill="#EFA900" />
+                                                <path d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                    fill="#E19100" />
+                                                <path
+                                                    d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                    fill="#E19100" />
+                                                <path
+                                                    d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                    fill="#FECB00" />
+                                                <path
+                                                    d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                    fill="#FECB00" />
+                                                <path
+                                                    d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                    fill="#E19100" />
+                                                <path
+                                                    d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                    fill="#E19100" />
+                                                <path
+                                                    d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                    fill="#FECB00" />
+                                                <path
+                                                    d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                    fill="#FECB00" />
+                                            </svg>
+                                            <span *ngIf="x.journey == 'POS' && campaign">
+                                                <span *ngIf="camparr[0].type != 'percent'">
+                                                    {{camparr[0].cbDir}}
+                                                </span>
+                                                <span *ngIf="camparr[0].type == 'percent'">
+                                                    {{((camparr[0].cbDir * x.enteredamt) / 100) > camparr[0].max ?
+                                                    camparr[0].max : ((camparr[0].cbDir * x.enteredamt) / 100)}}
+                                                </span>
+                                            </span>
+                                            <span *ngIf="x.journey == 'F2F' && x.enteredamt >= x.camp.min">
+                                                <div *ngIf="x.camp.type == 'percent'">
+                                                    <div class="d_flex">
+                                                        Total :
+                                                        <svg class="align_center" width="15" height="15"
+                                                            viewBox="0 0 18 18" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                                fill="#EFA900" />
+                                                            <path
+                                                                d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                                fill="#FECB00" />
+                                                        </svg>
+                                                        {{ (((x.camp.cbNew * x.enteredamt) / 100) > x.camp.max ?
+                                                        x.camp.max
+                                                        : ((x.camp.cbNew * x.enteredamt) / 100)) +
+                                                        (((x.camp.cbExi * x.enteredamt) / 100) >
+                                                        x.camp.max ? x.camp.max : ((x.camp.cbExi * x.enteredamt) / 100))
+                                                        }}
+                                                    </div>
+                                                    <div class="d_flex xxs_size gray_txt">
+                                                        New User :
+                                                        <svg class="align_center" width="15" height="15"
+                                                            viewBox="0 0 18 18" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                                fill="#EFA900" />
+                                                            <path
+                                                                d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                                fill="#FECB00" />
+                                                        </svg> {{ (((x.camp.cbNew * x.enteredamt) / 100) > x.camp.max ?
+                                                        x.camp.max : ((x.camp.cbNew * x.enteredamt) / 100)) }}
+                                                    </div>
+                                                    <div class="d_flex xxs_size gray_txt">
+                                                        Existing User :
+                                                        <svg class="align_center" width="15" height="15"
+                                                            viewBox="0 0 18 18" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                                fill="#EFA900" />
+                                                            <path
+                                                                d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                                fill="#FECB00" />
+                                                        </svg> {{ (((x.camp.cbExi * x.enteredamt) / 100) >
+                                                        x.camp.max ?
+                                                        x.camp.max : ((x.camp.cbExi * x.enteredamt) / 100)) }}
+                                                    </div>
+                                                    <!-- {{(x.camp == undefined ? 0 : 1) + (x.camp == undefined ? 0 : 1)}} -->
+                                                    <!-- Total : {{ ((x.camp.cbNew/amt) * 100) + ((x.camp.cbExi/amt) * 100) }} -->
+                                                </div>
+                                                <div *ngIf="x.camp.type != 'percent'">
+                                                    <svg *ngIf="x.journey == 'F2F' && campaign" class="align_center"
+                                                        width="15" height="15" viewBox="0 0 18 18" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                            fill="#FECB00" />
+                                                        <path
+                                                            d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                            fill="#EFA900" />
+                                                        <path
+                                                            d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                            fill="#E19100" />
+                                                        <path
+                                                            d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                            fill="#E19100" />
+                                                        <path
+                                                            d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                            fill="#FECB00" />
+                                                        <path
+                                                            d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                            fill="#FECB00" />
+                                                        <path
+                                                            d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                            fill="#E19100" />
+                                                        <path
+                                                            d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                            fill="#E19100" />
+                                                        <path
+                                                            d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                            fill="#FECB00" />
+                                                        <path
+                                                            d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                            fill="#FECB00" />
+                                                    </svg> {{x.camp.cbNew + x.camp.cbExi}}
+                                                </div>
+                                                <!-- {{x.camp.cbNew}}  aaaaaa 
+                                                {{x.camp.cbNew  }}  -->
+                                            </span>
                                         </div>
                                     </div>
-                                    <div class="col-15">
+                                    <div class="col-15 align_center">
+                                        <div class="d-flex-column">
+                                            <button mat-stroked-button class="c_red btnAccRej"
+                                                (click)=" rejectReedem(x.id) " [disabled]="makeChanges">Reject</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-15 align_center">
                                         <div class="d-flex-column">
                                             <button mat-stroked-button class="outline-success b_green c_white btnAccRej"
-                                                (click)="acceptReedem(mine.acBalH, x, x.id, x.journey, amt, x.camp, campaign, x.code)"
-                                                [disabled]="makeChanges">Accept</button><br>
-                                            <ng-container *ngIf="selectedredeemindex == i">
-                                                <button mat-stroked-button class="c_red btnAccRej"
-                                                    (click)=" rejectReedem(x.id) "
-                                                    [disabled]="makeChanges">Reject</button>
-                                            </ng-container>
-                                        </div>
-                                    </div>
-                                    <div class="col-10">
-                                        <div class="d-flex-row">
-                                            <!-- <img class="col-20" [src]="
-                                                    ( x.journey == 'POS' ? 'assets/foreign/lucky/personicon2.svg':'') +
-                                                    ( x.journey == 'F2F' ? 'assets/foreign/lucky/personicon.svg':'')
-                                                    " alt=""> -->
-                                            <button class="expandbtn" mat-icon-button
-                                                (click)="selectedredeemindex == i ? selectedredeemindex = null : selectedredeemindex = i">
-                                                <mat-icon>
-                                                    {{ selectedredeemindex == i ? 'arrow_drop_up' : 'arrow_drop_down' }}
-                                                </mat-icon>
-                                            </button>
+                                                (click)="acceptReedem(mine.acBalH, x, x.id, x.journey, amt?.value, x.camp, campaign, x.code)"
+                                                [disabled]="makeChanges">Accept</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <p *ngIf="paymentRedeem.length == 0"><br>You have no reedem requests.</p>
                         <!-- </ng-container> -->
                         <!-- <app-content *ngIf="!(paymentRedeem$ | async)"></app-content> -->
@@ -469,61 +959,28 @@
                         <div class="heading"> <b> Recent Orders </b> <a class="ml-auto view-details c_primary"
                                 routerLink="/my-order-list">View All</a> </div>
                         <!-- <hr> -->
-
-
-
-
-
-
                         <div class="d-flex-row-md d-flex-col-sm flex-wrap">
                             <!-- <ng-container *ngIf="paymentOrder$ | async as paymentOrder"> -->
-                            <div class="order-item  col-50 col-sm-100"
-                                *ngFor="let x of paymentOrder; let i = index">
-                                <div class="lr5padding" *ngIf="
-                            x.status > 0 || x.status < 0 || 
-                            x.ordrTYPE == 'COD' && x.status == 0 ||
-                            x.ordrTYPE == 'RefrCASH+COD' && x.status == 0 ||
-                            x.invoice.useRefrCash && (x.invoice.amtRefrCash == x.amTotal)
-                            ">
+                            <div class="order-item col-50 col-sm-100" *ngFor="let x of paymentOrder; let i = index">
+                                <div class="lr5padding">
+                                    <!-- <div>{{x.logistics.require}}</div>
+                            <div>{{!x.logistics.require}}</div> -->
+
                                     <div class="border1px">
                                         <div class="A15padding">
-                                            <div class="d_flex">
-                                                <div class="col-50">
-                                                    <!-- {{x.sin.toDate() | date:'MMM dd, yyyy | hh:mm'}} -->
-                                                    23 Oct, 2022 07:20pm
-                                                </div>
-                                                <div class="col-50 r_align">
-                                                    <span *ngIf="x.cart.length >0 && x.journey=='BURN'"
-                                                        class="burntxt boldtxt">Burn Order</span>
-                                                    <span *ngIf="x.cart.length >0 && x.journey!='BURN'"
-                                                        class="online boldtxt">Online Order</span>
-                                                    <span *ngIf="x.cart.length <=0" class="offline boldtxt">In-Store
-                                                        Order</span>
-                                                </div>
-                                            </div>
                                             <div class="client_cont c_black">
                                                 <div class="align_center">{{x.userName}}</div>
-                                                <div>
-                                                <button class="expandbtn" *ngIf="x.cart.length > 0" mat-icon-button
-                                                    (click)="selectedindex == i ? selectedindex = null : selectedindex = i">
-                                                    <span>Order Detail's</span>
-                                                    <mat-icon>
-                                                        {{ selectedindex == i ? 'arrow_drop_up' : 'arrow_drop_down' }}
-                                                    </mat-icon>
-                                                </button>
-                                            </div>
-                                            </div>
-                                            <div class="d-flex-row purple_txt">
-                                                <span *ngIf="x.journey=='F2F' || x.journey == 'POS' && x.refr != null"
-                                                    class="boldtxt ">Sales via
-                                                    Recommendation</span>
-                                                <span
-                                                    *ngIf="x.journey=='DIRECT' || x.journey == 'POS' && x.refr == null"
-                                                    class="boldtxt ">Direct Sale</span>
-                                            </div>
-                                            <div class="d-flex-row t5padding">
-                                                <div class="boldtxt c_black"><span>Payment Method : </span>
+                                                <div class="col-50 s_size r_align gray_txt">
                                                     <span>
+                                                        <!-- {{x.sin.toDate() | date:'MMM dd, yyyy | hh:mm'}} -->
+                                                        23 Oct, 2022 07:20pm
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex-row">
+                                                <div class="boldtxt d_flex col-70 c_black"><span>Payment Method :
+                                                    </span>
+                                                    <span class="align_center">
                                                         <span class="normal_txt"
                                                             *ngIf="x.ordrTYPE == 'CASH'">Cash</span>
                                                         <span class="normal_txt"
@@ -539,11 +996,19 @@
                                                             COD</span>
                                                     </span>
                                                 </div>
+                                                <div class="col-30 r_align">
+                                                    <!-- <span *ngIf="x.cart.length >0 && x.journey=='BURN'"
+                                                        class="burntxt boldtxt">Burn Order</span> -->
+                                                    <span *ngIf="x.cart.length > 0" class="online boldtxt">Online
+                                                        Order</span>
+                                                    <span *ngIf="x.cart.length <= 0" class="offline boldtxt">In-Store
+                                                        Order</span>
+                                                </div>
                                             </div>
-                                            <div class="d-flex-row t5padding" *ngIf="x.journey != 'BURN'">
-                                                <div class="boldtxt c_black"><span>Cashback Given : </span>
-                                                    <svg width="15" height="15" viewBox="0 0 18 18" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
+                                            <div class="d-flex-row" *ngIf="x.journey != 'BURN'">
+                                                <div class="boldtxt c_black d_flex"><span>Cashback Given : </span>
+                                                    <svg class="align_center" width="15" height="15" viewBox="0 0 18 18"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
                                                             fill="#FECB00" />
@@ -581,18 +1046,40 @@
                                                         *ngIf="x.journey != 'F2F'">{{x.earn}}</span>
                                                 </div>
                                             </div>
-                                            <div class="d_flex t5padding">
-                                                <span class="boldtxt profit_txt">Payment Received</span>
+                                            <div class="d-flex-row purple_txt">
+                                                <span *ngIf="x.journey=='F2F' || x.journey == 'POS' && x.refr != null"
+                                                    class="boldtxt">Sales via
+                                                    Recommendation</span>
+                                                <span
+                                                    *ngIf="x.journey=='DIRECT' || x.journey == 'POS' && x.refr == null"
+                                                    class="boldtxt">Direct Sale</span>
+                                                <span class="boldtxt" *ngIf="x.journey == 'BURN'">
+                                                    Sales via Burn
+                                                </span>
+                                            </div>
+                                            <div class="d_flex t5padding paymentReceived_height">
+                                                <span class="boldtxt profit_txt align_center"
+                                                    *ngIf="x.status !== -10 && x.logistics.status !== -1000 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN' || x.journey == 'POS')">Payment
+                                                    Received</span>
+                                                <span class="boldtxt profit_txt align_center"
+                                                    *ngIf="x.status == -10 && x.logistics.status == -1000 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Payment
+                                                    Refunded</span>
+
                                                 <svg class="align_center l5padding" width="13" height="13"
                                                     viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <circle cx="6.5" cy="6.5" r="6.5" fill="#27AE60" />
                                                     <path d="M9.66667 4L5.08333 8.58333L3 6.5" stroke="white"
                                                         stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
+                                                <span class="divide"></span>
+                                                <button class="expandbtn" *ngIf="x.cart.length > 0" mat-stroked-button
+                                                    color="primary"
+                                                    (click)="selectedindex == i ? selectedindex = null : selectedindex = i">Order
+                                                    Detail's <mat-icon>{{ selectedindex == i ? 'arrow_drop_up' :
+                                                        'arrow_drop_down' }}</mat-icon></button>
                                             </div>
                                         </div>
                                         <ng-container *ngIf="selectedindex == i">
-
                                             <div class="A15padding tborder">
                                                 <div class="boldtxt c_black">
                                                     Order Summary
@@ -602,11 +1089,11 @@
                                                         <span class="boldtxt c_black">ID</span> : {{x.id}}
                                                     </div>
                                                 </div>
-
                                                 <ng-container *ngFor="let c of x.cart;let i = index">
                                                     <div class="d-flex-row c_black t10padding">
                                                         <div class="col-75">
-                                                            <span class="s_size">{{c.Q}} X </span><span class="boldtxt">{{c.title}}</span>
+                                                            <span class="s_size">{{c.Q}} X </span><span
+                                                                class="boldtxt">{{c.title}}</span>
                                                         </div>
                                                         <!-- <div class="col-50 r_align" *ngIf="c.vX.length > 0">
                                                             {{c.vX.length}} Varients & {{c.Q}}X items
@@ -632,36 +1119,30 @@
                                                     </ng-container>
                                                 </ng-container>
                                             </div>
-                                            <div class="A15padding tborder d-flex-row">
+                                            <div class="lr15tb10padding tborder d-flex-row">
                                                 <div class="col-50 c_black boldtxt ">
                                                     Taxes
                                                 </div>
                                                 <div class="col-50 r_align c_black">
                                                     ₹{{x.amTax}}
                                                 </div>
-
                                             </div>
-
-                                            <div class="A15padding tborder d-flex-row">
+                                            <div class="lr15tb10padding tborder d-flex-row">
                                                 <div class="col-50 c_black boldtxt ">
                                                     Delivery charges
                                                 </div>
                                                 <div class="col-50 r_align c_black">
                                                     ₹{{x.amParcel}}
                                                 </div>
-
                                             </div>
-
-                                            <div class="A15padding tborder d-flex-row">
+                                            <div class="lr15tb10padding tborder d-flex-row">
                                                 <div class="col-50 c_black boldtxt">
                                                     Total Bill Amount
                                                 </div>
                                                 <div class="col-50 r_align m_size c_black">
                                                     ₹{{x.amTotal}}
                                                 </div>
-
                                             </div>
-
                                             <div class="A15padding tborder">
                                                 <div class="boldtxt c_black">
                                                     Contact Number : <span
@@ -676,15 +1157,7 @@
                                                     </span>
                                                 </div>
                                             </div>
-
-
-
-
-
-
-
                                             <!-- <div class="d-flex-row">
-
                                             </div>
 
                                             <div class="d-flex-row boldtxt">
@@ -711,6 +1184,7 @@
                                                 <!--button mat-stroked-button color="primary">List Items</button-->
                                                 <button class="rounded_btn complete_btn" mat-button
                                                     *ngIf="x.journey == 'POS'">Complete</button>
+
                                                 <!--button class="status-chip b_primary c_white" mat-button *ngIf="x.journey == 'BURN' && x.status == 0">Burn</button-->
                                                 <select *ngIf=" 
                                                         (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN') && x.status == 0 && (x.ordrTYPE == 'COD' || x.ordrTYPE == 'RefrCASH' || x.ordrTYPE == 'RefrCASH+COD') ||
@@ -726,7 +1200,8 @@
                                                         Delivered
                                                     </option>
                                                 </select>
-                                                <button class="status-chip b_primary c_white" mat-button
+
+                                                <button class="rounded_btn b_primary c_white" mat-button
                                                     *ngIf="
                                                         x.logistics.require && x.status == 10 && x.logistics.status == 10 && (x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')"
                                                     (click)=" ordrStatus(  x.journey, x , 'Track' );">Shipping</button>
@@ -745,10 +1220,6 @@
                                                 <!--button class="status-chip b_primary c_white" mat-button *ngIf=" x.journey == 'F2F' && x.status == 10 && x.logistics.status == 10">Shipping</button-->
                                                 <button class="rounded_btn complete_btn" mat-button
                                                     *ngIf=" x.ordrTYPE == 'CASH' && x.status == 10 && x.logistics.status == 0 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Complete</button>
-
-
-
-
                                                 <button class="rounded_btn delivered_btn" mat-button
                                                     *ngIf="x.status == 10 && x.logistics.status == 20 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Delivered</button>
                                                 <button class="rounded_btn reject_btn" mat-button
@@ -757,7 +1228,7 @@
                                                     *ngIf="x.status == -10 && x.logistics.status == -100 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Returned</button>
                                                 <button class="rounded_btn refund_btn" mat-button
                                                     *ngIf="x.status == -10 && x.logistics.status == -1000 && ( x.journey == 'F2F' || x.journey == 'DIRECT' || x.journey == 'BURN')">Refunded</button>
-                                                <button class="rounded_btn complete_btn" mat-flat-button
+                                                <button class="rounded_btn complete_btn" mat-button
                                                     *ngIf="false">Prepared</button>
                                                 <button class="rounded_btn complete_btn" mat-button
                                                     *ngIf="false">Pending</button>

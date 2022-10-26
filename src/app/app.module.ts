@@ -77,6 +77,7 @@ import { VendorProductsComponent } from './components/vendor-products/vendor-pro
 import { CustomerOrderComponent } from './components/customer-order/customer-order.component';
 import { CustomercartComponent } from './components/customercart/customercart.component';
 import { NewproductlistComponent } from './components/aditya/newproductlist/newproductlist.component';
+import { OrderdataforComponent } from './orderdatafor/orderdatafor.component';
 
 
 @NgModule({
@@ -130,6 +131,7 @@ import { NewproductlistComponent } from './components/aditya/newproductlist/newp
     CustomerOrderComponent,
     CustomercartComponent,
     NewproductlistComponent,
+    OrderdataforComponent,
   ],
   imports: [
     // AgmCoreModule.forRoot({

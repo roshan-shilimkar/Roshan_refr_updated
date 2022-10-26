@@ -105,6 +105,9 @@
     }
 
     @media (min-width:850px) {
+        .ld_dFlex{
+            display: flex;
+        }
         .order_card {
             width: 50%;
         }
@@ -244,6 +247,10 @@
         margin-top: 6px
     }
 
+    .mt-10 {
+        margin-top: 6px
+    }
+
     .example-sidenav-container {
         flex: 1
     }
@@ -272,7 +279,7 @@
     }
 
     .ml-5 {
-        margin-left: 15px
+        margin-left: 5px
     }
 
     .ml-130 {
@@ -435,9 +442,10 @@
     }
 
     .redeem-item {
-        padding: 10px;
-        background: #F2F5F9;
-        border-radius: 10px;
+        // padding: 10px;
+        box-shadow: 0 1px 5px 0 #828282;
+        border-radius: 5px;
+        margin-top: 10px
     }
 
     .redeem-item h5 {
@@ -446,16 +454,16 @@
 
     .bill-card {
         background: #E3F0E9;
-        width: 80%;
+        width: Calc(90% - 20px);
         border: 1px solid #27AE60 !important;
         border-radius: 5px;
         padding: 5px 8px
     }
 
-    .cashback-card {
-        padding: 5px;
-        width: 70%
-    }
+    // .cashback-card {
+    // padding: 5px;
+    // width: 70%
+    // }
 
     .redeemselect {
         background-color: transparent;
@@ -524,6 +532,14 @@
 
     .A15padding {
         padding: 15px;
+    }
+
+    .A10padding {
+        padding: 15px;
+    }
+
+    .lr15tb10padding {
+        padding: 10px 15px;
     }
 
     .tborder {
@@ -655,7 +671,7 @@
     }
 
     .client_cont {
-        padding: 10px 0;
+        padding-bottom: 10px;
         font-weight: 600;
         font-size: 18px;
         display: flex;
@@ -666,21 +682,12 @@
         }
     }
 
-    .expandbtn {
-        background: transparent;
-        color: #910CEE;
-        border: 1px solid #910CEE;
-        border-radius: 5px;
-        height: 30px;
-        min-width: fit-content;
-        line-height: 18px;
-        padding: 3px 5px;
+    .space_cont{
+        justify-content: space-between;
+    }
 
-        mat-icon {
-            height: 28px;
-            width: 28px;
-            line-height: 28px;
-        }
+    .expandbtn {
+        padding: 0 0 0 12px;
     }
 
     .boldtxt {
@@ -688,11 +695,19 @@
     }
 
     .m_size {
-        font-size: 16px;
+        font-size: 16px !important;
     }
 
     .s_size {
         font-size: 14px !important;
+    }
+
+    .xs_size {
+        font-size: 12px !important;
+    }
+
+    .xxs_size {
+        font-size: 11px !important;
     }
 
     .purplebg {
@@ -701,6 +716,10 @@
 
     .t5padding {
         padding-top: 5px !important;
+    }
+
+    .t2padding {
+        padding-top: 2px !important;
     }
 
     .l5padding {
@@ -817,6 +836,7 @@
 
 .c_align {
     text-align: center;
+    justify-content: center !important;
 }
 
 .offline {
@@ -832,7 +852,7 @@
 }
 
 .d_flex {
-    display: flex;
+    display: flex !important;
 }
 
 .b_green {
@@ -840,9 +860,8 @@
 }
 
 .btnAccRej {
-    // height: 30px;
     line-height: 30px;
-    width: 60%;
+    width: 90%;
     float: right;
 }
 
@@ -854,11 +873,33 @@
     padding-top: 10px;
 }
 
-// body .container .row .col-50 {
-//     width: 50%;
-//     display: inline-block;
-// }
 .lr5padding {
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.gray_txt {
+    color: #828282;
+}
+
+.paymentReceived_height {
+    height: 36px;
+}
+
+.tb10padding {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.lr5padding {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.l5padding {
+    padding-left: 5px;
+}
+
+.l10padding {
+    padding-left: 10px;
 }

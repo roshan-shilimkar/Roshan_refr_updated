@@ -5,18 +5,6 @@
     <div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
         <div class="container" style="display: none;">
             <div id="content" #content>
                 <table align="center"
@@ -490,14 +478,14 @@
 
                     <!-- <div *ngIf="payments$ | async as payments"> -->
                     <div *ngFor="let x of payments;let i = index">
-                        <div *ngIf="x.status !== 0">
+                        <div *ngIf=" (x.cart !== undefined && x.cart?.length > 0 && x.status !== 0) || ((x.cart == undefined || x.cart?.length <= 0 ) && x.status !== -10)">
                             <!-- *ngIf="(x.status !== 0 && x.logistics.status !== 0) && (x.to == 'Δ' || x.cart.length <= 0 || x.cart.length > 0 && x.invoice.COD == false || x.cart.length > 0 && x.invoice.COD == true && x.status == 10 && x.logistics.status == 20 || x.status == -10 && (x.logistics.status == -100 || x.logistics.status == -1000 ) ) -->
                             <div class="trans_card">
                                 <div *ngIf="x.status == undefined || ((x.ordrTYPE !== 'RefrCASH' && (x.status <= 0 && x.status !== -10)) || (x.ordrTYPE == 'RefrCASH' && ( x.id !== undefined && x.status < 0 && x.status !== -10)))"
                                     class="failed_tran b5padding">
                                     Failed Transaction
                                 </div>
-                                <div *ngIf=" (x.cart == undefined || x.cart.length == 0 ) && x.status == -10"
+                                <div *ngIf=" (x.cart == undefined || x.cart?.length == 0 ) && x.status == -10"
                                     class="failed_tran b5padding">
                                     Request Rejected
                                 </div>
@@ -506,7 +494,7 @@
                                         <span *ngIf="x.by == 'Δ' && x.type.includes('payout')">
                                             Withdraw
                                         </span>
-                                        <span *ngIf="x.status == -10 && x.cart.length > 0">Refund Order</span>
+                                        <span *ngIf="x.status == -10 && x.cart?.length > 0">Refund Order</span>
                                         <span *ngIf="x.to !== 'Δ' && x.by !== 'Δ' && x.status !== -10">
                                             Payment recieved
                                             <!-- <span *ngIf="x.logistics.status == -100">returned</span>-->
@@ -518,16 +506,16 @@
                                     <div class="tras_amt">
                                         <span
                                             *ngIf="(x.by == 'Δ' && x.type.includes('payout')) || (x.to == 'Δ' && x.amGive !== undefined)">
-                                            <span *ngIf="x.by == 'Δ' && x.type.includes('payout') && x.amTotal != 0">-</span>
-                                            <span *ngIf="x.to == 'Δ' && x.amGive !== undefined && x.amTotal != 0">+</span>
+                                            <span *ngIf="x.by == 'Δ' && x.type.includes('payout') && x.amTotal !== 0">-</span>
+                                            <span *ngIf="x.to == 'Δ' && x.amGive !== undefined && x.amTotal !== 0">+</span>
                                             {{x.amTotal}}
                                         </span>
                                         <span *ngIf="x.to == 'Δ' && x.amCamp !== undefined">
                                             + {{getrefilvalue(x.amRate,x.amTotal)}}
                                         </span>
                                         <span *ngIf="x.to !== 'Δ' && x.by !== 'Δ'">
-                                            <span *ngIf="x.status !== -10 && x.amBurst != 0 ">+</span>
-                                            <span *ngIf="x.status == -10 && x.amBurst != 0">-</span>
+                                            <span *ngIf="x.status !== -10 && x.amBurst !== 0 ">+</span>
+                                            <span *ngIf="x.status == -10 && x.amBurst !== 0">-</span>
                                             <span *ngIf="x.ordrTYPE !== 'CASH'">{{x.amBurst | number:'1.0-2'}}</span>
                                             <span *ngIf="x.ordrTYPE == 'CASH'">{{x.amTotal | number:'1.0-2'}}</span>
                                         </span>
@@ -777,16 +765,6 @@
                         </div>
                     </div>
                     <!-- </div> -->
-
-
-
-
-
-
-
-
-
-
                 </div>
             </div>
         </div>

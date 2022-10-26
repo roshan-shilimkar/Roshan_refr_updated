@@ -1,0 +1,109 @@
+<p>orderdatafor works!</p>
+
+
+<table class="table table-striped table-bordered table-hover" border="1">
+    <tr>
+        <th>Order Id</th>
+        <th>Store name</th>
+        <th>customer name</th>
+        <th>order type</th>
+        <th>Payment Type </th>
+        <th>Order Value</th>
+        <th>Refr Cash Used</th>
+        <th>GST 5% on Food</th>
+        <th>TCS 1% on Order</th>
+        <th>Razorpay Charges on Total Paid Value</th>
+        <th>Total Paid Value </th>
+    </tr>
+    <!-- <div > -->
+        <tr *ngFor="let item of orderdata">
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length > 0">{{item.id}}</td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length > 0">{{item.storeName}}</td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length > 0">{{item.userName}}</td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length > 0">{{item.journey}}</td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length > 0">
+                {{item.ordrTYPE}}
+            </td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length > 0">
+                {{item.amBurst}}
+            </td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length > 0">
+                {{item.invoice.amtRefrCash}}
+            </td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length > 0">
+                {{item.amTax}}
+            </td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length > 0">
+                {{item.amTaxTCS}}
+            </td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length > 0">
+                {{item.amGateway}}
+            </td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length > 0">
+                {{item.amTotal}}
+            </td>
+        </tr>
+    <!-- </div> -->
+</table>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<h1>offline</h1>
+
+
+
+<table class="table table-striped table-bordered table-hover" border="1">
+    <tr>
+        <th>Order Id</th>
+        <th>Store name</th>
+        <th>customer name</th>
+        <th>order type</th>
+        <th>Payment Type </th>
+        <th>Order Value</th>
+        <th>Refr Cash Used</th>
+        <th>GST 5% on Food</th>
+        <th>TCS 1% on Order</th>
+        <th>Razorpay Charges on Total Paid Value</th>
+        <th>Total Paid Value </th>
+    </tr>
+    <!-- <div > -->
+        <tr *ngFor="let item of orderdata">
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length == 0">{{item.id}}</td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length == 0">{{item.storeName}}</td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length == 0">{{item.userName}}</td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length == 0">{{item.journey}}</td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length == 0">
+                {{item.ordrTYPE}}
+            </td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length == 0">
+                {{item.amBurst}}
+            </td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length == 0">
+                {{item.invoice.amtRefrCash}}
+            </td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length == 0">
+                {{item.amTax}}
+            </td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length == 0">
+                {{item.amTaxTCS}}
+            </td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length == 0">
+                {{item.amGateway}}
+            </td>
+            <td *ngIf="item.storeName != 'Fit Food' && item.storeName != 'Coco Cafe' && item.storeName != 'Dent Heal' && item.storeName != 'xyz' && item.cart.length == 0">
+                {{item.amTotal}}
+            </td>
+        </tr>
+    <!-- </div> -->
+</table>

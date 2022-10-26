@@ -47,7 +47,70 @@ export class VendorWalletComponent {
 
 
   payments: Array<any> = [
-
+    {
+      amTax: 0,
+      type: [
+          "CASH",
+          "jyAHGdwpx6Yc6k6ecr0xzvkZh8v1",
+          "SryCASVgU2Orw2pFuXMHCUpURH52",
+          "pvu3QhN1wT6bxX4YheC5",
+          "storeORDER",
+          "clientAc",
+          "POS",
+          "REDEEM",
+          "A000Q8"
+      ],
+      status: -10,
+      upd: {
+          seconds: 1665400928,
+          nanoseconds: 252000000
+      },
+      invoice: {
+          useRefrCash: false,
+          COD: false,
+          amtRefrCash: 0
+      },
+      camp: null,
+      userName: "Aditya",
+      refr: null,
+      amGateway: 0,
+      amRefr: 0,
+      logistics: {
+          addressDrop: null,
+          require: false,
+          status: 0,
+          addressPick: null
+      },
+      amSave: 0,
+      setShortID: true,
+      ordrTYPE: "CASH",
+      cart: [],
+      to: "SryCASVgU2Orw2pFuXMHCUpURH52",
+      code: "A000Q8",
+      journey: "POS",
+      amCost: 0,
+      amTotal: 0,
+      amBurst: 0,
+      id: "VIzEpqHVr7HVA1aUpA0E",
+      amParcel: 0,
+      sid: "pvu3QhN1wT6bxX4YheC5",
+      shortID: "A000Ju",
+      earn: 0,
+      sin: {
+          seconds: 1665400926,
+          nanoseconds: 599000000
+      },
+      com: {
+          seconds: 1665400926,
+          nanoseconds: 599000000
+      },
+      by: "jyAHGdwpx6Yc6k6ecr0xzvkZh8v1",
+      storeName: "The house of pasta",
+      amTaxTCS: 0,
+      amParcelCity: false,
+      amSale: 0,
+      amTaxTDS: 0
+  },
     // Instore purchase,Payment Method = Cash
     {
       amBurst: 0,

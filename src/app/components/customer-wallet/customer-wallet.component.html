@@ -131,8 +131,8 @@
 
             <p class="textL" *ngIf="payments?.length == 0">You have no transactions</p>
             <div class="b_white c_black" *ngFor="let x of payments;let i = index">
-                <ng-container
-                    *ngIf="mine.uid == x.by || mine.uid !== x.by && x.refr?.earn > 0 && (x.cart.length <= 0 && x.status == 10 || x.cart.length > 0 && x.done !== undefined)">
+                <ng-container *ngIf="x.journey == 'ADMIN' || x.journey == 'POS' || x.journey == 'DIRECT' || x.journey == 'BURN' || ( x.journey == 'F2F' && (mine.uid == x.by || ( mine.uid !== x.by && x.refr?.earn > 0 )))">
+                    <!-- *ngIf="(mine.uid == x.by || mine.uid !== x.by && x.refr?.earn > 0) && (x.cart.length <= 0 || x.cart.length > 0 && x.done !== undefined)"> -->
                     <div class="transaction-card">
                         <div class="row">
                             <div class="col-100">
@@ -141,7 +141,7 @@
                                         class="failed_tran b5padding">
                                         Failed Transaction 
                                     </div>
-                                    <div *ngIf="x.cart.length == 0 && x.status == -10" class="failed_tran b5padding">
+                                    <div *ngIf="x.cart?.length == 0 && x.status == -10" class="failed_tran b5padding">
                                         Request Rejected
                                     </div>
                                     <div class="d_flex">
@@ -151,7 +151,7 @@
                                         </div>
                                         <span class="divide"></span>
                                         <div>
-                                            <span *ngIf="x.journey !== 'ADMIN' && mine.uid == x.by">₹</span>
+                                            <span *ngIf="x.journey !== 'ADMIN' && mine.uid == x.by && (x.cart?.length > 0 || ((x.cart == undefined || x.cart?.length <= 0) && x.status !== -10 ) )">₹</span>
                                             <span *ngIf="x.journey == 'ADMIN'">
                                                 <svg width="18" height="18" viewBox="0 0 18 18"
                                                     style="margin-bottom: -4px;" fill="none"
@@ -188,29 +188,19 @@
                                                         fill="#FECB00" />
                                                 </svg>
                                             </span> <span
-                                                *ngIf="x.journey == 'ADMIN' || (x.journey !== 'ADMIN' && mine.uid == x.by)">{{x.amTotal
+                                                *ngIf="x.journey == 'ADMIN' || (x.journey !== 'ADMIN' && mine.uid == x.by && (x.cart?.length > 0 || ((x.cart == undefined || x.cart?.length <= 0) && x.status !== -10 ) ))">{{x.amTotal
                                                 | number:'1.0-2'}}</span>
                                         </div>
                                     </div>
                                     <div class="t5padding" *ngIf="x.journey !== 'ADMIN' && mine.uid == x.by">
-                                        <span *ngIf="x.cart == undefined || x.cart.length == 0">In-store
+                                        <span *ngIf="x.cart == undefined || x.cart?.length == 0">In-store
                                             purchase</span>
-                                        <span *ngIf="x.cart !== undefined && x.cart.length > 0">Online
+                                        <span *ngIf="x.cart !== undefined && x.cart?.length > 0">Online
                                             purchase</span>
                                     </div>
-
-
-
-
-
-
-
-
-
-
                                     <div class="dflex" *ngIf="x.journey !== 'BURN' && x.journey !== 'ADMIN'">
                                         <div class="t5padding"
-                                            *ngIf="x.refr == null && x.status !== -10 && (x.journey == 'POS' || x.journey == 'DIRECT' && x.done !== undefined  || x.journey == 'F2F' && x.cart.length <= 0 )">
+                                            *ngIf="x.refr == null && x.status !== -10 && (x.journey == 'POS' || x.journey == 'DIRECT' && x.done !== undefined  || x.journey == 'F2F' && x.cart?.length <= 0 )">
                                             Shoutout given
                                         </div>
                                         <div class="t5padding"
@@ -222,15 +212,14 @@
                                             *ngIf="x.refr !== null && mine.uid !== x.by && x.status !== -10 && x.journey == 'F2F'">
                                             Recommendation used by <span class="primary">{{x.userName}}</span>
                                         </div>
-                                        <div class="t5padding" *ngIf="x.cart.length > 0 && x.status == -10">
+                                        <div class="t5padding" *ngIf="x.cart?.length > 0 && x.status == -10">
                                             Refund Order
                                         </div>
-
                                         <span class="divide"></span>
-                                        <!-- <div *ngIf="((x.journey == 'F2F' && (x.cart.length <= 0 || ( x.cart.length > 0 &&  mine.uid !== x.by  && x.done !== undefined))) ||  x.journey == 'POS') && x.status !== -10 " > -->
+                                        <!-- <div *ngIf="((x.journey == 'F2F' && (x.cart?.length <= 0 || ( x.cart?.length > 0 &&  mine.uid !== x.by  && x.done !== undefined))) ||  x.journey == 'POS') && x.status !== -10 " > -->
                                         <div class="t5padding"
-                                            *ngIf="(mine.uid == x.by && x.earn > 0 || mine.uid !== x.by && x.refr?.earn > 0 ) && ((x.journey == 'DIRECT' || x.journey == 'F2F' &&  x.cart.length > 0 ) && x.done !== undefined || (x.journey == 'POS' || x.journey == 'F2F' && x.cart.length <= 0 && x.status == 10 ))">
-                                            <span class="earned">Earned</span>
+                                            *ngIf="(mine.uid == x.by && x.earn > 0 || mine.uid !== x.by && x.refr?.earn > 0 ) && (((x.journey == 'DIRECT' || x.journey == 'F2F') && x.cart.length > 0 ) && x.done !== undefined || ( (x.journey == 'POS' || x.journey == 'F2F') && x.cart.length <= 0 && x.status == 10 ))">
+                                            <span>Earned</span>
                                             <svg width="18" height="18" viewBox="0 0 18 18" style="margin-bottom: -4px;"
                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -266,20 +255,13 @@
                                             <span *ngIf="mine.uid !== x.by">{{x.refr?.earn}}</span>
                                             <span *ngIf="mine.uid == x.by">{{x.earn}}</span>
                                         </div>
-                                        <span *ngIf="x.cart.length > 0 && x.status == -10">{{x.amTotal}}</span>
+                                        <span *ngIf="x.cart?.length > 0 && x.status == -10">{{x.amTotal}}</span>
                                     </div>
 
                                     <div class="t5padding"
                                         *ngIf="x.journey == 'BURN' && x.journey !== 'ADMIN' && mine.uid == x.by">
                                         via Burn
                                     </div>
-
-
-
-
-
-
-
 
                                     <div *ngIf="expandedindex === i">
                                         <div *ngIf="x.ordrTYPE == 'CASH'" class="gray_txt xxs_size">
@@ -345,15 +327,16 @@
                                     <div class="dflex">
                                         <div class="Tran_date">
                                             <!-- {{x.sin.toDate()|date:'dd, MMM, hh:mm' }} -->
+                                            dummy 23, Sep, 06:03
                                         </div>
                                         <span class="divide"></span>
-                                        <div *ngIf="x.journey !== 'ADMIN' && (mine.uid == x.by || x.status == -10)">
+                                        <div *ngIf="x.journey !== 'ADMIN' && mine.uid == x.by && (( x.cart?.length <= 0 && x.status !== -10) || ( x.cart?.length > 0 && ( x.ordrTYPE == 'RefrCASH' || (x.ordrTYPE !== 'RefrCASH' && x.status !== 0))))">
+                                            <!-- x.journey !== 'ADMIN' && (mine.uid == x.by && (x.cart > 0 || (x.cart <= 0 && x.status !== -10))) -->
                                             <button
                                                 (click)="expandedindex == i ? expandedindex = null : expandedindex = i"
                                                 class="expandbtn">
                                                 <mat-icon>
-                                                    {{ expandedindex === i ? 'expand_less' : 'expand_more'
-                                                    }}
+                                                    {{ expandedindex === i ? 'expand_less' : 'expand_more' }}
                                                 </mat-icon>
                                             </button>
                                         </div>
@@ -362,8 +345,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="transaction-card"
-                        *ngIf="(x.journey == 'DIRECT' || (x.journey == 'F2F' && x.cart.length > 0 && mine.uid == x.by)) && x.earn > 0 && x.done !== undefined && x.status == 10">
+
+
+
+
+
+                    
+                    <!-- <div class="transaction-card"
+                        *ngIf="(x.journey == 'DIRECT' || (x.journey == 'F2F' && x.cart?.length > 0 && mine.uid == x.by)) && x.earn > 0 && x.done !== undefined && x.status == 10">
                         <div class="row">
                             <div class="col-100">
                                 <ng-container>
@@ -427,14 +416,14 @@
                                         </div>
                                         <div class="dflex">
                                             <div class="Tran_date">
-                                                <!-- {{ x.sin.toDate()|date:'dd, MMM, hh:mm' }} -->
+                                                 {{ x.sin.toDate()|date:'dd, MMM, hh:mm' }} 
                                             </div>
                                         </div>
                                     </div>
                                 </ng-container>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </ng-container>
             </div>
             <!-- </div> -->

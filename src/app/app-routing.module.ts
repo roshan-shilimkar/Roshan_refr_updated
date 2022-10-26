@@ -40,14 +40,17 @@ import { VendorOrdersComponent } from './components/vendor-orders/vendor-orders.
 import { VendorProductsComponent } from './components/vendor-products/vendor-products.component';
 import { VendorWalletComponent } from './components/vendor-wallet/vendor-wallet.component';
 import { CustomerComponent } from './customer/customer.component';
+import { OrderdataforComponent } from './orderdatafor/orderdatafor.component';
 import { TabsComponent } from './tabs/tabs.component';
 
 const routes: Routes = [
   {
     path: "", component: TabsComponent,
     children: [
-      { path: "", redirectTo: "newproductdesc", pathMatch: "full" },
+      { path: "", redirectTo: "orderdatafor", pathMatch: "full" },
       { path: "Cust_order", component: CustomerOrderComponent },
+      { path: "orderdatafor", component: OrderdataforComponent },
+
       { path: "Cust_Cart", component: CustomercartComponent },
       { path: "productDetails", component: ProductdetailsComponent },
       { path: "RoshanStore", component: RoshanStoreComponentComponent },
