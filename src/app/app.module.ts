@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateBlogComponent } from './components/blogs/blog/create-blog/create-blog.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerComponent } from './customer/customer.component';
 import { VendorWalletComponent } from './components/vendor-wallet/vendor-wallet.component';
@@ -31,10 +31,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
-
-// 
-
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -78,6 +74,12 @@ import { CustomerOrderComponent } from './components/customer-order/customer-ord
 import { CustomercartComponent } from './components/customercart/customercart.component';
 import { NewproductlistComponent } from './components/aditya/newproductlist/newproductlist.component';
 import { OrderdataforComponent } from './orderdatafor/orderdatafor.component';
+import { CustOrderDetailsComponent } from './components/aditya/cust-order-details/cust-order-details.component';
+import { Page2Component } from './components/aditya/page2/page2.component';
+import { FeedRefrNowComponent } from './components/feed-refr-now/feed-refr-now.component';
+import { FirestampToDateComponent } from './components/firestamp-to-date/firestamp-to-date.component';
+import { UseraddressComponent } from './components/useraddress/useraddress.component';
+import { SearchSAPComponent } from './components/search-sap/search-sap.component';
 
 
 @NgModule({
@@ -132,11 +134,18 @@ import { OrderdataforComponent } from './orderdatafor/orderdatafor.component';
     CustomercartComponent,
     NewproductlistComponent,
     OrderdataforComponent,
+    CustOrderDetailsComponent,
+    Page2Component,
+    FeedRefrNowComponent,
+    FirestampToDateComponent,
+    UseraddressComponent,
+    SearchSAPComponent,
   ],
   imports: [
     // AgmCoreModule.forRoot({
     //   apiKey:"https://maps.googleapis.com/maps/api/js?key=AIzaSyCq50lslzsm7CHVHfL4IIVqUzCEWev_FTE",
     // }),
+    // MatDialogRef,
     MatBadgeModule,
     BrowserModule,
     AppRoutingModule,

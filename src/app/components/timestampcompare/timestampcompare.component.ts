@@ -37,15 +37,6 @@ export class TimestampcompareComponent implements OnInit {
     seconds: 1562524200
   }
 
-
-
-
-
-
-
-
-
-
   storearr:Array<any>=[
     
     [
@@ -14080,21 +14071,6 @@ export class TimestampcompareComponent implements OnInit {
   // }
 
   showmsg() {
-    // console.log("open Break = " + this.storeLoc.openBreak);
-    // console.log("Shop opening = " + this.storeLoc.opensDailyS);
-    // console.log("Shop closing = " + this.storeLoc.opensDailyE);
-    // console.log("Break opening = " + this.storeLoc.openBreakS);
-    // console.log("Break closing = " + this.storeLoc.openBreakE);
-    // console.log("is break start before the opening time = ")
-    // console.log(this.storeLoc.openBreakS > this.storeLoc.opensDailyS);
-    // console.log("is break end after the closing time = ")
-
-    // console.log(this.storeLoc.openBreakE < this.storeLoc.opensDailyE);
-
-    // console.log("is break end after the closing time = ")
-    // console.log(this.storeLoc.openBreakE >= this.storeLoc.opensDailyE);
-
-
     if (this.storeLoc.openBreak == true && (this.storeLoc.opensDailyS > this.storeLoc.openBreakS == false && this.storeLoc.openBreakE < this.storeLoc.opensDailyE) == false) {
       this.showmssg = false;
       alert("Please Select the break time in between opening time.");
@@ -14127,7 +14103,6 @@ export class TimestampcompareComponent implements OnInit {
       this.showmssg = false;
       alert("Please select the Saturday opening and closing time as break time");
     }
-
     else {
       this.showmssg = true;
     }

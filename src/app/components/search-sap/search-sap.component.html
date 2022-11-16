@@ -1,0 +1,107 @@
+<div class="container">
+    <div class="row">
+        <div class="whole">
+            <header class="header t10padding">
+                <div class="d_flex">
+                    <div class="tb5padding l10padding r5padding">
+                        <!-- <button mat-icon-button> -->
+                        <mat-icon class="xxxl_size">
+                            chevron_left
+                        </mat-icon>
+                        <!-- </button> -->
+                    </div>
+                    <div class="SearchCont t5padding b20padding">
+                        <input class="SearchInput A10padding">
+                    </div>
+                </div>
+                <div class="d_flex">
+                    <div class="segments {{Activesegment == 0 ? 'purple_txt' : 'header'}}" (click)="Activesegment = 0">
+                        Stores
+                    </div>
+                    <div class="segments {{Activesegment == 1 ? 'purple_txt' : 'header'}}" (click)="Activesegment = 1">
+                        Products
+                    </div>
+                </div>
+            </header>
+            <div *ngIf="Activesegment == 0">
+                <div class="store-section">
+                    <div class="d-flex-row-md d-flex-column-sm flex-wrap">
+                        <div class="mt-sm-10 col-sm-100 col-25" *ngFor="let s of storeData">
+                            <div class="card-img-container">
+                                <div class="card " [style.backgroundImage]=" 'url('+ 'assets/other/locate.svg'+ ')' ">
+                                    <img class="catList " *ngIf="s.banner " [src]="s.banner "
+                                        (load)="imgLoaded.push(s.banner) "
+                                        [class.imgLoaded]="imgLoaded.includes(s.banner) " />
+                                </div>
+                                <div class="footer d-flex-row">
+                                    <div class="col-100 textL">
+                                        <b>{{s.name}}</b><br>
+                                        <span class="thin-text "> {{ getSubCat( s.cat, s.subCat) }} &nbsp; | &nbsp;
+                                            <span class="text-primary "> {{s.type == "Onli" ? "Online ":" " }}{{s.type
+                                                == "Offl" ? "Offline ":" " }}{{s.type == "Both" ? "Hybrid ":" " }} store
+                                            </span> </span>
+                                    </div>
+                                    <div class="col-40 " *ngIf=" !s.codeInfo ">
+                                        <div>
+                                            <button class="float-right get-btn" mat-button
+                                                [routerLink]=" '/store/' + s.id ">Shop Now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div *ngIf="Activesegment == 1">
+                <div *ngFor="let x of products">
+                    <div *ngIf="!x.burn && !x.reqBurn ">
+                        <div class="products_details">
+                            <div class="products_summary">
+                                <div class="product_name" (click)="openDetail(x.id, x.variants, x)">{{x.title}}</div>
+                                <div *ngIf="x.description.trim() !== 'Σ' && x.description.trim() !== '-'"
+                                    class="product_desc limitTextHeight">{{x.description}}</div>
+                                <div class="discount_final">
+                                    <span class="dis_price" *ngIf="x.cost < x.price">₹{{x.price}}</span>
+                                    <span class="final_price">₹{{x.cost}}</span>
+                                    <span class="off" *ngIf="x.cost < x.price">{{ (( (x.price - x.cost) / x.price ) *
+                                        100) | number:'1.0-0' }}% off</span>
+                                </div>
+                            </div>
+                            <div class="img_add"
+                                [style]="x.banners.length > 0 && !imagesLoaded.includes(x.id) ? 'background-image: url(assets/other/locate.svg);' : '' ">
+                                <img (click)="openDetail(x.id, x.variants, x)"
+                                    [class.imgLoaded]="imagesLoaded.includes(x.id)" *ngIf="x.banners.length > 0"
+                                    [src]="x.banners[0]" (load)="imagesLoaded.push(x.id)" alt="" />
+                                <div>
+                                    <ng-container>
+                                        <div class="add_button">
+                                            <button class="add-to-card-button" mat-button
+                                                (click)="showAndHideAddToCard(x.id, x.variants, true, x)">
+                                                Add
+                                            </button>
+                                        </div>
+                                    </ng-container>
+                                    <!-- <ng-container *ngIf="auth.myCart.includes(x.id)">
+                                        <div class="add_button Addminusbtn">
+                                            <button class="add-sub-button"
+                                                (click)="showAndHideAddToCard(x.id, x.variants, false, x)">-</button>
+                                            <button class="add-sub-button">{{getCartItemLength(x.id)}}</button>
+                                            <button class="add-sub-button"
+                                                (click)="showAndHideAddToCard(x.id, x.variants, true, x)">+</button>
+                                        </div>
+                                    </ng-container> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

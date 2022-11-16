@@ -1,0 +1,119 @@
+<div class="col col-100">
+
+    <div class="header">
+        <div class="header-img">
+
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z" />
+            </svg>
+        </div>
+
+        <div class="header-details">
+            <p class="identity pro-details">Orders</p>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="main">
+
+
+        <div class="row">
+
+            <div class="col col-100">
+
+                <div class="order_wholelists" *ngFor="let x of [1,2,3,4]">
+
+                    <div class="order-list mt-1">
+                        <div>
+                            <div>
+                                <p class="store_name">Store Name</p>
+                            </div>
+
+                            <div>
+                                <p class="shop_name">Two Steps</p>
+                            </div>
+
+                        </div>
+
+                        <span class="divide"></span>
+
+                        <div>
+                            <button class="order-details" mat-stroked-button (click)="orderdetails()">Order
+                                Details</button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mt-1">
+                        <div class="lists_products">
+                            <div class="products">
+                                <p>Lakme Eyeconic Curling</p>
+
+                                <div class="more_items" *ngIf="show">
+                                    <p>Lakme Eyeconic Curling</p>
+                                    <p>Lakme Eyeconic Curling</p>
+                                    <p>Lakme Eyeconic Curling</p>
+                                    <p>Lakme Eyeconic Curling</p>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <button class="view_all" mat-button (click)="show=!show">{{
+                            show ? 'View Less': 'View more' }}</button>
+                    </div>
+
+
+                    <div class="orders_id mt-1">
+                        <p class="store_name">Order Id</p>
+                        <p class="ord_id">100512163-0573735</p>
+
+                    </div>
+
+                    <div class="status-dispatched">
+
+                        <div class="d_flex">
+
+                            <div>
+                                <div>
+                                    <p class="store_name">Status</p>
+                                </div>
+
+
+                                <div>
+                                    <p *ngIf="x==1" class="confirm-or-not">Confirmed, not yet dispatched</p>
+                                    <p *ngIf="x==2" class="confirm-or-not">Shipped</p>
+                                    <p *ngIf="x==3" class="confirm-or-not">Out for delivery</p>
+                                    <p *ngIf="x==4" class="confirm-or-not">Delivered on Mon, 18 Apr</p>
+                                </div>
+
+
+                            </div>
+
+                            <span class="divide"></span>
+
+                            <div *ngIf=" x==4">
+                                <button class="refr" mat-button>Refr</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -12,7 +12,7 @@
                     <tr>
                         <td style="
                     font-weight: 700;
-                    font-size: 48px;
+                    font-size: 40px;
                     line-height: 69px;">
                             Tax Invoice
                         </td>
@@ -22,7 +22,7 @@
                     <tr>
                         <td style="
                     font-size: 24px;">
-                            <strong>Store Name : {{invoicedata.storename}}</strong>
+                            <strong>Store &nbsp;Name : {{invoicedata.storename}}</strong>
                         </td>
                     </tr>
                     <tr>
@@ -33,15 +33,13 @@
                     </tr>
 
                     <tr>
-                        <td style="padding-top: 10px;font-size: 24px;padding-bottom: 20px;">
-                            <strong>GSTIN : dummydata</strong>
+                        <td style="padding-top: 10px;font-size: 16px;">
+                            <strong>GSTIN : -</strong>
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding: 20px 0px;">
-                            <strong style="font-size: 26px;
-                        border: 1px dotted;
-                        padding: 15px;">Invoice Number : # dummydata</strong>
+                        <td style="padding-top: 5px;font-size: 16px;">
+                            <strong>Invoice &nbsp;Number :</strong> {{invoicedata.InvoiceNo}}
                         </td>
                     </tr>
                 </table>
@@ -51,23 +49,23 @@
                     <tr>
                         <td width="15%">
                             <small>
-                                <b>Order ID :</b> {{invoicedata.orderId}}
+                                <b>Order &nbsp;ID :</b> {{invoicedata.orderId}}
                             </small>
                         </td>
-                        <td width="15%">
+                        <td width="15%" style="padding:0 10px;">
                             <div>
                                 <small>
                                     <b>
-                                        Bill To
+                                        Bill &nbsp;To
                                     </b>
                                 </small>
                             </div>
                         </td>
-                        <td width="15%">
+                        <td width="15%" style="padding:0 10px;">
                             <div>
                                 <small>
                                     <b>
-                                        Ship To
+                                        Ship &nbsp;To
                                     </b>
                                 </small>
                             </div>
@@ -76,39 +74,32 @@
                     <tr>
                         <td>
                             <small>
-                                <b>Order Date :</b> 16-01-2022
+                                <b>Order &nbsp;Date : </b> {{invoicedata.Sindata}}
                             </small>
                         </td>
-                        <td rowspan="3">
+                        <td rowspan="3" style="padding:10px">
                             <small>
                                 <div>{{invoicedata.Cust_name}}</div>
                                 <div>
                                     {{invoicedata.billing_address}}
                                 </div>
-                                <div>Phone: {{invoicedata.Cust_Phone_No}}</div>
+                                <div>Phone : {{invoicedata.Cust_Phone_No}}</div>
                             </small>
                         </td>
-                        <td rowspan="3">
+                        <td rowspan="3" style="padding:10px">
                             <small>
                                 <div>{{invoicedata.Cust_name}}</div>
                                 <div>
                                     {{invoicedata.billing_address}}
                                 </div>
-                                <div>Phone: {{invoicedata.Cust_Phone_No}}</div>
+                                <div>Phone : {{invoicedata.Cust_Phone_No}}</div>
                             </small>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="display: flex;padding-top:2px">
                             <small>
-                                <b>Invoice Date :</b> 16-01-2022
-                            </small>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <small>
-                                <b>PAN :</b> aaxcs0974r
+                                <b>Invoice &nbsp;Date :</b> {{invoicedata.Sindata}}
                             </small>
                         </td>
                     </tr>
@@ -151,17 +142,6 @@
                         </th>
                         <th>
                             <small>
-                                Taxes
-                                (GST)
-                            </small>
-                        </th>
-                        <th>
-                            <small>
-                                Tax Amount
-                            </small>
-                        </th>
-                        <th>
-                            <small>
                                 Total Amount
                             </small>
                         </th>
@@ -197,25 +177,15 @@
                                 {{item.cost * item.Q}}
                             </small>
                         </td>
-                        <td width="8%">
-                            <small>
-                                D
-                            </small>
-                        </td>
                         <td width="10%">
                             <small>
-                                D
-                            </small>
-                        </td>
-                        <td width="10%">
-                            <small>
-                                2000
+                                {{item.cost * item.Q}}
                             </small>
                         </td>
                     </tr>
 
                     <tr>
-                        <td colspan="8" style="text-align: left !important;">
+                        <td colspan="6" style="text-align: left !important;">
                             <small>
                                 <b>
                                     Total
@@ -224,12 +194,27 @@
                         </td>
                         <td colspan="1">
                             <small>
-                                4000
+                                {{invoicedata.Total | number:'1.0-2'}}
+                            </small>
+                        </td>
+                    </tr>
+                    <tr
+                        *ngIf="invoicedata.Cat == 'food_and_beverages' && invoicedata.sub_cat !== 'sc-food_and_beverages-healthy_snacks'">
+                        <td colspan="6" style="text-align: left !important;">
+                            <small>
+                                <b>
+                                    Tax Amount (CGST + SGST)
+                                </b>
+                            </small>
+                        </td>
+                        <td colspan="1">
+                            <small>
+                                {{invoicedata.Tax | number:'1.0-2'}}
                             </small>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="8" style="text-align: left !important;">
+                        <td colspan="6" style="text-align: left !important;">
                             <small>
                                 <b>
                                     Shipping Charges
@@ -238,12 +223,12 @@
                         </td>
                         <td colspan="1">
                             <small>
-                                {{invoicedata.parcelcost}}
+                                {{invoicedata.parcelcost | number:'1.0-2'}}
                             </small>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="8" style="text-align: left !important;">
+                        <td colspan="6" style="text-align: left !important;">
                             <small>
                                 <b>
                                     Total Amount
@@ -252,55 +237,36 @@
                         </td>
                         <td colspan="1">
                             <small>
-                                {{invoicedata.Fulltotal}}
+                                {{invoicedata.Fulltotal | number:'1.0-0'}}
                             </small>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="4" style="text-align: left !important;">
+                        <td colspan="3" style="text-align: left !important;">
                             <small>
                                 <b>
                                     Amount in words
                                 </b>
                             </small>
                         </td>
-                        <td colspan="5" style="text-align: right !important;">
-                            <small>
-                                {{invoicedata.AMtWords}}
-                            </small>
+                        <td colspan="4" style="text-align: right !important;text-transform: capitalize;">
+                            {{invoicedata.AMtWords}} <span *ngIf="invoicedata.AMtWords != '' || invoicedata.AMtWords != undefined"> Only</span>
                         </td>
                     </tr>
                 </table>
 
 
 
-                <table style="width: 1330px; margin: 35px">
-                    <tr>
-                        <td></td>
-                        <td width="20%">
-                            <div></div>
-                            <div>
-                                <!-- <br> -->
-                                <!-- <abbr> -->
-                                    
-                                <small>
-                                    <div>
-                                        Authorized Signatory
-                                    </div>
-                                </small>
-                                <!-- </abbr> -->
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+
 
                 <table style="width: 1330px; margin: 35px">
                     <tr>
                         <td>
                         </td>
-                        <td width="20%">
-                            <div>Purchase made on</div>
-                            <!-- <img style="height: 20px;width: 20px;" src="../download.png" alt=""> -->
+                        <td width="10%" style="text-align: center;">
+                            <div style="padding-bottom: 10px;">Purchase made on</div>
+                            
+                            <img src="assets/refr_logo.png" style="width: 50%;">
 
                         </td>
                     </tr>
@@ -478,7 +444,8 @@
 
                     <!-- <div *ngIf="payments$ | async as payments"> -->
                     <div *ngFor="let x of payments;let i = index">
-                        <div *ngIf=" (x.cart !== undefined && x.cart?.length > 0 && x.status !== 0) || ((x.cart == undefined || x.cart?.length <= 0 ) && x.status !== -10)">
+                        <div
+                            *ngIf=" (x.cart !== undefined && x.cart?.length > 0 && x.status !== 0) || ((x.cart == undefined || x.cart?.length <= 0 ) && x.status !== -10)">
                             <!-- *ngIf="(x.status !== 0 && x.logistics.status !== 0) && (x.to == 'Δ' || x.cart.length <= 0 || x.cart.length > 0 && x.invoice.COD == false || x.cart.length > 0 && x.invoice.COD == true && x.status == 10 && x.logistics.status == 20 || x.status == -10 && (x.logistics.status == -100 || x.logistics.status == -1000 ) ) -->
                             <div class="trans_card">
                                 <div *ngIf="x.status == undefined || ((x.ordrTYPE !== 'RefrCASH' && (x.status <= 0 && x.status !== -10)) || (x.ordrTYPE == 'RefrCASH' && ( x.id !== undefined && x.status < 0 && x.status !== -10)))"
@@ -506,8 +473,10 @@
                                     <div class="tras_amt">
                                         <span
                                             *ngIf="(x.by == 'Δ' && x.type.includes('payout')) || (x.to == 'Δ' && x.amGive !== undefined)">
-                                            <span *ngIf="x.by == 'Δ' && x.type.includes('payout') && x.amTotal !== 0">-</span>
-                                            <span *ngIf="x.to == 'Δ' && x.amGive !== undefined && x.amTotal !== 0">+</span>
+                                            <span
+                                                *ngIf="x.by == 'Δ' && x.type.includes('payout') && x.amTotal !== 0">-</span>
+                                            <span
+                                                *ngIf="x.to == 'Δ' && x.amGive !== undefined && x.amTotal !== 0">+</span>
                                             {{x.amTotal}}
                                         </span>
                                         <span *ngIf="x.to == 'Δ' && x.amCamp !== undefined">
@@ -590,9 +559,11 @@
                                                 {{x.invoice.amtRefrCash | number:'1.0-2'}}
                                             </div>
                                         </div>
-                                        <div *ngIf="x.to !== 'Δ' && x.by !== 'Δ' && x.status !== -10">
-                                            <button mat-button class="invoice_btn" (click)="SavePDF()">Download
-                                                Invoice</button>
+                                        <div
+                                            *ngIf="x.to !== 'Δ' && x.by !== 'Δ' && x.status !== -10 && x.cart.length > 0">
+                                            <button mat-button class="invoice_btn" (click)="SavePDF()">
+                                                Download Invoice
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="dflex">

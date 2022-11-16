@@ -1,0 +1,630 @@
+<button class="header" (click)="closeMe()">
+    <mat-icon>arrow_back</mat-icon>
+    <p class="header-details">Order Details</p>
+</button>
+
+<div class="container" style="margin-top: 50px;">
+
+    <div class="row">
+
+        <!-- <div class="col col-100" *ngIf="payment$ | async as p"> -->
+            <!-- <div class="col col-100"> -->
+            <!-- <p>{{p.status}} {{p.logistics.status}} {{p.ordrTYPE}} - {{p.GOTA }}</p> -->
+
+            <div class="order_content">
+
+                <div class="order-list">
+                    <div>
+                        <div>
+                            <p class="order-id">ORDER ID</p>
+                        </div>
+
+                        <div>
+                            <p class="order-code">{{p.id}}</p>
+                        </div>
+
+                    </div>
+                    <span class="divide"></span>
+                    <div>
+                        <div>
+                            <p class="order-id">TOTAL</p>
+                        </div>
+
+                        <div>
+                            <p class="order-code textR"><b>₹ {{p.amTotal}}</b></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+                    <div>
+                        <p class="order-id">ORDER DATE</p>
+                    </div>
+
+
+                    <div>
+                        <!-- <p class="order-code">{{p.sin.toDate() | date}}</p> -->
+                        <p class="order-code">23 Oct, 2022</p>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="prepare">
+                <div class="order_status_heading">
+                    <p>Order Status</p>
+                </div>
+
+                <div class="orders-details">
+
+                    <div>
+                        <mat-icon class="checked">{{ 'checkbox' }}</mat-icon>
+
+                    </div>
+
+                    <div>
+                        <p class="order-confirm">order {{ (p.status <= 0) ? 'placed' : 'confirmed' }}</p>
+
+                    </div>
+                    <span class="divide"></span>
+                    <div>
+                        <!-- <p class="order-confirm" *ngIf="p.sin">{{p.sin.toDate() | date}}</p> -->
+                        <p class="order-confirm">Oct 23, 2022</p>
+                    </div>
+                </div>
+
+                <div class="vl"></div>
+
+                <div class="orders-details" *ngIf="p.status < 0">
+                    <div>
+                        <mat-icon class="checked">{{ p.status == -10 ? 'checkbox':'check_box_outline_blank'}}</mat-icon>
+
+                    </div>
+
+                    <div>
+                        <p class="order-confirm">Cancelled</p>
+
+                    </div>
+                    <span class="divide"></span>
+
+                    <div>
+                        <!-- <p class="order-confirm" *ngIf="p.com">{{p.com.toDate() | date}}</p> -->
+                    </div>
+                </div>
+
+                <div class="orders-details" *ngIf="p.status >= 0">
+                    <div>
+                        <mat-icon class="checked">{{ p.status == 10 && p.logistics.status >= 10 ?
+                            'checkbox':'check_box_outline_blank'}}</mat-icon>
+                    </div>
+
+                    <div>
+                        <p class="order-confirm">{{ !p.logistics.require ? 'Shipping' : 'Shipped'}}</p>
+
+                    </div>
+                    <span class="divide"></span>
+
+                    <div>
+                        <!--p class="order-confirm">14/09/2022</p-->
+                    </div>
+                </div>
+
+                <!--div class="vl-2"></div>
+
+                    <div class="orders-details">
+                        <div>
+                            <mat-icon class="checked">checkbox</mat-icon>
+
+                        </div>
+
+                        <div class="shippped">
+                            <p class="order-confirm">Out for Delivery</p>
+
+                        </div>
+                        <div>
+
+                            <p class="order-confirm">15/09/2022</p>
+                        </div>
+                    </div-->
+
+                <div class="vl-3"></div>
+
+                <div class="orders-details" *ngIf="p.status < 0">
+                    <div>
+                        <mat-icon class="checked">{{ p.status == -10 && p.logistics.status == -1000 ?
+                            'checkbox':'check_box_outline_blank'}}</mat-icon>
+                    </div>
+                    <div>
+                        <p class="order-confirm">Refunded</p>
+                    </div>
+                    <span class="divide"></span>
+                    <div>
+                        <!-- <p class="order-confirm">{{p.com.toDate() | date}}</p> -->
+                    </div>
+                </div>
+
+                <div class="orders-details" *ngIf="p.status >= 0">
+                    <div>
+                        <mat-icon class="checked">{{ p.status == 10 && p.logistics.status >= 20 ?
+                            'checkbox':'check_box_outline_blank'}}</mat-icon>
+                    </div>
+
+                    <div class="shippped">
+                        <p class="order-confirm">Delivered</p>
+                    </div>
+                    <span class="divide"></span>
+                    <div>
+                        <!-- <p class="order-confirm" *ngIf="p.com">{{p.com.toDate() | date}}</p> -->
+                        <p class="order-confirm">Oct 26, 2022</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prepare">
+
+                <div class="order_status_heading">
+                    <p>Product Details</p>
+                </div>
+
+
+
+                <div class="order-page" *ngFor="let x of p.cart">
+                    <div class="desc-qty">
+                        <div>
+                            <p class="order-desc">{{x.title}}</p>
+                        </div>
+                        <span class="divide"></span>
+                        <div>
+                            <p class="final-price">₹{{x.cost}}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="quantity">Qty: {{x.Q}}</p>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <div class="prepare">
+                <div class="order_status_heading">
+                    <p>Payment Information</p>
+                </div>
+
+                <div class="pb_5">
+                    <p class="pay-method">Payment Method</p>
+                    <p class="master">{{p.ordrTYPE}}</p>
+                </div>
+
+                <div class="pb_5">
+                    <p class="pay-method">Billing Address</p>
+                    <p class="master" *ngIf="p.logistics">
+                        {{p.logistics.addressDrop.address}}<br>{{p.logistics.addressDrop.zip}}
+                        {{p.logistics.addressDrop.landmark}}</p>
+                </div>
+
+                <div class="pb_5">
+                    <p class="pay-method">Shipping Address</p>
+                    <p class="master" *ngIf="p.logistics">
+                        {{p.logistics.addressDrop.address}}<br>{{p.logistics.addressDrop.zip}}
+                        {{p.logistics.addressDrop.landmark}}</p>
+                </div>
+
+                <div class="pb_5">
+                    <p class="pay-method">Contact No.</p>
+                    <p class="master">{{p.logistics.phone}}</p>
+                </div>
+            </div>
+
+            <div class="prepare br_none">
+
+                <div class="order_status_heading">
+                    <p>ORDER SUMMARY</p>
+                </div>
+
+                <div class="bill">
+                    <div class="table">
+
+                        <p class="bill-order">Order Total</p>
+                        <span class="divide"></span>
+                        <p class="bill-order">₹{{p.amSale|number:'1.2-2'}}</p>
+                    </div>
+                    <div class="table">
+
+                        <p class="bill-order off">Discount</p>
+                        <span class="divide"></span>
+                        <p class="off bill-order">- ₹{{p.amSave|number:'1.2-2'}}</p>
+                    </div>
+
+                    <div class="table">
+
+                        <p class="bill-order">Delivery Charges</p>
+                        <span class="divide"></span>
+                        <p class="bill-order">₹{{p.amParcel|number:'1.2-2'}}</p>
+                    </div>
+
+                    <div class="table">
+
+                        <p class="bill-order">Refr cash used</p>
+                        <span class="divide"></span>
+                        <p class="bill-order">{{(p.invoice.useRefrCash ? p.invoice.amtRefrCash :0)|number:'1.2-2'}}</p>
+                    </div>
+
+
+
+                    <div class="table" (click)="show = !show">
+
+                        <p class="drop-down table bill-order">Other Charges <mat-icon><span>
+                                    {{show ? 'arrow_drop_up' : 'arrow_drop_down'}}
+                                </span></mat-icon>
+                        </p>
+                        <span class="divide"></span>
+                        <p class="bill-order">₹{{0|number:'1.2-2'}}</p>
+                    </div>
+                    <div *ngIf="show" class="drop-down-content">
+
+
+                        <div class="table">
+
+                            <p class="other-charges bill-order">Restaurant Packaging Charges</p>
+                            <span class="divide"></span>
+                            <p class="bill-order other-charges">₹{{0|number:'1.2-2'}}</p>
+                        </div>
+                        <div class="table">
+
+                            <p class="other-charges bill-order">Taxes</p>
+                            <span class="divide"></span>
+                            <p class="bill-order other-charges">₹{{p.amTax|number:'1.2-2'}}</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="payable table">
+
+                    <p class="c_black">Payable Amount</p>
+                    <span class="divide"></span>
+                    <p class="c_black">₹{{p.amTotal|number:'1.2-2'}} </p>
+                </div>
+
+            </div>
+
+            <div class="prepare br_none">
+                <div class="textC b_border">
+                    <button mat-button class="return " (click)="SavePDF()">
+                        <div class="d_flex">
+                            <div>
+                                <p class="req_return c_purple">Download Invoice</p>
+                            </div>
+                            <span class="divide"></span>
+                            <div>
+                                <mat-icon mat-icon-button class="fs16 c_purple">
+                                    arrow_forward_ios
+                                </mat-icon>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="textC">
+                    <button mat-button class="return" (click)="openBottomSheet()">
+                        <div class="d_flex">
+                            <div>
+                                <p class="req_return c_purple">Request for return</p>
+                            </div>
+                            <span class="divide"></span>
+                            <div>
+                                <mat-icon mat-icon-button class="fs16 c_purple">
+                                    arrow_forward_ios
+                                </mat-icon>
+                            </div>
+                        </div>
+
+
+
+                    </button>
+                </div>
+            </div>
+
+
+
+
+            <!-- Invoice -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div>
+                <div class="container" style="display: none;">
+                    <div id="content" #content>
+                        <table align="center"
+                            style="font-family: 'Jost';font-style: normal;width: 1330px;font-size: 30px;font-weight: 700;margin: 30px;padding-bottom: 30px;text-align: center;">
+                            <tr>
+                                <td style="
+                            font-weight: 700;
+                            font-size: 40px;
+                            line-height: 69px;">
+                                    Tax Invoice
+                                </td>
+                            </tr>
+                        </table>
+                        <table style="width: 1330px; font-size:18px; text-align: left; padding: 0px 20px;margin: 35px">
+                            <tr>
+                                <td style="
+                            font-size: 24px;">
+                                    <strong>Store &nbsp;Name : {{p.storeName}}</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top: 10px;
+                            font-size: 20px;">
+                                    <small>Ship from Address : {{p.logistics.addressPick.line1 + ", " + p.logistics.addressPick.zip + ", " + p.logistics.addressPick.locality}}</small>
+                                </td>
+                            </tr>
+        
+                            <tr>
+                                <td style="padding-top: 10px;font-size: 16px;">
+                                    <strong>GSTIN : -</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top: 5px;font-size: 16px;">
+                                    <strong>Invoice &nbsp;Number :</strong> {{p.shortID}}
+                                </td>
+                            </tr>
+                        </table>
+        
+                        <table
+                            style="border-top: 1px solid #E1E1E1;width: 1330px;font-size: 18px;padding: 40px 10px 20px;margin: 35px;text-align: left;">
+                            <tr>
+                                <td width="15%">
+                                    <small>
+                                        <b>Order &nbsp;ID :</b> {{p.id}}
+                                    </small>
+                                </td>
+                                <td width="15%" style="padding:0 10px;">
+                                    <div>
+                                        <small>
+                                            <b>
+                                                Bill &nbsp;To
+                                            </b>
+                                        </small>
+                                    </div>
+                                </td>
+                                <td width="15%" style="padding:0 10px;">
+                                    <div>
+                                        <small>
+                                            <b>
+                                                Ship &nbsp;To
+                                            </b>
+                                        </small>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <small>
+                                        <b>Order &nbsp;Date : </b> {{sindate}}
+                                    </small>
+                                </td>
+                                <td rowspan="3" style="padding:10px">
+                                    <small>
+                                        <div>{{p.userName}}</div>
+                                        <div>
+                                            {{p.logistics.addressDrop.address + ", " + p.logistics.addressDrop.zip + ", " + p.logistics.addressDrop.landmark}}
+                                        </div>
+                                        <div>Phone : {{p.logistics.phone}}</div>
+                                    </small>
+                                </td>
+                                <td rowspan="3" style="padding:10px">
+                                    <small>
+                                        <div>{{p.userName}}</div>
+                                        <div>
+                                            {{p.logistics.addressDrop.address + ", " + p.logistics.addressDrop.zip + ", " + p.logistics.addressDrop.landmark}}
+                                        </div>
+                                        <div>Phone : {{p.logistics.phone}}</div>
+                                    </small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex;padding-top:2px">
+                                    <small>
+                                        <b>Invoice &nbsp;Date :</b> {{sindate}}
+                                    </small>
+                                </td>
+                            </tr>
+                        </table>
+        
+                        <table style="width: 1330px;margin: 35px;text-align: center;" border="1" cellspacing="0"
+                            cellpadding="10">
+                            <tr>
+                                <th>
+                                    <small>
+                                        Sr.
+                                        <div>No</div>
+                                    </small>
+                                </th>
+                                <th>
+                                    <small>
+                                        Item Name
+                                    </small>
+                                </th>
+                                <th>
+                                    <small>
+                                        HSN Code
+                                    </small>
+                                </th>
+                                <th>
+                                    <small>
+                                        Unit
+                                        <div>Price</div>
+                                    </small>
+                                </th>
+                                <th>
+                                    <small>
+                                        Qty
+                                    </small>
+                                </th>
+                                <th>
+                                    <small>
+                                        Net value
+                                    </small>
+                                </th>
+                                <th>
+                                    <small>
+                                        Total Amount
+                                    </small>
+                                </th>
+                            </tr>
+                            <tr *ngFor="let item of p.cart; let i = index">
+                                <td>
+                                    <small>
+                                        {{i + 1}}
+                                    </small>
+                                </td>
+                                <td>
+                                    <small>
+                                        {{item.title}}
+                                    </small>
+                                </td>
+                                <td width="10%">
+                                    <small>
+                                        {{item.code}}
+                                    </small>
+                                </td>
+                                <td width="10%">
+                                    <small>
+                                        {{item.cost}}
+                                    </small>
+                                </td>
+                                <td width="8%">
+                                    <small>
+                                        {{item.Q}}
+                                    </small>
+                                </td>
+                                <td width="10%">
+                                    <small>
+                                        {{item.cost * item.Q}}
+                                    </small>
+                                </td>
+                                <td width="10%">
+                                    <small>
+                                        {{item.cost * item.Q}}
+                                    </small>
+                                </td>
+                            </tr>
+        
+                            <tr>
+                                <td colspan="6" style="text-align: left !important;">
+                                    <small>
+                                        <b>
+                                            Total
+                                        </b>
+                                    </small>
+                                </td>
+                                <td colspan="1">
+                                    <small>
+                                        {{p.amBurst | number:'1.0-2'}}
+                                    </small>
+                                </td>
+                            </tr>
+                            <tr
+                                *ngIf="p.logistics.typeCat == 'food_and_beverages' && p.logistics.typeSuCat !== 'sc-food_and_beverages-healthy_snacks'">
+                                <td colspan="6" style="text-align: left !important;">
+                                    <small>
+                                        <b>
+                                            Tax Amount (CGST + SGST)
+                                        </b>
+                                    </small>
+                                </td>
+                                <td colspan="1">
+                                    <small>
+                                        {{p.amTax | number:'1.0-2'}}
+                                    </small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" style="text-align: left !important;">
+                                    <small>
+                                        <b>
+                                            Shipping Charges
+                                        </b>
+                                    </small>
+                                </td>
+                                <td colspan="1">
+                                    <small>
+                                        {{p.amParcel | number:'1.0-2'}}
+                                    </small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" style="text-align: left !important;">
+                                    <small>
+                                        <b>
+                                            Total Amount
+                                        </b>
+                                    </small>
+                                </td>
+                                <td colspan="1">
+                                    <small>
+                                        {{p.amTotal | number:'1.0-0'}}
+                                    </small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" style="text-align: left !important;">
+                                    <small>
+                                        <b>
+                                            Amount in words
+                                        </b>
+                                    </small>
+                                </td>
+                                <td colspan="4" style="text-align: right !important;text-transform: capitalize;">
+                                    {{convertinstring(p.amTotal)}} <span *ngIf="convertinstring(p.amTotal) != '' || convertinstring(p.amTotal) != undefined"> Only</span>
+                                </td>
+                            </tr>
+                        </table>
+        
+        
+        
+        
+        
+                        <table style="width: 1330px; margin: 35px">
+                            <tr>
+                                <td>
+                                </td>
+                                <td width="10%" style="text-align: center;">
+                                    <div style="padding-bottom: 10px;">Purchase made on</div>
+                                    <img src="assets/refr_logo.png" style="width: 50%;">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+
+
+        <!-- </div> -->
+    </div>
+
+
+</div>

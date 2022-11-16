@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccordianComponent } from './components/accordian/accordian.component';
+import { CustOrderDetailsComponent } from './components/aditya/cust-order-details/cust-order-details.component';
 import { NewproductlistComponent } from './components/aditya/newproductlist/newproductlist.component';
 import { OrderdetailsComponent } from './components/aditya/orderdetails/orderdetails.component';
+import { Page2Component } from './components/aditya/page2/page2.component';
 import { StoreComponent } from './components/aditya/store/store.component';
 import { BlogComponent } from './components/blogs/blog/blog.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
@@ -25,6 +27,8 @@ import { CustomerWalletComponent } from './components/customer-wallet/customer-w
 import { CustomercartComponent } from './components/customercart/customercart.component';
 import { DistancecalculatorComponent } from './components/distancecalculator/distancecalculator.component';
 import { EmptystateComponent } from './components/emptystate/emptystate.component';
+import { FeedRefrNowComponent } from './components/feed-refr-now/feed-refr-now.component';
+import { FirestampToDateComponent } from './components/firestamp-to-date/firestamp-to-date.component';
 import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
 import { KnowMoreComponent } from './components/how-it-works/know-more/know-more.component';
 import { InstastoriesComponent } from './components/instastories/instastories.component';
@@ -32,8 +36,10 @@ import { KYCdocumnetComponent } from './components/kycdocumnet/kycdocumnet.compo
 import { OrderconfirmComponent } from './components/orderconfirm/orderconfirm.component';
 import { ProductdetailsComponent } from './components/productdetails/productdetails.component';
 import { RoshanStoreComponentComponent } from './components/roshan-store-component/roshan-store-component.component';
+import { SearchSAPComponent } from './components/search-sap/search-sap.component';
 import { SharerecommendationComponent } from './components/sharerecommendation/sharerecommendation.component';
 import { TimestampcompareComponent } from './components/timestampcompare/timestampcompare.component';
+import { UseraddressComponent } from './components/useraddress/useraddress.component';
 import { VendorCreatestoreComponent } from './components/vendor-createstore/vendor-createstore.component';
 import { VendorDashboardComponent } from './components/vendor-dashboard/vendor-dashboard.component';
 import { VendorOrdersComponent } from './components/vendor-orders/vendor-orders.component';
@@ -43,14 +49,19 @@ import { CustomerComponent } from './customer/customer.component';
 import { OrderdataforComponent } from './orderdatafor/orderdatafor.component';
 import { TabsComponent } from './tabs/tabs.component';
 
+
 const routes: Routes = [
   {
     path: "", component: TabsComponent,
     children: [
-      { path: "", redirectTo: "orderdatafor", pathMatch: "full" },
+      { path: "", redirectTo: "SearchSAP", pathMatch: "full" },
+      { path: "SearchSAP", component: SearchSAPComponent },
       { path: "Cust_order", component: CustomerOrderComponent },
+      { path: "Cust_address", component: UseraddressComponent },
+      { path: "firestampdatetime", component: FirestampToDateComponent },
       { path: "orderdatafor", component: OrderdataforComponent },
-
+      { path: "Adi_page2", component: Page2Component },
+      { path: "Feed_refr_Now", component: FeedRefrNowComponent },
       { path: "Cust_Cart", component: CustomercartComponent },
       { path: "productDetails", component: ProductdetailsComponent },
       { path: "RoshanStore", component: RoshanStoreComponentComponent },
@@ -91,8 +102,8 @@ const routes: Routes = [
       { path: "Recommdationshare", component: SharerecommendationComponent },
       { path: "userorderconfirm", component: OrderconfirmComponent },
       { path: "instastories", component: InstastoriesComponent },
-      { path: "newproductdesc", component: NewproductlistComponent }
-
+      { path: "newproductdesc", component: NewproductlistComponent },
+      { path: "AdiOrderDeialswithinvoice", component: CustOrderDetailsComponent },
     ]
   }
 ];
