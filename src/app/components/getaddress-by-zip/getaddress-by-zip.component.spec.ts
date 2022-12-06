@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchSAPComponent } from './search-sap.component';
+import { GetaddressByZipComponent } from './getaddress-by-zip.component';
 
-describe('SearchSAPComponent', () => {
-  let component: SearchSAPComponent;
-  let fixture: ComponentFixture<SearchSAPComponent>;
+describe('GetaddressByZipComponent', () => {
+  let component: GetaddressByZipComponent;
+  let fixture: ComponentFixture<GetaddressByZipComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchSAPComponent ]
+      declarations: [ GetaddressByZipComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchSAPComponent);
+    fixture = TestBed.createComponent(GetaddressByZipComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

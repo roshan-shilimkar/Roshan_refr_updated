@@ -14023,19 +14023,17 @@ export class TimestampcompareComponent implements OnInit {
 
 
   constructor(public dialog: MatDialog) { 
-    
+    // this.getdatetime();
   }
 
 
-  getdatetime(data:any){
-    console.log(data);
+  getdatetime(){
+    // console.log(data);
     const fireBaseTime = new Date(
-      data.seconds * 1000 + data.nanoseconds / 1000000,
+        1670265000 * 1000 + 0 / 1000000,
     );
     const date = fireBaseTime.toDateString();
     const atTime = fireBaseTime.toLocaleTimeString();
-
-
     return "Date : " + date ;
   }
 

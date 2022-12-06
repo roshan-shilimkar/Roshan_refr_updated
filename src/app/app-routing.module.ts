@@ -29,6 +29,7 @@ import { DistancecalculatorComponent } from './components/distancecalculator/dis
 import { EmptystateComponent } from './components/emptystate/emptystate.component';
 import { FeedRefrNowComponent } from './components/feed-refr-now/feed-refr-now.component';
 import { FirestampToDateComponent } from './components/firestamp-to-date/firestamp-to-date.component';
+import { GetaddressByZipComponent } from './components/getaddress-by-zip/getaddress-by-zip.component';
 import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
 import { KnowMoreComponent } from './components/how-it-works/know-more/know-more.component';
 import { InstastoriesComponent } from './components/instastories/instastories.component';
@@ -36,8 +37,8 @@ import { KYCdocumnetComponent } from './components/kycdocumnet/kycdocumnet.compo
 import { OrderconfirmComponent } from './components/orderconfirm/orderconfirm.component';
 import { ProductdetailsComponent } from './components/productdetails/productdetails.component';
 import { RoshanStoreComponentComponent } from './components/roshan-store-component/roshan-store-component.component';
-import { SearchSAPComponent } from './components/search-sap/search-sap.component';
 import { SharerecommendationComponent } from './components/sharerecommendation/sharerecommendation.component';
+import { ThanksyourecComponent } from './components/thanksyourec/thanksyourec.component';
 import { TimestampcompareComponent } from './components/timestampcompare/timestampcompare.component';
 import { UseraddressComponent } from './components/useraddress/useraddress.component';
 import { VendorCreatestoreComponent } from './components/vendor-createstore/vendor-createstore.component';
@@ -54,8 +55,8 @@ const routes: Routes = [
   {
     path: "", component: TabsComponent,
     children: [
-      { path: "", redirectTo: "SearchSAP", pathMatch: "full" },
-      { path: "SearchSAP", component: SearchSAPComponent },
+      { path: "", redirectTo: "thankyou", pathMatch: "full" },
+      { path: "AddressByZip", component: GetaddressByZipComponent },
       { path: "Cust_order", component: CustomerOrderComponent },
       { path: "Cust_address", component: UseraddressComponent },
       { path: "firestampdatetime", component: FirestampToDateComponent },
@@ -104,6 +105,7 @@ const routes: Routes = [
       { path: "instastories", component: InstastoriesComponent },
       { path: "newproductdesc", component: NewproductlistComponent },
       { path: "AdiOrderDeialswithinvoice", component: CustOrderDetailsComponent },
+      { path: "thankyou", component:ThanksyourecComponent},
     ]
   }
 ];

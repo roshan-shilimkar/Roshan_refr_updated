@@ -79,7 +79,10 @@ import { Page2Component } from './components/aditya/page2/page2.component';
 import { FeedRefrNowComponent } from './components/feed-refr-now/feed-refr-now.component';
 import { FirestampToDateComponent } from './components/firestamp-to-date/firestamp-to-date.component';
 import { UseraddressComponent } from './components/useraddress/useraddress.component';
-import { SearchSAPComponent } from './components/search-sap/search-sap.component';
+import { GetaddressByZipComponent } from './components/getaddress-by-zip/getaddress-by-zip.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RefrSearchComponent } from './components/refr-search/refr-search.component';
+import { ThanksyourecComponent } from './components/thanksyourec/thanksyourec.component';
 
 
 @NgModule({
@@ -139,13 +142,16 @@ import { SearchSAPComponent } from './components/search-sap/search-sap.component
     FeedRefrNowComponent,
     FirestampToDateComponent,
     UseraddressComponent,
-    SearchSAPComponent,
+    GetaddressByZipComponent,
+    RefrSearchComponent,
+    ThanksyourecComponent,
   ],
   imports: [
     // AgmCoreModule.forRoot({
     //   apiKey:"https://maps.googleapis.com/maps/api/js?key=AIzaSyCq50lslzsm7CHVHfL4IIVqUzCEWev_FTE",
     // }),
     // MatDialogRef,
+    HttpClientModule,
     MatBadgeModule,
     BrowserModule,
     AppRoutingModule,
